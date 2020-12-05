@@ -1,6 +1,6 @@
 ## Fahad Md Kamal
  > faahad.hossain@gmail.com
- > WhatsApp: ![2020-12-05_10-20](https://user-images.githubusercontent.com/34704464/101234088-d2af1680-36e6-11eb-8fbd-1816be2277ae.png)
+ > WhatsApp: <img src="![2020-12-05_10-20](https://user-images.githubusercontent.com/34704464/101234088-d2af1680-36e6-11eb-8fbd-1816be2277ae.png)" width="300" height="300">
 
 ### Skilled at: 
 ![django](https://user-images.githubusercontent.com/34704464/101233092-64ffec00-36e0-11eb-87a0-6744a1384de7.png)
