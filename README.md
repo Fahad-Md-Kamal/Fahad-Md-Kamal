@@ -30,8 +30,8 @@ A contriver who likes to code 💻 and who is passionate about making software a
 
 <a href="https://github.com/fahad-md-kamal">
 <img src="https://img.shields.io/github/followers/fahad-md-kamal.svg?label=GitHub&style=social" alt="GitHub">
-</a> ![ViewCount](https://views.whatilearened.today/views/github/fahad-md-kamal/fahad-md-kamal.svg)<br> Find me around the web : 
-<a href="mailto:faahad.hossain@gmail.com" alt="Contact me"><code><img  height="30" src="https://github.com/fahad-md-kamal/MasterAssetsRepo/blob/master/gmail.svg"></code></a>&nbsp;<a href="https://www.linkedin.com/in/fahad-hossain-1b8866120/" alt="Linkedin"><code><img  height="30" src="https://github.com/harshalrj25/MasterAssetsRepo/blob/master/linkedin.svg"></code></a>&nbsp;<a href="https://stackoverflow.com/users/7882093/harshal-jadhav?tab=profile" alt="Stack overflow"><code><img  height="30" src="https://github.com/harshalrj25/MasterAssetsRepo/blob/master/stackoverflow.png"></code></a>&nbsp;
+</a>![ViewCount](https://views.whatilearened.today/views/github/fahad-md-kamal/fahad-md-kamal.svg)<br> Find me around the web : 
+<a href="mailto:faahad.hossain@gmail.com" alt="Contact me"><code><img  height="30" src="https://github.com/fahad-md-kamal/MasterAssetsRepo/blob/master/gmail.svg"></code></a>&nbsp;<a href="https://www.linkedin.com/in/fahad-hossain-1b8866120/" alt="Linkedin"><code><img  height="30" src="https://github.com/fahad-md-kamal/MasterAssetsRepo/blob/master/linkedin.svg"></code></a>&nbsp;<a href="https://stackoverflow.com/users/9183839/fahad-md-kamal?tab=profile" alt="Stack overflow"><code><img  height="30" src="https://github.com/fahad-md-kamal/MasterAssetsRepo/blob/master/stackoverflow.png"></code></a>&nbsp;
 | ------------- | ------------- |
 
 
