@@ -1,6 +1,6 @@
 ## Fahad Md Kamal
  > faahad.hossain@gmail.com
- > (https://www.facebook.com/MuzammelHossainFahad) [Fahad Md Kamal]((https://www.facebook.com/MuzammelHossainFahad))
+ > [Fahad Md Kamal]((https://www.facebook.com/MuzammelHossainFahad))
 
 ### Skilled at: 
 ![django](https://user-images.githubusercontent.com/34704464/101233092-64ffec00-36e0-11eb-87a0-6744a1384de7.png)
