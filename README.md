@@ -1,6 +1,6 @@
 ## Fahad Md Kamal
  > faahad.hossain@gmail.com
- > [![1*TkNd1PwwwdBi9Z3kdG5Hng](https://user-images.githubusercontent.com/34704464/101233016-c5425e00-36df-11eb-8612-e81ba661e780.png)](https://www.facebook.com/MuzammelHossainFahad)
+ > ![1*TkNd1PwwwdBi9Z3kdG5Hng](https://user-images.githubusercontent.com/34704464/101233016-c5425e00-36df-11eb-8612-e81ba661e780.png)
 
 ### Skilled at: 
 ![django](https://user-images.githubusercontent.com/34704464/101233092-64ffec00-36e0-11eb-87a0-6744a1384de7.png)
