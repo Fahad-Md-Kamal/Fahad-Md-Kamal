@@ -11,16 +11,16 @@
 
 - 📫 How to reach me **faahad.hossain@gmail.com**
 
-- 📄 Know about my experiences [https://drive.google.com/file/d/1NdLQGZYdYbbFXkV8MvMQimnUGEY--EPl/view?usp=sharing](https://drive.google.com/file/d/1NdLQGZYdYbbFXkV8MvMQimnUGEY--EPl/view?usp=sharing)
+- 📄 Know about my experiences <a href="https://drive.google.com/file/d/1NdLQGZYdYbbFXkV8MvMQimnUGEY--EPl/view?usp=sharing"> See Resume </a>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://twitter.com/fahadmdkamal" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="fahadmdkamal" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/fahad md kamal" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="fahad md kamal" height="30" width="40" /></a>
-<a href="https://stackoverflow.com/users/fahad-md-kamal" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/stackoverflow.svg" alt="fahad-md-kamal" height="30" width="40" /></a>
-<a href="https://fb.com/muzammelhossainfahad" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg" alt="muzammelhossainfahad" height="30" width="40" /></a>
-<a href="https://www.youtube.com/c/https://www.youtube.com/channel/uce57oltqwaasa25zrtx-new?view_as=subscriber" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/youtube.svg" alt="https://www.youtube.com/channel/uce57oltqwaasa25zrtx-new?view_as=subscriber" height="30" width="40" /></a>
-<a href="https://www.hackerrank.com/https://www.hackerrank.com/faahad_hossain" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/hackerrank.svg" alt="https://www.hackerrank.com/faahad_hossain" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/fahad-md-kamal-1b8866120/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="fahad-md-kamal-1b8866120/" height="30" width="40" /></a>
+<a href="https://stackoverflow.com/users/9183839/fahad-md-kamal" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/stackoverflow.svg" alt="9183839/fahad-md-kamal" height="30" width="40" /></a>
+<a href="https://facebook.com/muzammelhossainfahad/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg" alt="muzammelhossainfahad/" height="30" width="40" /></a>
+<a href="https://www.youtube.com//channel/UCE57OltqWAaSA25ZrTx-nEw?view_as=subscriber" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/youtube.svg" alt="uce57oltqwaasa25zrtx-new?view_as=subscriber" height="30" width="40" /></a>
+<a href="https://www.hackerrank.com/faahad_hossain" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/hackerrank.svg" alt="faahad_hossain" height="30" width="40" /></a>
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
