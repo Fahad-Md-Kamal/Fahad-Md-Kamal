@@ -7,11 +7,9 @@
 
 <p align="left"> <a href="https://twitter.com/fahadmdkamal" target="blank"><img src="https://img.shields.io/twitter/follow/fahadmdkamal?logo=twitter&style=for-the-badge" alt="fahadmdkamal" /></a> </p>
 
-- 🌱 I’m currently learning **OpenCV**
-
 - 📫 How to reach me **faahad.hossain@gmail.com**
 
-- 📄 Know about my experiences <a href="https://drive.google.com/file/d/1NdLQGZYdYbbFXkV8MvMQimnUGEY--EPl/view?usp=sharing"> See Resume </a>
+- 📄 Know about my experiences <a href="https://drive.google.com/drive/folders/1TbAv3NGvIIXXykKjrcXaMK8sr1_zN7PK?usp=sharing"> See Resume </a>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
