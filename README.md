@@ -1,14 +1,20 @@
-<p align="right">
-<img align="center" src="https://avatars.githubusercontent.com/u/34704464?v=4" alt="fahadmdkamal" height="200" width="200" />
+<p align="left">
+  
+<!-- <img align="left" src="https://avatars.githubusercontent.com/u/34704464?v=4" alt="fahadmdkamal" height="200" width="200" /> -->
+<img align="left" src="https://media-exp1.licdn.com/dms/image/C4D03AQF92l0nOL-CWg/profile-displayphoto-shrink_800_800/0/1625481259625?e=1634774400&v=beta&t=EVnJVN9qlUENHh-mJsKnct8Q1Dy7xmGBRind1A4KzB4" alt="fahadmdkamal" height="200" width="200" />
+<br>
+<br>
+<br>
+<br>
+<h3 align="left">Fahad Md Kamal | Software Engineer </h3>
 
-<h3 align="right">Fahad Md Kamal</h3>
-<h4 align="right">Software Engineer</h4>
-
-<p align="right">📫 How to reach me: <strong>faahad.hossain@gmail.com</strong>
+<p align="left">📫 How to reach me: <strong>faahad.hossain@gmail.com</strong>
 <br>
 📄 Know about my experiences <a href="https://drive.google.com/drive/folders/1TbAv3NGvIIXXykKjrcXaMK8sr1_zN7PK?usp=sharing"> See Resume </a>
 </p>
 </p>
+
+<br>
 
 <p align="center"> 
   <img src="https://komarev.com/ghpvc/?username=fahad-md-kamal&label=Profile%20views&color=0e75b6&style=flat" alt="fahad-md-kamal" /> 
