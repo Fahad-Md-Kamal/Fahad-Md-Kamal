@@ -3,7 +3,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=fahad-md-kamal&label=Profile%20views&color=0e75b6&style=flat" alt="fahad-md-kamal" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=fahad-md-kamal" alt="fahad-md-kamal" /></a> </p>
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=fahad-md-kamal&row=2&column=3&no-frame=true" alt="fahad-md-kamal" /></a> </p>
 
 <p align="left"> <a href="https://twitter.com/fahadmdkamal" target="blank"><img src="https://img.shields.io/twitter/follow/fahadmdkamal?logo=twitter&style=for-the-badge" alt="fahadmdkamal" /></a> </p>
 
