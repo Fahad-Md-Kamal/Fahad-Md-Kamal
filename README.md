@@ -2,18 +2,19 @@
   
 <!-- <img align="left" src="https://avatars.githubusercontent.com/u/34704464?v=4" alt="fahadmdkamal" height="200" width="200" /> -->
 <img align="left" src="https://media-exp1.licdn.com/dms/image/C4D03AQF92l0nOL-CWg/profile-displayphoto-shrink_800_800/0/1625481259625?e=1634774400&v=beta&t=EVnJVN9qlUENHh-mJsKnct8Q1Dy7xmGBRind1A4KzB4" alt="fahadmdkamal" height="200" width="200" />
-<br>
-<br>
-<br>
-<br>
-<h3 align="left">Fahad Md Kamal | Software Engineer </h3>
 
-<p align="left">📫 How to reach me: <strong>faahad.hossain@gmail.com</strong>
+  <br>
+  
+<h3 align="left">Fahad Md Kamal </h3> 
+<h5> Software Engineer, Dhaka, Bangladesh </h5>
+
+<p align="left">📫 How to reach me: <a href="mailto:faahad.hossain@gmail.com"> <strong>faahad.hossain@gmail.com</strong></a>
 <br>
 📄 Know about my experiences <a href="https://drive.google.com/drive/folders/1TbAv3NGvIIXXykKjrcXaMK8sr1_zN7PK?usp=sharing"> See Resume </a>
 </p>
 </p>
 
+<br>
 <br>
 
 <p align="center"> 
