@@ -10,7 +10,10 @@
 
 <p align="left">📫 How to reach me: <a href="mailto:faahad.hossain@gmail.com"> <strong>faahad.hossain@gmail.com</strong></a>
 <br>
-📄 Know about my experiences <a href="https://drive.google.com/drive/folders/1TbAv3NGvIIXXykKjrcXaMK8sr1_zN7PK?usp=sharing"> See Resume </a>
+📄 Know about me: 
+  <br>
+  &emsp; &emsp; &emsp; Visit <strong> &emsp;  &emsp;  &emsp; <a href="https://fahadresume.pythonanywhere.com/" target="_blank">Portfolio</a> </strong> <br>
+  &emsp; &emsp; &emsp; Download <strong> &emsp; <a href="https://drive.google.com/drive/folders/1TbAv3NGvIIXXykKjrcXaMK8sr1_zN7PK?usp=sharing">Resume</a> </strong>
 </p>
 </p>
 
