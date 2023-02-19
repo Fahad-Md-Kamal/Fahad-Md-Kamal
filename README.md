@@ -9,7 +9,7 @@
 - 👨‍💻 Writing `Python` `SQL` `JavaScript` `yml`.
 - 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahad-md-kamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
 - 📚 Currently learning about **Clean Code, Test Driven Development (TDD), Domain Driven Development (DDD), SOLID Principle** and **Software Design Patterns**.
-- 🛠️ Working on **Web Development, Web Backend, Server Deployment** and **Web API** professionally.
+- 🛠️ Working on **Web Development, Server Deployment** and **Web API** professionally.
 - 👯 Looking to collaborate on **Full-stack projects and DevOps roles**.
 - 🥰 Building **[Mevrik Digital CX](https://www.mevrik.com/)**.
 #### What I like to disscuss about? 
@@ -34,7 +34,7 @@
   - **⚒ Patterns:**  • [Mediator](https://en.wikipedia.org/wiki/Mediator_pattern) • [Bridge](https://en.wikipedia.org/wiki/Bridge_pattern) • [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_Query_Responsibility_Separation) • [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) • [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) • [SAGA](https://microservices.io/patterns/data/saga.html) • [Event Sourcing](https://microservices.io/patterns/data/event-sourcing.html) • [Message Queuing](https://www.cloudamqp.com/blog/what-is-message-queuing.html) -->
 <!--   • [ACID](https://en.wikipedia.org/wiki/ACID) -->
   - **🗜 Principles:** • [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself#:~:text=%22Don%27t%20repeat%20yourself%22,data%20normalization%20to%20avoid%20redundancy.) • [DDD](https://en.wikipedia.org/wiki/Domain-driven_design) • [SOLID](https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
-  - **🕹 Frameworks:** • [Django](https://www.djangoproject.com/) • [FastAPI](https://fastapi.tiangolo.com/) • [Flask](https://fastapi.tiangolo.com/) • [Celery](https://docs.celeryq.dev/en/stable/) • [Gin-Gonic](https://gin-gonic.com/)
+  - **🕹 Frameworks:** • [SCRUM](https://www.scrum.org/) • [DSDM-Atern](https://www.agilebusiness.org/dsdm-project-framework.html) • [Waterfall-Model](https://en.wikipedia.org/wiki/Waterfall_model)
   
 - **🏗️ Code editors:**
 <a href="https://www.jetbrains.com/pycharm/"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/PyCharm_Icon.svg" height=25></a> <a href="https://code.visualstudio.com/"><img src="https://seeklogo.com/images/V/visual-studio-code-logo-449D71944F-seeklogo.com.png" height=25></a> 
