@@ -1,159 +1,93 @@
-<p align="left">
-  
-<!-- <img align="left" src="https://avatars.githubusercontent.com/u/34704464?v=4" alt="fahadmdkamal" height="200" width="200" /> -->
-<!-- <img align="left" src="https://media-exp1.licdn.com/dms/image/C4D03AQF92l0nOL-CWg/profile-displayphoto-shrink_800_800/0/1625481259625?e=1634774400&v=beta&t=EVnJVN9qlUENHh-mJsKnct8Q1Dy7xmGBRind1A4KzB4" alt="fahadmdkamal" height="200" width="200" /> -->
+#### Who I am?
+- A software developer based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh).** 
+- Developed products for **Leading Telecommunication & Financial Companies** of Bangladesh.
+- Have worked with **SaasS Application** and **Micro-Services**.
+<!-- - Have 3+ years of hands-on experience in **software development** and **Server Deployment** -->
 
-  <br>
+#### What I'm doing?
+- 🏢 Working at **[Genex Digital Ltd.](https://genex.digital/)** as a **Software Developer**.
+- 👨‍💻 Writing `Python` `SQL` `JavaScript` `yml`.
+- 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahad-md-kamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
+- 📚 Currently learning about **Clean Code, Test Driven Development (TDD), Domain Driven Development (DDD), SOLID Principle** and **Software Design Patterns**.
+- 🛠️ Working on **Web Development, Web Backend, Server Deployment** and **Web API** professionally.
+- 👯 Looking to collaborate on **Full-stack projects and DevOps roles**.
+- 🥰 Building **[Mevrik Digital CX](https://www.mevrik.com/)**.
+#### What I like to disscuss about? 
+- 💬 Ask me about `web API` `system design` `scalability` `design patterns` `data structures` `clean code` and `choice of frameworks`.
+#### What my skill set looks like?
+- 🖥 **Front-end:** 
+  - **📜 Languages:** • `🧙🏻 JavaScript` • `🧚🏻‍♂️ HTML` • `👨🏻‍🎨 CSS`
+  - **🔬 Frameworks:**  
+    - **🌐 Web:** • [React](https://reactjs.org/)
+    - **📱 Mobile:** • [Flutter](https://flutter.dev/)
+- 🗄️ **Back-end:**
+  - **📜 Languages:** • `🧙🏻‍♂️Python 3` • `🧙🏻‍♂️Golang`
+  - **🔭 Frameworks:** • [Django](https://www.djangoproject.com/) • [FastAPI](https://fastapi.tiangolo.com/) • [Flask](https://fastapi.tiangolo.com/) • [Gin-Gonic](https://gin-gonic.com/) 
+  - **💾 Databases:** • [Postgresql](https://www.postgresql.org/) • [MongoDB](https://www.mongodb.com/) • [MySql](https://www.mysql.com/) • [SQLite](https://www.sqlite.org/)
+  - **🎛 System architecture:** • [Monolithic](https://microservices.io/patterns/monolithic.html) • [Microservices](https://microservices.io/patterns/microservices.html)
+  - **🔌 Communication protocols:** • [REST](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design) • [RabbitMQ](https://www.rabbitmq.com/) • [Web Socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+- 🎡 **Software development ecosystem:**
+  - **📁 Code repository:** • [Git](https://git-scm.com/) • [BitBucket](https://bitbucket.org/product) • [Gitlab](https://gitlab.com/)
+  - **🗃 Project management:** • [Space](https://www.jetbrains.com/space/) • [Redmine](https://www.redmine.org/)
+  - **🗂 CI/CD:** • [Github Actions](https://docs.github.com/en/actions)
+<!-- - 🧙‍♂️ **Coding pattern & principles:**
+  - **⚒ Patterns:**  • [Mediator](https://en.wikipedia.org/wiki/Mediator_pattern) • [Bridge](https://en.wikipedia.org/wiki/Bridge_pattern) • [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_Query_Responsibility_Separation) • [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) • [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) • [SAGA](https://microservices.io/patterns/data/saga.html) • [Event Sourcing](https://microservices.io/patterns/data/event-sourcing.html) • [Message Queuing](https://www.cloudamqp.com/blog/what-is-message-queuing.html) -->
+<!--   • [ACID](https://en.wikipedia.org/wiki/ACID) -->
+  - **🗜 Principles:** • [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself#:~:text=%22Don%27t%20repeat%20yourself%22,data%20normalization%20to%20avoid%20redundancy.) • [DDD](https://en.wikipedia.org/wiki/Domain-driven_design) • [SOLID](https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
+  - **🕹 Frameworks:** • [Django](https://www.djangoproject.com/) • [FastAPI](https://fastapi.tiangolo.com/) • [Flask](https://fastapi.tiangolo.com/) • [Celery](https://docs.celeryq.dev/en/stable/) • [Gin-Gonic](https://gin-gonic.com/)
   
-<h3 align="left">Fahad Md Kamal </h3> 
-<h5> Software Engineer, Dhaka, Bangladesh </h5>
+- **🏗️ Code editors:**
+<a href="https://www.jetbrains.com/pycharm/"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/PyCharm_Icon.svg" height=25></a> <a href="https://code.visualstudio.com/"><img src="https://seeklogo.com/images/V/visual-studio-code-logo-449D71944F-seeklogo.com.png" height=25></a> 
+<!-- <a href="https://visualstudio.microsoft.com/"><img src="https://1000logos.net/wp-content/uploads/2020/08/Visual-Studio-Logo.png" height=25></a> -->
+  
+#### What's interesting about me?  
+  - 😎 I love to **speak** really good **english**, **discuss new ideas**, and **make clients smile**.
+  - 🧐 I love to be very **precise** and **thorough**.
+  - ✍️ I write about **why a certain code is written instead of what** in the comments.
+  - ⏱️ I'm a **workaholic** geek who likes to do R&D on new technologies even on holidays**.
+  - 😅 I just can't **resist the urge** to **explore** a new **tech** released in the **Python** web development.
 
-<p align="left">📫 How to reach me: <a href="mailto:faahad.hossain@gmail.com"> <strong>faahad.hossain@gmail.com</strong></a>
-<br>
-📄 Know about me: 
-  <br>
-  &emsp; &emsp; &emsp; Visit <strong> &emsp;  &emsp;  &emsp; <a href="https://fahadresume.pythonanywhere.com/" target="_blank">Portfolio</a> </strong> <br>
-  &emsp; &emsp; &emsp; Download <strong> &emsp; <a href="https://drive.google.com/drive/folders/1TbAv3NGvIIXXykKjrcXaMK8sr1_zN7PK?usp=sharing">Resume</a> </strong>
-</p>
-</p>
 
-<br>
-<br>
-
-<p align="center"> 
-  <img src="https://komarev.com/ghpvc/?username=fahad-md-kamal&label=Profile%20views&color=0e75b6&style=flat" alt="fahad-md-kamal" /> 
-</p>
-
-
-<!-- Trophies -->
-<p align="center"> 
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=fahad-md-kamal&row=2&column=3&no-frame=true" alt="fahad-md-kamal" />
-  </a> 
-</p>
-
-<p align="center"> <a href="https://twitter.com/fahadmdkamal" target="blank"><img src="https://img.shields.io/twitter/follow/fahadmdkamal?logo=twitter&style=for-the-badge" alt="fahadmdkamal" /></a>
-  </p>
-
-<br>
-
-<h3 align="center">Reach me:</h3>
-<p align="center">
-
-  <a href="https://twitter.com/fahadmdkamal" target="blank">
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="fahadmdkamal" height="30" width="40" />
-  </a>
-
-  <a href="https://linkedin.com/in/fahad-md-kamal-1b8866120/" target="blank">
-    <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="fahad-md-kamal-1b8866120/" height="30" width="40" />
-  </a>
-  
-<a href="https://stackoverflow.com/users/9183839/fahad-md-kamal" target="blank">
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/stackoverflow.svg" alt="9183839/fahad-md-kamal" height="30" width="40" />
-  </a>
-  
-<a href="https://facebook.com/muzammelhossainfahad/" target="blank">
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg" alt="muzammelhossainfahad/" height="30" width="40" />
-  </a>
-  
-<a href="https://www.youtube.com//channel/UCE57OltqWAaSA25ZrTx-nEw?view_as=subscriber" target="blank">
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/youtube.svg" alt="uce57oltqwaasa25zrtx-new?view_as=subscriber" height="30" width="40" />
-  </a>
-  
-<a href="https://www.hackerrank.com/faahad_hossain" target="blank">
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/hackerrank.svg" alt="faahad_hossain" height="30" width="40" />
-  </a>
-</p>
-
-<br>
-
-<h3 align="center">Languages and Tools:</h3>
-<p align="center"> 
-  <a href="https://angular.io" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original-wordmark.svg" alt="angularjs" width="40" height="40"/>
-  </a> 
-  
-  <a href="https://reactjs.org/" target="_blank"> 
-    <img src="https://reactjs.org/logo-og.png" alt="reactjs" width="40" height="40"/>
-  </a> 
-  
-  <a href="https://www.w3schools.com/cs/" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> 
-  </a> 
-  
-  <a href="https://www.djangoproject.com/" target="_blank"> 
-    <img src="https://static.djangoproject.com/img/logos/django-logo-negative.png" alt="django" width="40" height="40"/> 
-  </a> 
-  
-  <a href="https://www.docker.com/" target="_blank"> 
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> 
-  </a> 
-  
-  <a href="https://flutter.dev" target="_blank"> 
-    <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> 
-  </a> 
-  
-  <a href="https://git-scm.com/" target="_blank"> 
-    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> 
-  </a> 
-  
-  <!--  
-  <a href="https://www.w3.org/html/" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> 
-  </a> 
-  
- 
-  
-  <a href="https://www.linux.org/" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> 
-  </a> 
-
-   
-  <a href="https://mariadb.org/" target="_blank"> 
-    <img src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg" alt="mariadb" width="40" height="40"/> 
-  </a> 
-  
- <a href="https://www.microsoft.com/en-us/sql-server" target="_blank"> 
-    <img src="https://cdn.worldvectorlogo.com/logos/microsoft-sql-server.svg" alt="mssql" width="40" height="40"/> 
-  </a> 
-   -->
-  <a href="https://www.mysql.com/" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> 
-  </a> 
-  <!--   
-  <a href="https://www.oracle.com/" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" alt="oracle" width="40" height="40"/> 
-  </a> 
-  
-  <a href="https://www.php.net" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> 
-  </a> 
-  -->
-  
-  <a href="https://www.postgresql.org" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> 
-  
-  
-  <a href="https://www.python.org" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> 
-  </a> 
-  
-</p>
-
-<br>
-
+<!--Github Stats-->
 <p align="center">  
   <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=fahad-md-kamal&show_icons=true&locale=en&layout=compact" alt="fahad-md-kamal" />
-
 <br>
 <br>
-  
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=fahad-md-kamal&show_icons=true&locale=en&hide_title=true" alt="fahad-md-kamal" />
-
+<img align="center" src="https://github-readme-stats.vercel.app/api?username=fahad-md-kamal&show_icons=true&locale=en&hide_title=true" alt="fahad-md-kamal" />
 <br>
 <br>
-
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=fahad-md-kamal&" alt="fahad-md-kamal" />
-  
+<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=fahad-md-kamal&" alt="fahad-md-kamal" /> 
 </p>
 
+#### What companies have I worked for?
+<p left="center">
+  <a href="https://genex.digital/">
+    <img src="https://genex.digital/images/genex-digital.png" height=50>
+    </a> 
+  <a href="https://www.aleshatech.net/">
+    <img src="https://www.aleshatech.net/wp-content/uploads/2021/12/Alesha-Tech-New-Logo.png" height=50> 
+  </a>
+  <a href="https://dreamarray.com/">
+    <img src="https://dreamarray.com/daweb/wp-content/themes/da_wp/images/logo.png" height=50>
+  </a>
+</p>
+
+#### What are my recent highlights?
+- [Medium](https://medium.com/@fahadmdkamal)
+
+
+#### How to get in touch with me?
+<p left="center">
+<a href="https://twitter.com/FahadMdKamal" target="_blank">
+  <img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" height=25>
+</a> 
+<a href="https://www.linkedin.com/in/fahad-md-kamal" target="_blank">
+  <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" height=25>
+</a> 
+<a href="https://www.facebook.com/Anonymus7/" target="_blank">
+  <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" height=25>
+</a>
+<a href="mailto:faahad.hossain@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" height=25>
+</a>
+</p>
