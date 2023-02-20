@@ -50,13 +50,13 @@
 
 <!--Github Stats-->
 <p align="center">  
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=fahad-md-kamal&show_icons=true&locale=en&layout=compact" alt="fahad-md-kamal" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=fahad-md-kamal&show_icons=true&locale=en&layout=compact&theme=nord&show_icons=true&count_private=true&hide=contribs&line_height=40" alt="fahad-md-kamal" />
 <br>
 <br>
-<img align="center" src="https://github-readme-stats.vercel.app/api?username=fahad-md-kamal&show_icons=true&locale=en&hide_title=true" alt="fahad-md-kamal" />
+<img align="center" src="https://github-readme-stats.vercel.app/api?username=fahad-md-kamal&show_icons=true&locale=en&hide_title=true&theme=nord&show_icons=true&count_private=true&hide=contribs&line_height=40" alt="fahad-md-kamal" />
 <br>
 <br>
-<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=fahad-md-kamal&" alt="fahad-md-kamal" /> 
+<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=fahad-md-kamal&theme=nord&show_icons=true&count_private=true&hide=contribs&line_height=40" alt="fahad-md-kamal" /> 
 </p>
 
 #### What companies have I worked for?
