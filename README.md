@@ -1,11 +1,11 @@
 #### Who I am?
 - A software engineer based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh).** 
-- Developed products for **Leading Telecommunication & Financial Companies** of Bangladesh.
-- Have worked with **SaasS Application** and **Micro-Services**.
+- Developing products for **Leading Telecommunication & Financial Companies** in Bangladesh.
+- Currently working with **SaasS Application** and **Micro-Services**.
 <!-- - Have 3+ years of hands-on experience in **software development** and **Server Deployment** -->
 
 #### What I'm doing?
-- 🏢 Working at **[Genex Digital Ltd.](https://genex.digital/)** as a **Software Developer**.
+- 🏢 Working at **[Genex Digital Ltd.](https://genex.digital/)** as a **Software Engineer**.
 - 👨‍💻 Writing `Python` `SQL` `JavaScript` `yml`.
 - 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahad-md-kamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
 - 📚 Currently learning about **Clean Code, Test Driven Development (TDD), Domain Driven Development (DDD), SOLID Principle** and **Software Design Patterns**.
