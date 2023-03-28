@@ -62,7 +62,7 @@
 #### What companies have I worked for?
 <p left="center">
   <a href="https://genex.digital/">
-    <img src="https://genex.digital/images/genex-digital.png" height=50>
+    <img src="https://avatars.githubusercontent.com/u/94034199?s=200&v=4" height=50>
     </a> 
   <a href="https://www.aleshatech.net/">
     <img src="https://www.aleshatech.net/wp-content/uploads/2021/12/Alesha-Tech-New-Logo.png" height=50> 
