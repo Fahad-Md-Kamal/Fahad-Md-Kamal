@@ -1,8 +1,8 @@
 #### Who I am?
 - A software engineer based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh).** 
 - Developing products for **Leading Telecommunication & Financial Companies** in Bangladesh.
-- Currently working with **SaasS Application** and **Micro-Services**.
-<!-- - Have 3+ years of hands-on experience in **software development** and **Server Deployment** -->
+- Currently working with **SaaS Application** and **Micro-Services**.
+- [Resume](https://flowcv.com/resume/69kur1fdef)
 
 #### What I'm doing?
 - 🏢 Working at **[Genex Digital Ltd.](https://genex.digital/)** as a **Software Engineer**.
