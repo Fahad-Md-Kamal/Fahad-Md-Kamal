@@ -5,13 +5,13 @@
 - [Resume](https://flowcv.com/resume/69kur1fdef)
 
 #### What I'm doing?
-- 🏢 Working at **[Genex Digital Ltd.](https://genex.digital/)** as a **Software Engineer**.
+- 🏢 Working at **[BJIT Group](https://bjitgroup.com/)** as a **Senior Software Engineer**.
 - 👨‍💻 Writing `Python` `SQL` `JavaScript` `yml`.
 - 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahad-md-kamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
 - 📚 Currently learning about **Clean Code, Test Driven Development (TDD), Domain Driven Development (DDD), SOLID Principle** and **Software Design Patterns**.
 - 🛠️ Working on **Web Development, Server Deployment** and **Web API** professionally.
 - 👯 Looking to collaborate on **Full-stack projects and DevOps roles**.
-- 🥰 Building **[Mevrik Digital CX](https://www.mevrik.com/)**.
+- 🥰 Building **[Cyber Security Analysis Based Insurance](https://cyrisk.com/blog/10-cyber-insurtech-companies-driving-innovation-for-the-industry)**.
 #### What I like to disscuss about? 
 - 💬 Ask me about `web API` `system design` `scalability` `design patterns` `data structures` `clean code` and `choice of frameworks`.
 #### What my skill set looks like?
