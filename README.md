@@ -1,17 +1,17 @@
-#### Who I am?
-- A software engineer based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh).** 
-- Developing products for **Leading Telecommunication & Financial Companies** in Bangladesh.
+#### Who I am ?
+- A software engineer (`Python` `Golang`) based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh).** 
+- Working as an augmented resource for **Cyber Insurance Company** in USA.
 - Currently working with **SaaS Application** and **Micro-Services**.
 - [Resume](https://flowcv.com/resume/69kur1fdef)
 
-#### What I'm doing?
+#### What I'm doing ?
 - 🏢 Working at **[BJIT Group](https://bjitgroup.com/)** as a **Senior Software Engineer**.
-- 👨‍💻 Writing `Python` `SQL` `JavaScript` `yml`.
+- 👨‍💻 Writing `Python` `Golang` `SQL` `JavaScript` `yml`.
 - 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahad-md-kamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
 - 📚 Currently learning about **Clean Code, Test Driven Development (TDD), Domain Driven Development (DDD), SOLID Principle** and **Software Design Patterns**.
 - 🛠️ Working on **Web Development, Server Deployment** and **Web API** professionally.
 - 👯 Looking to collaborate on **Full-stack projects and DevOps roles**.
-- 🥰 Building **[Cyber Security Analysis Based Insurance](https://cyrisk.com/blog/10-cyber-insurtech-companies-driving-innovation-for-the-industry)**.
+- 🥰 Developing **[Cyber Risk Analysis for Cyber Insurance](https://cyrisk.com/blog/10-cyber-insurtech-companies-driving-innovation-for-the-industry)**.
 #### What I like to disscuss about? 
 - 💬 Ask me about `web API` `system design` `scalability` `design patterns` `data structures` `clean code` and `choice of frameworks`.
 #### What my skill set looks like?
@@ -28,8 +28,9 @@
   - **🔌 Communication protocols:** • [REST](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design) • [RabbitMQ](https://www.rabbitmq.com/) • [Web Socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 - 🎡 **Software development ecosystem:**
   - **📁 Code repository:** • [Git](https://git-scm.com/) • [BitBucket](https://bitbucket.org/product) • [Gitlab](https://gitlab.com/)
-  - **🗃 Project management:** • [Space](https://www.jetbrains.com/space/) • [Redmine](https://www.redmine.org/)
+  - **🗃 Project management:** •[Confluence](https://www.atlassian.com/software/confluence/resources/guides/get-started/overview#about-confluence) • [Space](https://www.jetbrains.com/space/) • [Redmine](https://www.redmine.org/)
   - **🗂 CI/CD:** • [Github Actions](https://docs.github.com/en/actions)
+  - **🗃 DevOps:** • [Dokcer](https://www.docker.com/) • [Nginx](https://www.nginx.com/) 
 <!-- - 🧙‍♂️ **Coding pattern & principles:**
   - **⚒ Patterns:**  • [Mediator](https://en.wikipedia.org/wiki/Mediator_pattern) • [Bridge](https://en.wikipedia.org/wiki/Bridge_pattern) • [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_Query_Responsibility_Separation) • [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) • [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) • [SAGA](https://microservices.io/patterns/data/saga.html) • [Event Sourcing](https://microservices.io/patterns/data/event-sourcing.html) • [Message Queuing](https://www.cloudamqp.com/blog/what-is-message-queuing.html) -->
 <!--   • [ACID](https://en.wikipedia.org/wiki/ACID) -->
@@ -37,15 +38,18 @@
   - **🕹 Frameworks:** • [SCRUM](https://www.scrum.org/) • [DSDM-Atern](https://www.agilebusiness.org/dsdm-project-framework.html) • [Waterfall-Model](https://en.wikipedia.org/wiki/Waterfall_model)
   
 - **🏗️ Code editors:**
-<a href="https://www.jetbrains.com/pycharm/"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/PyCharm_Icon.svg" height=25></a> <a href="https://code.visualstudio.com/"><img src="https://seeklogo.com/images/V/visual-studio-code-logo-449D71944F-seeklogo.com.png" height=25></a> 
+&nbsp;
+<a href="https://www.jetbrains.com/pycharm/"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/PyCharm_Icon.svg" height=25></a>
+&nbsp;
+<a href="https://code.visualstudio.com/"><img src="https://seeklogo.com/images/V/visual-studio-code-logo-449D71944F-seeklogo.com.png" height=25></a> 
 <!-- <a href="https://visualstudio.microsoft.com/"><img src="https://1000logos.net/wp-content/uploads/2020/08/Visual-Studio-Logo.png" height=25></a> -->
   
 #### What's interesting about me?  
   - 😎 I love to **speak** really good **english**, **discuss new ideas**, and **make clients smile**.
   - 🧐 I love to be very **precise** and **thorough**.
   - ✍️ I write about **why a certain code is written instead of what** in the comments.
-  - ⏱️ I'm a **workaholic** geek who likes to do R&D on new technologies even on holidays**.
-  - 😅 I just can't **resist the urge** to **explore** a new **tech** released in the **Python** web development.
+  - ⏱️ I'm a **workaholic** geek who likes to do R&D on new technologies even on holidays.
+  - 😅 I just can't **resist the urge** to **explore** a new **tech** released in the **Python OR Golang** web development.
 
 
 <!--Github Stats-->
@@ -59,16 +63,19 @@
 <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=fahad-md-kamal&theme=nord&show_icons=true&count_private=true&hide=contribs&line_height=40" alt="fahad-md-kamal" /> 
 </p>
 
-#### What companies have I worked for?
+#### Companies I've worked for
 <p left="center">
+  <a href="https://bjitgroup.com/">
+    <img src="https://bjitgroup.com:443/static/svg/common/bjit-logo2.svg" height=50>
+    </a> &nbsp; &nbsp; &nbsp; &nbsp;
   <a href="https://genex.digital/">
-    <img src="https://avatars.githubusercontent.com/u/94034199?s=200&v=4" height=50>
-    </a> 
+    <img src="https://uploads-ssl.webflow.com/62b2bfb8066ae01a203984c0/6304874c60f872afff6816a7_Mevrik%20logo.svg" height=50>
+    </a> &nbsp; &nbsp; &nbsp; &nbsp;
   <a href="https://www.aleshatech.net/">
     <img src="https://www.aleshatech.net/wp-content/uploads/2021/12/Alesha-Tech-New-Logo.png" height=50> 
-  </a>
+  </a> &nbsp; &nbsp; &nbsp; &nbsp;
   <a href="https://dreamarray.com/">
-    <img src="https://dreamarray.com/daweb/wp-content/themes/da_wp/images/logo.png" height=50>
+    <img src="https://dreamarray.com/newda/wp-content/uploads/2023/05/da_icon.png" height=50>
   </a>
 </p>
 
