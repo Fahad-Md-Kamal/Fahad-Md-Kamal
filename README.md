@@ -1,5 +1,5 @@
 #### Who I am ?
-- A software engineer (`Python` `Golang`) based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh).** 
+- A software engineer (`Python`, `full stack`) based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh).** 
 - Working as an augmented resource for **Cyber Insurance Company** in USA.
 - Currently working with **SaaS Application** and **Micro-Services**.
 - [Resume](https://flowcv.com/resume/69kur1fdef)
