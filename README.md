@@ -45,12 +45,19 @@
 <!-- <a href="https://visualstudio.microsoft.com/"><img src="https://1000logos.net/wp-content/uploads/2020/08/Visual-Studio-Logo.png" height=25></a> -->
   
 #### What's interesting about me?  
-  - 😎 I love to **speak** really good **english**, **discuss new ideas**, and **make clients smile**.
+  - 😎 I love to **discuss new ideas**, and **make clients smile**.
   - 🧐 I love to be very **precise** and **thorough**.
   - ✍️ I write about **why a certain code is written instead of what** in the comments.
   - ⏱️ I'm a **workaholic** geek who likes to do R&D on new technologies even on holidays.
   - 😅 I just can't **resist the urge** to **explore** a new **tech** released in the **Python OR Golang** web development.
 
+#### Some of project's I've worked with
+  - [**Mevrik DCX**](https://www.mevrik.com/) (SaaS)
+  - [**CyRisk Insights**](https://cyrisk.com) (SaaS)
+  - **Alesha CBC** Alesha Contactless business card.
+  - **Alesha CRM** Alesha Customer Relationship Management system
+  - **(BDOPS)** Bangladesh Dengue Outbreak Prevention & Survillance System (Including API & Mobile App (.apk))
+  - **(Budget Car Hire)**
 
 <!--Github Stats-->
 <p align="center">  
