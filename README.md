@@ -56,8 +56,9 @@
   - [**CyRisk Insights**](https://cyrisk.com) (SaaS)
   - **Alesha CBC** Alesha Contactless business card.
   - **Alesha CRM** Alesha Customer Relationship Management system
+  - **Mayer Hashi** Application for assisting expecting mothers for healthy child birth
   - **(BDOPS)** Bangladesh Dengue Outbreak Prevention & Survillance System (Including API & Mobile App (.apk))
-  - **(Budget Car Hire)**
+  - **Budget Car Hire**
 
 <!--Github Stats-->
 <p align="center">  
