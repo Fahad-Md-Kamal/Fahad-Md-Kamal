@@ -6,7 +6,7 @@
 
 #### What I'm doing ?
 - 🏢 Working at **[BJIT Group](https://bjitgroup.com/)** as a **Senior Software Engineer**.
-- 👨‍💻 Writing `Python` `Golang` `SQL` `JavaScript` `yml`.
+- 👨‍💻 Writing `Python` `SQL` `JavaScript` `yml`.
 - 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahad-md-kamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
 - 📚 Currently learning about **Clean Code, Test Driven Development (TDD), Domain Driven Development (DDD), SOLID Principle** and **Software Design Patterns**.
 - 🛠️ Working on **Web Development, Server Deployment** and **Web API** professionally.
