@@ -22,7 +22,7 @@
     - **📱 Mobile:** • [Flutter](https://flutter.dev/)
 - 🗄️ **Back-end:**
   - **📜 Languages:** • `🧙🏻‍♂️Python 3` • `🧙🏻‍♂️Golang`
-  - **🔭 Frameworks:** • [Django](https://www.djangoproject.com/) • [FastAPI](https://fastapi.tiangolo.com/) • [Flask](https://fastapi.tiangolo.com/) • [Gin-Gonic](https://gin-gonic.com/) 
+  - **🔭 Frameworks:** • [Django](https://www.djangoproject.com/) • [FastAPI](https://fastapi.tiangolo.com/) • [Flask](https://fastapi.tiangolo.com/) • [Gin-Gonic](https://gin-gonic.com/) • [React TS](https://react.dev/learn/typescript)
   - **💾 Databases:** • [Postgresql](https://www.postgresql.org/) • [MongoDB](https://www.mongodb.com/) • [MySql](https://www.mysql.com/) • [SQLite](https://www.sqlite.org/)
   - **🎛 System architecture:** • [Monolithic](https://microservices.io/patterns/monolithic.html) • [Microservices](https://microservices.io/patterns/microservices.html)
   - **🔌 Communication protocols:** • [REST](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design) • [RabbitMQ](https://www.rabbitmq.com/) • [Web Socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
