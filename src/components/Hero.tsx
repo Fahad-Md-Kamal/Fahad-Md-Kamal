@@ -126,12 +126,12 @@ export default function Hero({ profile }: HeroProps) {
               View Systems
             </button>
             <a
-              href="/resume.pdf"
+              href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary text-base px-8 py-3 font-mono"
             >
-              Resume.pdf
+              View Resume
             </a>
           </div>
 
