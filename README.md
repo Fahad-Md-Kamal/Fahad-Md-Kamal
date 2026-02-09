@@ -1,277 +1,141 @@
-# Professional Developer Portfolio
+# 👋 Who I Am?
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. This project is designed to be easily customizable through JSON configuration files, making it simple to update your portfolio content without touching the code.
-
-## ✨ Features
-
-- **🎨 Modern Design**: Clean, professional UI with smooth animations
-- **📱 Fully Responsive**: Optimized for desktop, tablet, and mobile devices
-- **⚡ Fast Performance**: Built with Vite for lightning-fast development and builds
-- **🔧 Easy to Update**: Content driven by JSON files - no code changes needed
-- **♿ Accessible**: Semantic HTML and ARIA labels for screen readers
-- **🚀 GitHub Pages Ready**: Pre-configured for free hosting on GitHub Pages
-- **📊 SEO Optimized**: Meta tags and semantic structure for better search rankings
-
-## 🛠️ Tech Stack
-
-- **Frontend Framework**: React 18
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Build Tool**: Vite
-- **Deployment**: GitHub Pages
-- **Package Manager**: npm
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── public/                 # Static assets
-│   ├── images/            # Images for projects, companies, etc.
-│   ├── resume.pdf         # Your resume file
-│   └── vite.svg           # Favicon
-├── src/
-│   ├── components/        # React components
-│   │   ├── Header.tsx     # Navigation header
-│   │   ├── Hero.tsx       # Hero section with intro
-│   │   ├── About.tsx      # About section
-│   │   ├── Skills.tsx     # Skills showcase
-│   │   ├── Projects.tsx   # Projects portfolio
-│   │   ├── Experience.tsx # Work experience
-│   │   ├── Contact.tsx    # Contact form
-│   │   ├── Footer.tsx     # Footer
-│   │   └── ScrollToTop.tsx # Scroll to top button
-│   ├── data/              # JSON configuration files
-│   │   ├── profile.json   # Personal info & social links
-│   │   ├── skills.json    # Technical skills by category
-│   │   ├── experience.json # Work experience
-│   │   └── projects.json  # Portfolio projects (EDIT THIS MOST!)
-│   ├── types/             # TypeScript type definitions
-│   │   └── index.ts       # All interface definitions
-│   ├── App.tsx            # Main App component
-│   ├── main.tsx           # React entry point
-│   └── index.css          # Global styles & Tailwind imports
-├── package.json           # Dependencies and scripts
-├── vite.config.ts         # Vite configuration
-├── tailwind.config.js     # Tailwind CSS configuration
-└── tsconfig.json          # TypeScript configuration
-```
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm or yarn
-- Git
-
-### Installation
-
-1. **Clone or download this repository**
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**:
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser** and visit `http://localhost:3000`
-
-## 🎨 Customization Guide
-
-### 1. Personal Information (`src/data/profile.json`)
-
-Update your basic information:
-```json
-{
-  "name": "Your Name",
-  "role": "Your Job Title",
-  "tagline": "Your Professional Tagline",
-  "summary": "Your professional summary...",
-  "email": "your.email@example.com",
-  "phone": "+1 (555) 123-4567",
-  "location": "Your City, State",
-  "social": {
-    "github": "https://github.com/yourusername",
-    "linkedin": "https://linkedin.com/in/yourusername"
-  }
-}
-```
-
-### 2. Skills (`src/data/skills.json`)
-
-Organize your skills by categories:
-```json
-{
-  "categories": [
-    {
-      "name": "Frontend",
-      "icon": "🎨",
-      "skills": [
-        { "name": "React", "level": 95, "years": 4 },
-        { "name": "TypeScript", "level": 90, "years": 3 }
-      ]
-    }
-  ]
-}
-```
-
-### 3. Projects (`src/data/projects.json`) - **MOST IMPORTANT**
-
-This is the file you'll update most frequently:
-```json
-{
-  "projects": [
-    {
-      "id": "1",
-      "title": "Your Project Name",
-      "shortDescription": "Brief description",
-      "description": "Detailed project description...",
-      "image": "/images/projects/project-image.jpg",
-      "category": "Full-Stack",
-      "featured": true,
-      "status": "Completed",
-      "technologies": [
-        { "name": "React", "color": "#61DAFB" },
-        { "name": "Node.js", "color": "#339933" }
-      ],
-      "features": [
-        "Feature 1",
-        "Feature 2"
-      ],
-      "links": {
-        "live": "https://yourproject.com",
-        "github": "https://github.com/yourusername/project"
-      }
-    }
-  ]
-}
-```
-
-### 4. Experience (`src/data/experience.json`)
-
-Add your work history:
-```json
-{
-  "experiences": [
-    {
-      "company": "Company Name",
-      "role": "Your Position",
-      "startDate": "2023-01",
-      "endDate": null,
-      "current": true,
-      "description": "What you do/did at this company...",
-      "highlights": [
-        "Achievement 1",
-        "Achievement 2"
-      ],
-      "technologies": ["React", "Node.js", "AWS"]
-    }
-  ]
-}
-```
-
-### 5. Images
-
-Replace placeholder images in the `public/images/` directory:
-- `avatar.jpg` - Your profile photo
-- `projects/` - Screenshots of your projects
-- `companies/` - Company logos (optional)
-
-### 6. Resume
-
-Replace `public/resume.pdf` with your actual resume file.
-
-## 🎨 Styling Customization
-
-### Colors
-
-Edit `tailwind.config.js` to change the color scheme:
-```javascript
-theme: {
-  extend: {
-    colors: {
-      primary: {
-        // Change these hex values to your preferred colors
-        500: '#0ea5e9',  // Main brand color
-        600: '#0284c7',  // Darker shade
-        // ... other shades
-      }
-    }
-  }
-}
-```
-
-### Fonts
-
-Update the font imports in `index.html` and reference them in `tailwind.config.js`.
-
-## 🚀 Deployment
-
-### GitHub Pages (Recommended)
-
-1. **Update configuration**:
-   - In `vite.config.ts`, change `base: '/portfolio/'` to your repository name
-   - In `package.json`, update the `homepage` field
-
-2. **Deploy**:
-   ```bash
-   npm run build
-   npm run deploy
-   ```
-
-### Alternative Hosting Options
-
-- **Vercel**: Connect your GitHub repo at vercel.com
-- **Netlify**: Drag and drop the `dist` folder after running `npm run build`
-- **Firebase Hosting**: Use Firebase CLI to deploy
-
-## 📱 Mobile Optimization
-
-The portfolio is fully responsive and includes:
-- Mobile-first design approach
-- Touch-friendly navigation
-- Optimized images and performance
-- Accessible tap targets
-
-## 🔧 Development Scripts
-
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run preview  # Preview production build locally
-npm run lint     # Run ESLint
-npm run deploy   # Deploy to GitHub Pages
-```
-
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests!
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 💡 Tips for Success
-
-1. **Keep projects.json updated** - This is what visitors will see first
-2. **Use high-quality images** - They make a huge difference in presentation
-3. **Write compelling descriptions** - Tell the story of your projects
-4. **Update regularly** - Keep your portfolio current with new work
-5. **Test on mobile** - Most visitors will view on mobile devices
-6. **SEO matters** - Update meta tags in `index.html` for better search visibility
-
-## 🎯 What Makes This Portfolio Stand Out
-
-- **No hardcoded content** - Everything is driven by JSON files
-- **Type-safe** - Full TypeScript support prevents runtime errors
-- **Performance focused** - Optimized builds and lazy loading
-- **Accessibility first** - WCAG compliant with proper ARIA labels
-- **Modern stack** - Latest React patterns and best practices
-- **Easy maintenance** - Clear structure and comprehensive documentation
+- 🧑‍💻 A **Software Engineer** (`Python`, `Full Stack`) based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh)**.
+- 💼 Working as an **Augmented Resource** for a **Cyber Insurance Company** in the USA.
+- 🚀 Currently working with **SaaS Applications** and **Microservices**.
+- 📄 [Resume](https://flowcv.com/resume/69kur1fdef)
 
 ---
 
-**Ready to showcase your work to the world? Update the JSON files and deploy! 🚀**
+# 🛠️ What I'm Doing?
+
+- 🏢 Working at **[BJIT Group](https://bjitgroup.com/)** as a **Senior Software Engineer**.
+- 👨‍💻 Writing `Python`, `SQL`, `JavaScript`, and `YAML`.
+- 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahad-md-kamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
+- 📚 Currently learning about **Clean Code**, **Test-Driven Development (TDD)**, **Domain-Driven Design (DDD)**, **SOLID Principles**, and **Software Design Patterns**.
+- 🛠️ Working on **Web Development**, **Server Deployment**, and **Web APIs** professionally.
+- 👯 Looking to collaborate on **Full-Stack Projects** and **DevOps Roles**.
+- 🥰 Developing **[Cyber Risk Analysis for Cyber Insurance](https://cyrisk.com/blog/10-cyber-insurtech-companies-driving-innovation-for-the-industry)**.
+
+---
+
+# 💬 What I Like to Discuss?
+
+- 💬 Ask me about:
+  - `Web APIs`
+  - `System Design`
+  - `Scalability`
+  - `Design Patterns`
+  - `Data Structures`
+  - `Clean Code`
+  - `Choice of Frameworks`
+
+---
+
+# 🛠️ What My Skill Set Looks Like?
+
+## 🖥️ **Front-End:**
+- **📜 Languages:** `JavaScript`, `HTML`, `CSS`
+- **🔬 Frameworks:**
+  - **🌐 Web:** [React](https://reactjs.org/)
+  - **📱 Mobile:** [Flutter](https://flutter.dev/)
+
+## 🗄️ **Back-End:**
+- **📜 Languages:** `Python 3`, `Golang`
+- **🔭 Frameworks:** [Django](https://www.djangoproject.com/), [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/), [Gin-Gonic](https://gin-gonic.com/), [React TS](https://react.dev/learn/typescript)
+- **💾 Databases:** [PostgreSQL](https://www.postgresql.org/), [MongoDB](https://www.mongodb.com/), [MySQL](https://www.mysql.com/), [SQLite](https://www.sqlite.org/)
+- **🎛️ System Architecture:** Monolithic, Microservices
+- **🔌 Communication Protocols:** REST, RabbitMQ, WebSocket
+
+## 🎡 **Software Development Ecosystem:**
+- **📁 Code Repository:** Git, BitBucket, GitLab
+- **🗃️ Project Management:** Confluence, Space, Redmine
+- **🗂️ CI/CD:** GitHub Actions
+- **🗃️ DevOps:** Docker, Nginx
+
+## 🧙‍♂️ **Coding Patterns & Principles:**
+- **🗜️ Principles:** DRY, DDD, SOLID
+- **🕹️ Frameworks:** SCRUM, DSDM-Atern, Waterfall Model
+
+## 🏗️ **Code Editors:**
+&nbsp;
+<a href="https://www.jetbrains.com/pycharm/"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/PyCharm_Icon.svg" height=25></a>
+&nbsp;
+<a href="https://code.visualstudio.com/"><img src="https://seeklogo.com/images/V/visual-studio-code-logo-449D71944F-seeklogo.com.png" height=25></a>
+
+---
+
+# 🌟 What's Interesting About Me?
+
+- 😎 I love to **discuss new ideas** and **make clients smile**.
+- 🧐 I strive to be **precise** and **thorough** in everything I do.
+- ✍️ I write **why a certain code is written** instead of **what** in the comments.
+- ⏱️ I'm a **workaholic** geek who enjoys R&D on new technologies, even on holidays.
+- 😅 I can't resist the urge to **explore** new tech releases in **Python** or **Golang** web development.
+
+---
+
+# 🚀 Projects I've Worked On
+
+- [**Mevrik DCX**](https://www.mevrik.com/) (SaaS)
+- [**CyRisk Insights**](https://cyrisk.com) (SaaS)
+- **Alesha DCX**: Contactless Business Card
+- **Alesha CRM**: Customer Relationship Management System
+- **Mayer Hashi**: Application for Assisting Expecting Mothers
+- **BDOPS**: Bangladesh Dengue Outbreak Prevention & Surveillance System (Including API & Mobile App)
+- **Budget Car Hire**
+
+---
+
+# 📊 GitHub Stats
+
+<p align="center">  
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=fahad-md-kamal&show_icons=true&locale=en&layout=compact&theme=nord&show_icons=true&count_private=true&hide=contribs&line_height=40" alt="fahad-md-kamal" />
+<br>
+<br>
+<img align="center" src="https://github-readme-stats.vercel.app/api?username=fahad-md-kamal&show_icons=true&locale=en&hide_title=true&theme=nord&show_icons=true&count_private=true&hide=contribs&line_height=40" alt="fahad-md-kamal" />
+<br>
+<br>
+<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=fahad-md-kamal&theme=nord&show_icons=true&count_private=true&hide=contribs&line_height=40" alt="fahad-md-kamal" /> 
+</p>
+
+---
+
+# 🏢 Companies I've Worked For
+
+<p left="center">
+  <a href="https://bjitgroup.com/">
+    <img src="https://bjitgroup.com:443/static/svg/common/bjit-logo2.svg" height=50>
+  </a> &nbsp; &nbsp; &nbsp; &nbsp;
+  <a href="https://genex.digital/">
+    <img src="https://uploads-ssl.webflow.com/62b2bfb8066ae01a203984c0/6304874c60f872afff6816a7_Mevrik%20logo.svg" height=50>
+  </a> &nbsp; &nbsp; &nbsp; &nbsp;
+  <a href="https://www.aleshatech.net/">
+    <img src="https://www.aleshatech.net/wp-content/uploads/2021/12/Alesha-Tech-New-Logo.png" height=50> 
+  </a> &nbsp; &nbsp; &nbsp; &nbsp;
+  <a href="https://dreamarray.com/">
+    <img src="https://dreamarray.com/newda/wp-content/uploads/2023/05/da_icon.png" height=50>
+  </a>
+</p>
+
+---
+
+# 📝 Recent Highlights
+
+- [Medium](https://medium.com/@fahadmdkamal)
+
+---
+
+# 📬 How to Get in Touch?
+
+<p left="center">
+<a href="https://twitter.com/FahadMdKamal" target="_blank">
+  <img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" height=25>
+</a> 
+<a href="https://www.linkedin.com/in/fahad-md-kamal" target="_blank">
+  <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" height=25>
+</a> 
+<a href="mailto:faahad.hossain@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" height=25>
+</a>
+</p>
