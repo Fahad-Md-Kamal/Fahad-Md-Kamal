@@ -34,6 +34,8 @@ export default function Header({ profile }: HeaderProps) {
     { label: 'Contact', href: '#contact' },
   ]
 
+  const resumeLink = 'https://flowcv.com/resume/69kur1fdef'
+
   return (
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -64,12 +66,12 @@ export default function Header({ profile }: HeaderProps) {
               </button>
             ))}
             <a
-              href={profile.resumeUrl}
+              href={resumeLink}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary font-mono"
             >
-              Resume.pdf
+              Resume
             </a>
           </div>
 
@@ -118,13 +120,13 @@ export default function Header({ profile }: HeaderProps) {
                 </button>
               ))}
               <a
-                href={profile.resumeUrl}
+                href={resumeLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary block text-center mt-4 font-mono"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Resume.pdf
+                Resume
               </a>
             </div>
           </div>
