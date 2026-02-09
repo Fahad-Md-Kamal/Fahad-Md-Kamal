@@ -1,0 +1,27 @@
+{
+  "name": "Fahad Md Kamal",
+  "role": "Senior Full Stack Developer",
+  "tagline": "Building Scalable Backends & Cloud-Native Systems for Global Teams",
+  "summary": "Senior Software Engineer with 5+ years of experience designing, implementing, and scaling cloud-native, multi-tenant infrastructure. Proven track record of building reliable backend systems in Python and TypeScript that abstract over cloud providers. Strong expertise in event-driven architecture, messaging pipelines, and deploying services across AWS and Azure environments.",
+  "location": "Dhaka, Bangladesh",
+  "email": "fahadmdkamal@gmail.com",
+  "phone": "+8801675759801",
+  "website": "https://fahad-md-kamal.dev",
+  "avatar": "/portfolio/images/avatar.jpg",
+  "resumeUrl": "/portfolio/resume.pdf",
+  "contact": {
+    "email": "fahadmdkamal@gmail.com",
+    "phone": "+8801675759801",
+    "location": "Dhaka, Bangladesh"
+  },
+  "social": {
+    "github": "https://github.com/fahad-md-kamal",
+    "linkedin": "https://linkedin.com/in/fahad-md-kamal",
+    "twitter": "https://twitter.com/fahadmdkamal",
+    "portfolio": "https://fahad-md-kamal.dev"
+  },
+  "availability": {
+    "status": "open",
+    "message": "Available for senior remote opportunities"
+  }
+}

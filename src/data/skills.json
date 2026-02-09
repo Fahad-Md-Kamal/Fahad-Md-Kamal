@@ -1,0 +1,53 @@
+{
+  "categories": [
+    {
+      "name": "Backend & Core",
+      "icon": "⚙️",
+      "skills": [
+        { "name": "Python", "level": 95, "years": 5 },
+        { "name": "TypeScript", "level": 90, "years": 4 },
+        { "name": "FastAPI", "level": 93, "years": 3 },
+        { "name": "Django", "level": 95, "years": 5 },
+        { "name": "Django REST Framework", "level": 95, "years": 5 },
+        { "name": "AsyncIO", "level": 85, "years": 3 },
+        { "name": "REST APIs", "level": 95, "years": 5 }
+      ]
+    },
+    {
+      "name": "DevOps & Cloud",
+      "icon": "☁️",
+      "skills": [
+        { "name": "Docker", "level": 90, "years": 4 },
+        { "name": "AWS", "level": 88, "years": 4 },
+        { "name": "Azure Functions", "level": 85, "years": 3 },
+        { "name": "CI/CD", "level": 85, "years": 4 },
+        { "name": "Microservices", "level": 90, "years": 4 },
+        { "name": "Serverless Architecture", "level": 80, "years": 2 }
+      ]
+    },
+    {
+      "name": "Messaging & Data",
+      "icon": "📊",
+      "skills": [
+        { "name": "Kafka", "level": 85, "years": 3 },
+        { "name": "Redis Pub/Sub", "level": 90, "years": 4 },
+        { "name": "PostgreSQL", "level": 88, "years": 5 },
+        { "name": "Elasticsearch", "level": 80, "years": 3 },
+        { "name": "Qdrant", "level": 75, "years": 2 },
+        { "name": "WebSockets", "level": 85, "years": 3 }
+      ]
+    },
+    {
+      "name": "AI & LLMs",
+      "icon": "🤖",
+      "skills": [
+        { "name": "LangChain", "level": 85, "years": 2 },
+        { "name": "RAG", "level": 80, "years": 2 },
+        { "name": "LangGraph", "level": 75, "years": 1 },
+        { "name": "OpenAI", "level": 85, "years": 2 },
+        { "name": "Azure OpenAI", "level": 80, "years": 2 },
+        { "name": "Ollama", "level": 70, "years": 1 }
+      ]
+    }
+  ]
+}

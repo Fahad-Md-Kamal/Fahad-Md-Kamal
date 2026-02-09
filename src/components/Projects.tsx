@@ -1,0 +1,274 @@
+import { useState } from 'react'
+import type { ProjectsData, Project } from '../types'
+
+interface ProjectsProps {
+  projects: ProjectsData
+}
+
+interface ProjectCardProps {
+  project: Project
+}
+
+function ProjectCard({ project }: ProjectCardProps) {
+  return (
+    <div className="card group hover:border-primary/50 transition-all duration-300">
+      {/* Project Header */}
+      <div className="mb-6">
+        <div className="flex items-start justify-between mb-4">
+          <div>
+            <h3 className="text-xl font-display font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
+              {project.title}
+            </h3>
+            <p className="text-text-secondary text-sm leading-relaxed mb-3">
+              {project.shortDescription}
+            </p>
+          </div>
+          <div className="flex gap-2">
+            {project.featured && (
+              <span className="tech-badge border-primary text-primary">Featured</span>
+            )}
+          </div>
+        </div>
+
+        {/* Context & Problem */}
+        {project.context && (
+          <div className="mb-4 p-3 bg-background border-l-2 border-secondary rounded-r">
+            <div className="text-xs font-mono text-secondary mb-1">CONTEXT</div>
+            <p className="text-sm text-text-secondary leading-relaxed">{project.context}</p>
+          </div>
+        )}
+      </div>
+
+      {/* Architecture & Scale */}
+      {project.architecture && (
+        <div className="mb-6">
+          <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
+            <span>ARCHITECTURE</span>
+            <div className="flex-1 h-px bg-gray-800"></div>
+          </div>
+          <div className="grid grid-cols-2 gap-3 text-sm">
+            <div>
+              <span className="text-text-secondary">Pattern:</span>
+              <div className="font-mono text-text-primary">{project.architecture.pattern}</div>
+            </div>
+            <div>
+              <span className="text-text-secondary">Scale:</span>
+              <div className="font-mono text-primary">{project.architecture.scale}</div>
+            </div>
+            <div className="col-span-2">
+              <span className="text-text-secondary">Infrastructure:</span>
+              <div className="font-mono text-text-primary">{project.architecture.infrastructure}</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Impact Metrics */}
+      {project.impact && (
+        <div className="mb-6">
+          <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
+            <span>IMPACT</span>
+            <div className="flex-1 h-px bg-gray-800"></div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {Object.entries(project.impact).slice(0, 4).map(([key, value]) => (
+              <div key={key} className="text-center p-2 bg-background rounded">
+                <div className="text-sm font-mono font-bold text-primary">{value}</div>
+                <div className="text-xs text-text-secondary capitalize">{key.replace('_', ' ')}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Technologies */}
+      <div className="mb-6">
+        <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
+          <span>TECH STACK</span>
+          <div className="flex-1 h-px bg-gray-800"></div>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech, index) => (
+            <span
+              key={index}
+              className="tech-badge"
+              style={{ borderBottomColor: tech.color, borderBottomWidth: '2px' }}
+            >
+              {tech.name}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Design Decisions (collapsed by default) */}
+      {project.design_decisions && (
+        <details className="mb-4">
+          <summary className="text-xs font-mono text-secondary cursor-pointer hover:text-primary transition-colors mb-2">
+            DESIGN DECISIONS
+          </summary>
+          <ul className="text-sm text-text-secondary space-y-1 ml-4">
+            {project.design_decisions.map((decision, index) => (
+              <li key={index} className="flex items-start gap-2">
+                <span className="text-primary mt-1.5">•</span>
+                <span>{decision}</span>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
+
+      {/* Action Links */}
+      <div className="flex gap-3 pt-4 border-t border-gray-800">
+        {project.links.github && (
+          <a
+            href={project.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center py-2 px-3 border border-gray-800 text-text-secondary hover:text-primary hover:border-primary/50 transition-all font-mono text-sm rounded"
+          >
+            Code
+          </a>
+        )}
+        {project.links.demo && (
+          <a
+            href={project.links.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center py-2 px-3 bg-primary text-background hover:bg-primary/90 transition-colors font-mono text-sm rounded"
+          >
+            Demo
+          </a>
+        )}
+      </div>
+    </div>
+  )
+}
+
+export default function Projects({ projects }: ProjectsProps) {
+  const [activeSection, setActiveSection] = useState<'systems' | 'ai'>('systems')
+
+  // Separate regular projects and AI projects
+  const systemsProjects = projects.projects || []
+  const aiProjects = projects.aiProjects || []
+
+  return (
+    <section id="projects" className="py-20 bg-background">
+      <div className="section-container">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <div className="mb-16">
+            <h2 className="section-title">Engineering Systems</h2>
+            <p className="text-lg text-text-secondary max-w-3xl mb-8">
+              Production systems built for scale, reliability, and maintainability. 
+              Focus on architecture decisions, performance impact, and real-world constraints.
+            </p>
+            
+            {/* Section Tabs */}
+            <div className="inline-flex gap-1 p-1 bg-surface rounded-lg">
+              <button
+                onClick={() => setActiveSection('systems')}
+                className={`px-6 py-3 rounded font-mono text-sm transition-all ${
+                  activeSection === 'systems'
+                    ? 'bg-primary text-background'
+                    : 'text-text-secondary hover:text-primary'
+                }`}
+              >
+                Backend Systems ({systemsProjects.length})
+              </button>
+              <button
+                onClick={() => setActiveSection('ai')}
+                className={`px-6 py-3 rounded font-mono text-sm transition-all ${
+                  activeSection === 'ai'
+                    ? 'bg-secondary text-background'
+                    : 'text-text-secondary hover:text-secondary'
+                }`}
+              >
+                AI & LLM Systems ({aiProjects.length})
+              </button>
+            </div>
+          </div>
+
+          {/* Backend Systems Section */}
+          {activeSection === 'systems' && (
+            <div className="space-y-12">
+              <div>
+                <div className="flex items-center gap-4 mb-8">
+                  <h3 className="text-xl font-display text-primary">Backend & Infrastructure</h3>
+                  <div className="flex-1 h-px bg-gray-800"></div>
+                </div>
+                <div className="grid lg:grid-cols-2 gap-8">
+                  {systemsProjects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* AI & LLM Systems Section */}
+          {activeSection === 'ai' && (
+            <div className="space-y-12">
+              <div>
+                <div className="flex items-center gap-4 mb-8">
+                  <h3 className="text-xl font-display text-secondary">AI & LLM Systems</h3>
+                  <div className="flex-1 h-px bg-gray-800"></div>
+                </div>
+                <div className="grid lg:grid-cols-2 gap-8">
+                  {aiProjects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Engineering Notes Section */}
+          <div className="mt-20 p-8 bg-surface rounded-lg border border-gray-800">
+            <h3 className="text-lg font-display text-primary mb-4">Engineering Notes</h3>
+            <div className="grid md:grid-cols-3 gap-6 text-sm">
+              <div>
+                <div className="font-mono text-secondary mb-2">TRADE-OFFS</div>
+                <p className="text-text-secondary leading-relaxed">
+                  Redis Pub/Sub vs Kafka: Chosen Redis for sub-100ms latency requirements in threat processing, 
+                  accepting trade-off in total ordering guarantees for real-time performance.
+                </p>
+              </div>
+              <div>
+                <div className="font-mono text-secondary mb-2">SCALE PATTERNS</div>
+                <p className="text-text-secondary leading-relaxed">
+                  Event-driven architecture with circuit breakers enables 10K+ req/sec while maintaining 
+                  system stability during downstream service degradation.
+                </p>
+              </div>
+              <div>
+                <div className="font-mono text-secondary mb-2">LESSONS LEARNED</div>
+                <p className="text-text-secondary leading-relaxed">
+                  Serverless cost optimization: 40% savings achieved by right-sizing function memory and 
+                  implementing intelligent cold-start warming strategies.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-16">
+            <p className="text-text-secondary mb-6 font-mono text-sm">
+              // More systems and architectural decisions on GitHub
+            </p>
+            <a
+              href="https://github.com/fahad-md-kamal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center gap-2 font-mono"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,230 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "CyRisk Insight Engine",
+      "shortDescription": "Cybersecurity platform for large-scale threat intelligence analysis",
+      "description": "Event-driven cybersecurity platform processing 5M+ threat records with microservices architecture. Implemented Redis Pub/Sub messaging for real-time updates and serverless pipelines for threat intelligence processing.",
+      "image": "/images/projects/cyrisk-engine.jpg",
+      "category": "Backend Systems",
+      "featured": true,
+      "status": "Completed",
+      "startDate": "2023-07",
+      "endDate": "2024-08",
+      "technologies": [
+        { "name": "Django REST", "color": "#092e20" },
+        { "name": "FastAPI", "color": "#009688" },
+        { "name": "Redis Pub/Sub", "color": "#dc382d" },
+        { "name": "Elasticsearch", "color": "#005571" },
+        { "name": "AWS Lambda", "color": "#ff9900" },
+        { "name": "PostgreSQL", "color": "#336791" }
+      ],
+      "architecture": {
+        "pattern": "Event-Driven Microservices",
+        "scale": "5M+ records processed",
+        "infrastructure": "AWS Lambda + S3 + RDS",
+        "messaging": "Redis Pub/Sub for real-time updates"
+      },
+      "impact": {
+        "latency": "40% reduction in data latency",
+        "performance": "35% improved API response time", 
+        "throughput": "Real-time processing of threat intelligence",
+        "scale": "Multi-tenant SaaS platform"
+      },
+      "context": "US cybersecurity company needed scalable threat intelligence platform to process millions of security events daily while maintaining real-time response capabilities.",
+      "design_decisions": [
+        "Redis Pub/Sub chosen over Kafka for lower latency requirements",
+        "Serverless architecture for cost optimization at variable loads",
+        "Elasticsearch for complex threat query patterns",
+        "Multi-tenant design for SaaS scalability"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    },
+    {
+      "id": "2", 
+      "title": "Mevrik Digital Customer Experience Platform",
+      "shortDescription": "Backend architecture for AI-driven customer care supporting 10K+ concurrent users",
+      "description": "Designed and built core microservice architecture using Django, FastAPI, and PostgreSQL. Integrated Kafka for asynchronous processing and WebSockets for real-time communication, maintaining 99.9% uptime.",
+      "image": "/images/projects/mevrik-platform.jpg",
+      "category": "Backend Systems",
+      "featured": true,
+      "status": "Completed",
+      "startDate": "2021-11",
+      "endDate": "2023-07",
+      "technologies": [
+        { "name": "Django", "color": "#092e20" },
+        { "name": "FastAPI", "color": "#009688" },
+        { "name": "Kafka", "color": "#231f20" },
+        { "name": "WebSockets", "color": "#010101" },
+        { "name": "PostgreSQL", "color": "#336791" },
+        { "name": "Docker", "color": "#2496ed" }
+      ],
+      "architecture": {
+        "pattern": "Microservices with Event Sourcing",
+        "scale": "10K+ concurrent users, 10M+ conversations/month",
+        "infrastructure": "Dockerized on-premise deployment",
+        "messaging": "Kafka for async processing + WebSockets"
+      },
+      "impact": {
+        "uptime": "99.9% system availability",
+        "concurrency": "10,000+ simultaneous users",
+        "volume": "10M+ conversations processed monthly",
+        "automation": "Multi-tenant SaaS onboarding automation"
+      },
+      "context": "Customer care platform needed to handle high-concurrency chat systems with NLP integration while maintaining enterprise-grade reliability.",
+      "design_decisions": [
+        "Kafka over Redis for message durability in chat systems",
+        "WebSockets for low-latency real-time communication",
+        "Docker containerization for deployment consistency",
+        "Microservice separation by business domain"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    },
+    {
+      "id": "3",
+      "title": "Event-Driven Data Pipeline",
+      "shortDescription": "High-throughput data processing system with Redis Pub/Sub architecture",
+      "description": "Engineered scalable event-driven data pipeline for real-time ingestion from multiple sources. Implemented Redis Pub/Sub messaging, error handling, and monitoring for 24/7 operation.",
+      "image": "/images/projects/data-pipeline.jpg", 
+      "category": "Backend Systems",
+      "featured": false,
+      "status": "Completed",
+      "startDate": "2023-08",
+      "endDate": "2023-11",
+      "technologies": [
+        { "name": "Python", "color": "#3776ab" },
+        { "name": "Redis Pub/Sub", "color": "#dc382d" },
+        { "name": "FastAPI", "color": "#009688" },
+        { "name": "Docker", "color": "#2496ed" },
+        { "name": "Elasticsearch", "color": "#005571" }
+      ],
+      "architecture": {
+        "pattern": "Event-Driven Pipeline",
+        "scale": "10K+ events/second processing",
+        "infrastructure": "Containerized microservices",
+        "messaging": "Redis Pub/Sub with retry logic"
+      },
+      "impact": {
+        "throughput": "10,000+ events processed per second",
+        "latency": "Sub-100ms processing time",
+        "reliability": "99.95% availability with auto-recovery",
+        "monitoring": "Real-time pipeline health tracking"
+      },
+      "context": "Multi-source data ingestion system required real-time processing capabilities with fault tolerance and horizontal scaling.",
+      "design_decisions": [
+        "Redis Pub/Sub for low-latency message distribution",
+        "Circuit breaker pattern for downstream service protection",
+        "Dead letter queues for failed message handling",
+        "Prometheus metrics for observability"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    },
+    {
+      "id": "4",
+      "title": "Legacy System Migration to Serverless",
+      "shortDescription": "Modernized threading-based system to Azure Functions architecture",
+      "description": "Led migration of legacy threading-based system to serverless Azure Functions architecture. Achieved 40% cost reduction while improving scalability and maintainability through cloud-native design.",
+      "image": "/images/projects/serverless-migration.jpg",
+      "category": "Cloud Architecture", 
+      "featured": false,
+      "status": "Completed",
+      "startDate": "2023-10",
+      "endDate": "2024-02",
+      "technologies": [
+        { "name": "Azure Functions", "color": "#0078d4" },
+        { "name": "Python", "color": "#3776ab" },
+        { "name": "Docker", "color": "#2496ed" },
+        { "name": "CI/CD", "color": "#2088ff" },
+        { "name": "Azure Storage", "color": "#0078d4" }
+      ],
+      "architecture": {
+        "pattern": "Serverless + Event-Driven",
+        "scale": "Auto-scaling based on demand",
+        "infrastructure": "Azure Functions + Storage + Monitoring",
+        "deployment": "Infrastructure as Code with Terraform"
+      },
+      "impact": {
+        "cost_reduction": "40% infrastructure cost savings",
+        "scalability": "300% improved peak capacity handling",
+        "deployment": "90% faster deployment cycles",
+        "maintainability": "Simplified ops with managed services"
+      },
+      "context": "Legacy system with threading bottlenecks needed modernization for cloud-native scalability and cost efficiency.",
+      "design_decisions": [
+        "Azure Functions over VMs for variable workload optimization",
+        "Event-driven triggers replacing polling mechanisms", 
+        "Managed services to reduce operational overhead",
+        "Terraform for reproducible infrastructure"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    }
+  ],
+  "aiProjects": [
+    {
+      "id": "ai-1",
+      "title": "IR Tool (RAG Pipeline)",
+      "shortDescription": "AI application converting media into structured business content",
+      "description": "Architected LangChain-based RAG pipeline with Azure OpenAI integration for intelligent document processing. Converts audio/video content into actionable business insights with 95%+ accuracy.",
+      "image": "/images/projects/ir-tool-rag.jpg",
+      "category": "AI & LLM Systems",
+      "featured": true,
+      "status": "Completed", 
+      "startDate": "2025-03",
+      "endDate": "2025-06",
+      "technologies": [
+        { "name": "LangChain", "color": "#000000" },
+        { "name": "Azure OpenAI", "color": "#0078d4" },
+        { "name": "Azure Speech-to-Text", "color": "#0078d4" },
+        { "name": "Cosmos DB", "color": "#0078d4" },
+        { "name": "RAG", "color": "#ff6b6b" },
+        { "name": "Python", "color": "#3776ab" }
+      ],
+      "architecture": {
+        "pattern": "RAG (Retrieval-Augmented Generation)",
+        "scale": "Real-time media processing",
+        "infrastructure": "Azure Cognitive Services + Cosmos DB",
+        "ai_stack": "LangChain + Azure OpenAI GPT-4"
+      },
+      "impact": {
+        "efficiency": "60% reduction in manual report generation",
+        "accuracy": "95%+ content extraction accuracy",
+        "processing": "Real-time audio/video to structured data",
+        "automation": "End-to-end media intelligence pipeline"
+      },
+      "context": "Business intelligence teams needed automated way to extract insights from unstructured media content for decision-making.",
+      "design_decisions": [
+        "RAG over fine-tuning for dynamic knowledge updates",
+        "Azure services for enterprise compliance requirements",
+        "LangChain for flexible LLM orchestration",
+        "Vector embeddings in Cosmos DB for semantic search"
+      ],
+      "links": {
+        "live": null,
+        "github": null, 
+        "demo": null
+      }
+    }
+  ],
+  "categories": [
+    { "name": "All", "count": 4 },
+    { "name": "Backend Systems", "count": 3 },
+    { "name": "AI & LLM Systems", "count": 1 },
+    { "name": "Cloud Architecture", "count": 1 }
+  ]
+}
