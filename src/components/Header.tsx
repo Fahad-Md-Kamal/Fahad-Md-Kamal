@@ -64,7 +64,7 @@ export default function Header({ profile }: HeaderProps) {
               </button>
             ))}
             <a
-              href="/resume.pdf"
+              href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary font-mono"
@@ -118,7 +118,7 @@ export default function Header({ profile }: HeaderProps) {
                 </button>
               ))}
               <a
-                href="/resume.pdf"
+                href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary block text-center mt-4 font-mono"

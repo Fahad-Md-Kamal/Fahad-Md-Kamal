@@ -225,7 +225,7 @@ export default function Experience({ experience }: ExperienceProps) {
                   Get In Touch
                 </a>
                 <a 
-                  href="/resume.pdf"
+                  href="/images/fahad-md-kamal.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary"
