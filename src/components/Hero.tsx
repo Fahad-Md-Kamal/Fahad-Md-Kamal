@@ -36,13 +36,6 @@ export default function Hero({ profile }: HeroProps) {
     return () => clearTimeout(timer)
   }, [displayedText, currentIndex, isDeleting, techStack])
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   const scrollToProjects = () => {
     const element = document.getElementById('projects')
     if (element) {
