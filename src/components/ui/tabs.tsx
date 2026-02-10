@@ -1,53 +1,93 @@
 import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
-
 import { cn } from "@/lib/utils"
 
-const Tabs = TabsPrimitive.Root
+interface TabsContextValue {
+  value: string
+  setValue: (v: string) => void
+}
 
-const TabsList = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.List
-    ref={ref}
-    className={cn(
-      "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
-      className
-    )}
-    {...props}
-  />
-))
-TabsList.displayName = TabsPrimitive.List.displayName
+const TabsContext = React.createContext<TabsContextValue | null>(null)
 
-const TabsTrigger = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow",
-      className
-    )}
-    {...props}
-  />
-))
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
+interface TabsProps {
+  children: React.ReactNode
+  className?: string
+  defaultValue: string
+}
 
-const TabsContent = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Content
-    ref={ref}
-    className={cn(
-      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      className
-    )}
-    {...props}
-  />
-))
-TabsContent.displayName = TabsPrimitive.Content.displayName
+export const Tabs = ({ children, className, defaultValue }: TabsProps) => {
+  const [value, setValue] = React.useState(defaultValue)
+  return (
+    <TabsContext.Provider value={{ value, setValue }}>
+      <div className={cn(className)}>{children}</div>
+    </TabsContext.Provider>
+  )
+}
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+export const TabsList = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <div role="tablist" className={cn("flex gap-2", className)}>
+    {children}
+  </div>
+)
+
+export const TabsTrigger = ({
+  children,
+  className,
+  value,
+}: {
+  children: React.ReactNode
+  className?: string
+  value: string
+}) => {
+  const ctx = React.useContext(TabsContext)
+  if (!ctx) {
+    return <button className={cn("px-3 py-1 rounded border", className)}>{children}</button>
+  }
+
+  const active = ctx.value === value
+  return (
+    <button
+      role="tab"
+      aria-selected={active}
+      aria-controls={`tab-${value}`}
+      onClick={() => ctx.setValue(value)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          ctx.setValue(value)
+        }
+      }}
+      className={cn(
+        "px-3 py-1 rounded border transition-colors focus:outline-none focus:ring-2 focus:ring-primary/60",
+        active ? "border-primary text-primary bg-primary/10" : "border-border text-foreground",
+        className
+      )}
+      aria-pressed={active}
+      type="button"
+    >
+      {children}
+    </button>
+  )
+}
+
+export const TabsContent = ({
+  children,
+  className,
+  value,
+}: {
+  children: React.ReactNode
+  className?: string
+  value: string
+}) => {
+  const ctx = React.useContext(TabsContext)
+  const hidden = ctx ? ctx.value !== value : false
+  return (
+    <div
+      role="tabpanel"
+      id={`tab-${value}`}
+      aria-hidden={hidden}
+      className={cn(hidden && "hidden", className)}
+    >
+      {children}
+    </div>
+  )
+}

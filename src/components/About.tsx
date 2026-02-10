@@ -1,23 +1,22 @@
 import type { Profile } from '../types'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { MapPin, Mail } from 'lucide-react'
 
 interface AboutProps {
   profile: Profile
+  projectCount: number
 }
 
-export default function About({ profile }: AboutProps) {
-  const [projectsData, setProjectsData] = useState<any>(null)
-  
-  useEffect(() => {
-    // Load projects data to count systems built
-    import('../data/projects.json').then(data => {
-      setProjectsData(data)
-    })
-  }, [])
+export default function About({ profile, projectCount }: AboutProps) {
+  const [avatarError, setAvatarError] = useState(false)
+  const resolveAsset = (path: string) => {
+    if (!path) return path
+    if (path.startsWith('http')) return path
+    const base = import.meta.env.BASE_URL || '/'
+    return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+  }
   
   // Calculate years of experience dynamically
   const calculateYearsExperience = () => {
@@ -30,13 +29,7 @@ export default function About({ profile }: AboutProps) {
     return years >= 5 ? `${years}+` : `${years}+`
   }
   
-  // Calculate systems built from projects
-  const calculateSystemsBuilt = () => {
-    if (!projectsData) return '5+'
-    
-    const totalProjects = (projectsData.projects?.length || 0) + (projectsData.aiProjects?.length || 0)
-    return `${totalProjects}+`
-  }
+  const calculateSystemsBuilt = () => `${projectCount}+`
 
   const stats = [
     { label: 'Years Experience', value: calculateYearsExperience() },
@@ -64,8 +57,14 @@ export default function About({ profile }: AboutProps) {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4">
                     <Avatar className="w-12 h-12">
-                      <AvatarImage src={profile.avatar} alt={profile.name} />
-                      <AvatarFallback className="bg-primary/20 text-primary font-mono text-sm font-bold">
+                      <AvatarImage 
+                        src={resolveAsset(profile.avatar)} 
+                        alt={profile.name} 
+                        referrerPolicy="no-referrer"
+                        onError={() => setAvatarError(true)}
+                        style={avatarError ? { display: 'none' } : undefined}
+                      />
+                      <AvatarFallback className={`bg-primary/20 text-primary font-mono text-sm font-bold ${avatarError ? '' : 'hidden'}`}>
                         {profile.name.split(' ').map(n => n[0]).join('')}
                       </AvatarFallback>
                     </Avatar>
@@ -163,7 +162,7 @@ export default function About({ profile }: AboutProps) {
                 <CardContent className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-surface border border-gray-800 rounded flex items-center justify-center">
-                      <MapPin className="w-4 h-4 text-primary" />
+                      <span className="text-primary text-lg">📍</span>
                     </div>
                     <div>
                       <p className="text-xs text-text-secondary font-mono">Location</p>
@@ -173,7 +172,7 @@ export default function About({ profile }: AboutProps) {
                   
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-surface border border-gray-800 rounded flex items-center justify-center">
-                      <Mail className="w-4 h-4 text-primary" />
+                      <span className="text-primary text-lg">✉️</span>
                     </div>
                     <div>
                       <p className="text-xs text-text-secondary font-mono">Email</p>

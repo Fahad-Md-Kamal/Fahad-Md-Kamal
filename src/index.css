@@ -83,4 +83,26 @@
   .section-title {
     @apply text-2xl sm:text-3xl font-display font-semibold text-primary mb-8;
   }
+
+  .markdown-content {
+    @apply max-w-none text-text-secondary leading-relaxed;
+  }
+  .markdown-content h1,
+  .markdown-content h2,
+  .markdown-content h3 {
+    @apply text-text-primary mt-6 mb-3;
+  }
+  .markdown-content p,
+  .markdown-content ul {
+    @apply text-text-secondary leading-relaxed mb-4;
+  }
+  .markdown-content ul {
+    @apply list-disc list-inside space-y-1;
+  }
+  .markdown-content code {
+    @apply bg-surface px-1 rounded text-primary text-sm;
+  }
+  .markdown-content pre code {
+    @apply block p-4 rounded-lg border border-gray-800 overflow-x-auto;
+  }
 }

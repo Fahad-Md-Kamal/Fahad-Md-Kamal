@@ -1,6 +1,68 @@
 {
   "projects": [
     {
+      "id": "5",
+      "title": "Zenrin Customer Viewer",
+      "shortDescription": "Global web-map solution providing advanced location services with geospatial data analysis",
+      "description": "Lead Backend Engineer for a global web-map solution with PostGIS backend. Developed map-based platform with geospatial data analysis and business insight generation for regional similarity analysis.",
+      "image": "images/projects/zenrin-viewer.jpg",
+      "category": "Backend Systems",
+      "featured": true,
+      "status": "In Progress",
+      "startDate": "2025-05",
+      "endDate": null,
+      "technologies": [
+        {
+          "name": "PostGIS",
+          "color": "#336791"
+        },
+        {
+          "name": "Python",
+          "color": "#3776ab"
+        },
+        {
+          "name": "FastAPI",
+          "color": "#009688"
+        },
+        {
+          "name": "Geospatial Analysis",
+          "color": "#2e8b57"
+        },
+        {
+          "name": "PostgreSQL",
+          "color": "#336791"
+        },
+        {
+          "name": "Docker",
+          "color": "#2496ed"
+        }
+      ],
+      "architecture": {
+        "pattern": "Geospatial Microservices",
+        "scale": "Global location data processing",
+        "infrastructure": "PostGIS + FastAPI + Docker",
+        "geospatial": "Advanced spatial queries and analysis"
+      },
+      "impact": {
+        "coverage": "Global web-map solution",
+        "insights": "Regional business similarity analysis",
+        "performance": "Optimized geospatial data processing",
+        "scalability": "Multi-region deployment capability"
+      },
+      "context": "Global mapping service requiring advanced geospatial analysis capabilities for business intelligence and location-based insights.",
+      "design_decisions": [
+        "PostGIS for advanced geospatial operations",
+        "FastAPI for high-performance API endpoints",
+        "Docker for consistent deployment across regions",
+        "Microservices for scalable map data processing"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    },
+    {
       "id": "1",
       "title": "CyRisk Insight Engine",
       "shortDescription": "Cybersecurity platform for large-scale threat intelligence analysis",
@@ -12,12 +74,30 @@
       "startDate": "2023-07",
       "endDate": "2024-08",
       "technologies": [
-        { "name": "Django REST", "color": "#092e20" },
-        { "name": "FastAPI", "color": "#009688" },
-        { "name": "Redis Pub/Sub", "color": "#dc382d" },
-        { "name": "Elasticsearch", "color": "#005571" },
-        { "name": "AWS Lambda", "color": "#ff9900" },
-        { "name": "PostgreSQL", "color": "#336791" }
+        {
+          "name": "Django REST",
+          "color": "#092e20"
+        },
+        {
+          "name": "FastAPI",
+          "color": "#009688"
+        },
+        {
+          "name": "Redis Pub/Sub",
+          "color": "#dc382d"
+        },
+        {
+          "name": "Elasticsearch",
+          "color": "#005571"
+        },
+        {
+          "name": "AWS Lambda",
+          "color": "#ff9900"
+        },
+        {
+          "name": "PostgreSQL",
+          "color": "#336791"
+        }
       ],
       "architecture": {
         "pattern": "Event-Driven Microservices",
@@ -27,7 +107,7 @@
       },
       "impact": {
         "latency": "40% reduction in data latency",
-        "performance": "35% improved API response time", 
+        "performance": "35% improved API response time",
         "throughput": "Real-time processing of threat intelligence",
         "scale": "Multi-tenant SaaS platform"
       },
@@ -45,7 +125,70 @@
       }
     },
     {
-      "id": "2", 
+      "id": "6",
+      "title": "Mevrik Agent Dashboard",
+      "shortDescription": "SaaS Agent Dashboard serving Grameenphone's 83M+ customer base with 300+ daily agents",
+      "description": "Developed SaaS-based Agent Dashboard currently serving Grameenphone's 83.02 million customer base. Automated task distribution system with business rules and massive performance optimizations.",
+      "image": "images/projects/mevrik-dashboard.jpg",
+      "category": "Backend Systems",
+      "featured": true,
+      "status": "Completed",
+      "startDate": "2021-12",
+      "endDate": "2022-05",
+      "technologies": [
+        {
+          "name": "Django",
+          "color": "#092e20"
+        },
+        {
+          "name": "Celery",
+          "color": "#37b24d"
+        },
+        {
+          "name": "PostgreSQL",
+          "color": "#336791"
+        },
+        {
+          "name": "Redis",
+          "color": "#dc382d"
+        },
+        {
+          "name": "AWS",
+          "color": "#ff9900"
+        },
+        {
+          "name": "Docker",
+          "color": "#2496ed"
+        }
+      ],
+      "architecture": {
+        "pattern": "SaaS Multi-Tenant Dashboard",
+        "scale": "83M+ customers, 300+ daily agents",
+        "infrastructure": "Django + PostgreSQL + Redis + AWS",
+        "distribution": "Automated task distribution with business rules"
+      },
+      "impact": {
+        "scale": "Serves 83.02 million Grameenphone customers",
+        "agents": "300+ agents using platform daily",
+        "latency": "Reduced response time from 5s to 150ms",
+        "performance": "75% overall project performance improvement",
+        "infrastructure": "40% deployment infrastructure optimization"
+      },
+      "context": "Major telecom company needed scalable agent dashboard to manage customer service operations for massive user base.",
+      "design_decisions": [
+        "Multi-tenant SaaS architecture for scalability",
+        "Automated task distribution for efficiency",
+        "Redis caching for performance optimization",
+        "PostgreSQL for complex business rule processing"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    },
+    {
+      "id": "2",
       "title": "Mevrik Digital Customer Experience Platform",
       "shortDescription": "Backend architecture for AI-driven customer care supporting 10K+ concurrent users",
       "description": "Designed and built core microservice architecture using Django, FastAPI, and PostgreSQL. Integrated Kafka for asynchronous processing and WebSockets for real-time communication, maintaining 99.9% uptime.",
@@ -56,12 +199,30 @@
       "startDate": "2021-11",
       "endDate": "2023-07",
       "technologies": [
-        { "name": "Django", "color": "#092e20" },
-        { "name": "FastAPI", "color": "#009688" },
-        { "name": "Kafka", "color": "#231f20" },
-        { "name": "WebSockets", "color": "#010101" },
-        { "name": "PostgreSQL", "color": "#336791" },
-        { "name": "Docker", "color": "#2496ed" }
+        {
+          "name": "Django",
+          "color": "#092e20"
+        },
+        {
+          "name": "FastAPI",
+          "color": "#009688"
+        },
+        {
+          "name": "Kafka",
+          "color": "#231f20"
+        },
+        {
+          "name": "WebSockets",
+          "color": "#010101"
+        },
+        {
+          "name": "PostgreSQL",
+          "color": "#336791"
+        },
+        {
+          "name": "Docker",
+          "color": "#2496ed"
+        }
       ],
       "architecture": {
         "pattern": "Microservices with Event Sourcing",
@@ -93,18 +254,33 @@
       "title": "Event-Driven Data Pipeline",
       "shortDescription": "High-throughput data processing system with Redis Pub/Sub architecture",
       "description": "Engineered scalable event-driven data pipeline for real-time ingestion from multiple sources. Implemented Redis Pub/Sub messaging, error handling, and monitoring for 24/7 operation.",
-      "image": "images/projects/data-pipeline.jpg", 
+      "image": "images/projects/data-pipeline.jpg",
       "category": "Backend Systems",
       "featured": false,
       "status": "Completed",
       "startDate": "2023-08",
       "endDate": "2023-11",
       "technologies": [
-        { "name": "Python", "color": "#3776ab" },
-        { "name": "Redis Pub/Sub", "color": "#dc382d" },
-        { "name": "FastAPI", "color": "#009688" },
-        { "name": "Docker", "color": "#2496ed" },
-        { "name": "Elasticsearch", "color": "#005571" }
+        {
+          "name": "Python",
+          "color": "#3776ab"
+        },
+        {
+          "name": "Redis Pub/Sub",
+          "color": "#dc382d"
+        },
+        {
+          "name": "FastAPI",
+          "color": "#009688"
+        },
+        {
+          "name": "Docker",
+          "color": "#2496ed"
+        },
+        {
+          "name": "Elasticsearch",
+          "color": "#005571"
+        }
       ],
       "architecture": {
         "pattern": "Event-Driven Pipeline",
@@ -137,17 +313,32 @@
       "shortDescription": "Modernized threading-based system to Azure Functions architecture",
       "description": "Led migration of legacy threading-based system to serverless Azure Functions architecture. Achieved 40% cost reduction while improving scalability and maintainability through cloud-native design.",
       "image": "images/projects/serverless-migration.jpg",
-      "category": "Cloud Architecture", 
+      "category": "Cloud Architecture",
       "featured": false,
       "status": "Completed",
       "startDate": "2023-10",
       "endDate": "2024-02",
       "technologies": [
-        { "name": "Azure Functions", "color": "#0078d4" },
-        { "name": "Python", "color": "#3776ab" },
-        { "name": "Docker", "color": "#2496ed" },
-        { "name": "CI/CD", "color": "#2088ff" },
-        { "name": "Azure Storage", "color": "#0078d4" }
+        {
+          "name": "Azure Functions",
+          "color": "#0078d4"
+        },
+        {
+          "name": "Python",
+          "color": "#3776ab"
+        },
+        {
+          "name": "Docker",
+          "color": "#2496ed"
+        },
+        {
+          "name": "CI/CD",
+          "color": "#2088ff"
+        },
+        {
+          "name": "Azure Storage",
+          "color": "#0078d4"
+        }
       ],
       "architecture": {
         "pattern": "Serverless + Event-Driven",
@@ -164,98 +355,9 @@
       "context": "Legacy system with threading bottlenecks needed modernization for cloud-native scalability and cost efficiency.",
       "design_decisions": [
         "Azure Functions over VMs for variable workload optimization",
-        "Event-driven triggers replacing polling mechanisms", 
+        "Event-driven triggers replacing polling mechanisms",
         "Managed services to reduce operational overhead",
         "Terraform for reproducible infrastructure"
-      ],
-      "links": {
-        "live": null,
-        "github": null,
-        "demo": null
-      }
-    },
-    {
-      "id": "5",
-      "title": "Zenrin Customer Viewer",
-      "shortDescription": "Global web-map solution providing advanced location services with geospatial data analysis",
-      "description": "Lead Backend Engineer for a global web-map solution with PostGIS backend. Developed map-based platform with geospatial data analysis and business insight generation for regional similarity analysis.",
-      "image": "images/projects/zenrin-viewer.jpg", 
-      "category": "Backend Systems",
-      "featured": true,
-      "status": "In Progress",
-      "startDate": "2025-05",
-      "endDate": null,
-      "technologies": [
-        { "name": "PostGIS", "color": "#336791" },
-        { "name": "Python", "color": "#3776ab" },
-        { "name": "FastAPI", "color": "#009688" },
-        { "name": "Geospatial Analysis", "color": "#2e8b57" },
-        { "name": "PostgreSQL", "color": "#336791" },
-        { "name": "Docker", "color": "#2496ed" }
-      ],
-      "architecture": {
-        "pattern": "Geospatial Microservices",
-        "scale": "Global location data processing",
-        "infrastructure": "PostGIS + FastAPI + Docker",
-        "geospatial": "Advanced spatial queries and analysis"
-      },
-      "impact": {
-        "coverage": "Global web-map solution",
-        "insights": "Regional business similarity analysis",
-        "performance": "Optimized geospatial data processing",
-        "scalability": "Multi-region deployment capability"
-      },
-      "context": "Global mapping service requiring advanced geospatial analysis capabilities for business intelligence and location-based insights.",
-      "design_decisions": [
-        "PostGIS for advanced geospatial operations",
-        "FastAPI for high-performance API endpoints",
-        "Docker for consistent deployment across regions",
-        "Microservices for scalable map data processing"
-      ],
-      "links": {
-        "live": null,
-        "github": null,
-        "demo": null
-      }
-    },
-    {
-      "id": "6",
-      "title": "Mevrik Agent Dashboard",
-      "shortDescription": "SaaS Agent Dashboard serving Grameenphone's 83M+ customer base with 300+ daily agents",
-      "description": "Developed SaaS-based Agent Dashboard currently serving Grameenphone's 83.02 million customer base. Automated task distribution system with business rules and massive performance optimizations.",
-      "image": "images/projects/mevrik-dashboard.jpg",
-      "category": "Backend Systems",
-      "featured": true,
-      "status": "Completed", 
-      "startDate": "2021-12",
-      "endDate": "2022-05",
-      "technologies": [
-        { "name": "Django", "color": "#092e20" },
-        { "name": "Celery", "color": "#37b24d" },
-        { "name": "PostgreSQL", "color": "#336791" },
-        { "name": "Redis", "color": "#dc382d" },
-        { "name": "AWS", "color": "#ff9900" },
-        { "name": "Docker", "color": "#2496ed" }
-      ],
-      "architecture": {
-        "pattern": "SaaS Multi-Tenant Dashboard",
-        "scale": "83M+ customers, 300+ daily agents",
-        "infrastructure": "Django + PostgreSQL + Redis + AWS",
-        "distribution": "Automated task distribution with business rules"
-      },
-      "impact": {
-        "scale": "Serves 83.02 million Grameenphone customers",
-        "agents": "300+ agents using platform daily",
-        "latency": "Reduced response time from 5s to 150ms",
-        "performance": "75% overall project performance improvement",
-        "infrastructure": "40% deployment infrastructure optimization"
-      },
-      "context": "Major telecom company needed scalable agent dashboard to manage customer service operations for massive user base.",
-      "design_decisions": [
-        "Multi-tenant SaaS architecture for scalability",
-        "Automated task distribution for efficiency", 
-        "Redis caching for performance optimization",
-        "PostgreSQL for complex business rule processing"
       ],
       "links": {
         "live": null,
@@ -272,24 +374,39 @@
       "category": "Healthcare Systems",
       "featured": false,
       "status": "Completed",
-      "startDate": "2019-09", 
+      "startDate": "2019-09",
       "endDate": "2020-04",
       "technologies": [
-        { "name": "Django REST", "color": "#092e20" },
-        { "name": "Flutter", "color": "#02569b" },
-        { "name": "PostgreSQL", "color": "#336791" },
-        { "name": "AWS EC2", "color": "#ff9900" },
-        { "name": "AWS RDS", "color": "#ff9900" }
+        {
+          "name": "Django REST",
+          "color": "#092e20"
+        },
+        {
+          "name": "Flutter",
+          "color": "#02569b"
+        },
+        {
+          "name": "PostgreSQL",
+          "color": "#336791"
+        },
+        {
+          "name": "AWS EC2",
+          "color": "#ff9900"
+        },
+        {
+          "name": "AWS RDS",
+          "color": "#ff9900"
+        }
       ],
       "architecture": {
-        "pattern": "Mobile-First Healthcare Platform", 
+        "pattern": "Mobile-First Healthcare Platform",
         "scale": "Maternal health tracking and consultations",
         "infrastructure": "Django REST + Flutter + AWS EC2/RDS",
         "features": "Appointments, reports, nutrition tracking"
       },
       "impact": {
         "healthcare": "Comprehensive maternal health solution",
-        "mobile": "Cross-platform Flutter mobile app", 
+        "mobile": "Cross-platform Flutter mobile app",
         "features": "Doctor consultations and health tracking",
         "deployment": "Secure AWS cloud deployment"
       },
@@ -316,16 +433,34 @@
       "image": "images/projects/ir-tool-rag.jpg",
       "category": "AI & LLM Systems",
       "featured": true,
-      "status": "Completed", 
+      "status": "Completed",
       "startDate": "2025-03",
       "endDate": "2025-06",
       "technologies": [
-        { "name": "LangChain", "color": "#000000" },
-        { "name": "Azure OpenAI", "color": "#0078d4" },
-        { "name": "Azure Speech-to-Text", "color": "#0078d4" },
-        { "name": "Cosmos DB", "color": "#0078d4" },
-        { "name": "RAG", "color": "#ff6b6b" },
-        { "name": "Python", "color": "#3776ab" }
+        {
+          "name": "LangChain",
+          "color": "#000000"
+        },
+        {
+          "name": "Azure OpenAI",
+          "color": "#0078d4"
+        },
+        {
+          "name": "Azure Speech-to-Text",
+          "color": "#0078d4"
+        },
+        {
+          "name": "Cosmos DB",
+          "color": "#0078d4"
+        },
+        {
+          "name": "RAG",
+          "color": "#ff6b6b"
+        },
+        {
+          "name": "Python",
+          "color": "#3776ab"
+        }
       ],
       "architecture": {
         "pattern": "RAG (Retrieval-Augmented Generation)",
@@ -354,10 +489,25 @@
     }
   ],
   "categories": [
-    { "name": "All", "count": 8 },
-    { "name": "Backend Systems", "count": 5 },
-    { "name": "AI & LLM Systems", "count": 1 },
-    { "name": "Cloud Architecture", "count": 1 },
-    { "name": "Healthcare Systems", "count": 1 }
+    {
+      "name": "All",
+      "count": 8
+    },
+    {
+      "name": "Backend Systems",
+      "count": 5
+    },
+    {
+      "name": "AI & LLM Systems",
+      "count": 1
+    },
+    {
+      "name": "Cloud Architecture",
+      "count": 1
+    },
+    {
+      "name": "Healthcare Systems",
+      "count": 1
+    }
   ]
 }

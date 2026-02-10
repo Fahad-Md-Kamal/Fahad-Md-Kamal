@@ -8,6 +8,7 @@ import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import Blogs from './components/Blogs'
 
 // Import data
 import profileData from './data/profile.json'
@@ -25,6 +26,8 @@ function App() {
   const skills = skillsData as SkillsData
   const experience = experienceData as ExperienceData
   const projects = projectsData as ProjectsData
+
+  const totalProjects = (projects.projects?.length || 0) + (projects.aiProjects?.length || 0)
 
   useEffect(() => {
     // Simulate loading time for smooth experience
@@ -62,11 +65,12 @@ function App() {
       <Header profile={profile} />
       
       <main>
-        <Hero profile={profile} />
-        <About profile={profile} />
+        <Hero profile={profile} projectCount={totalProjects} />
+        <About profile={profile} projectCount={totalProjects} />
         <Skills skills={skills} />
         <Projects projects={projects} />
-        <Experience experience={experience} />
+        <Experience experience={experience} profile={profile} />
+        <Blogs />
         <Contact profile={profile} />
       </main>
       

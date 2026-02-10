@@ -4,27 +4,27 @@ import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
-import { Github, Linkedin, Twitter, Mail, MapPin, ExternalLink, Download } from 'lucide-react'
-
 interface HeroProps {
   profile: Profile
+  projectCount: number
 }
 
-export default function Hero({ profile }: HeroProps) {
+export default function Hero({ profile, projectCount }: HeroProps) {
   const [displayedText, setDisplayedText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
-  const [projectsData, setProjectsData] = useState<any>(null)
+  const [avatarError, setAvatarError] = useState(false)
+  
+  const resolveAsset = (path: string) => {
+    if (!path) return path
+    if (path.startsWith('http')) return path
+    const base = import.meta.env.BASE_URL || '/'
+    return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+  }
+  const avatarSrc = resolveAsset(profile.avatar)
   
   const techStack = ['Python • FastAPI • Django', 'TypeScript • React • Node.js', 'AWS • Azure • Docker', 'LangChain • RAG • LLMs']
 
-  useEffect(() => {
-    // Load projects data to count systems built
-    import('../data/projects.json').then(data => {
-      setProjectsData(data)
-    })
-  }, [])
-  
   // Calculate years of experience dynamically
   const calculateYearsExperience = () => {
     if (!profile.career?.startDate) return '5+'
@@ -37,12 +37,7 @@ export default function Hero({ profile }: HeroProps) {
   }
   
   // Calculate systems built from projects
-  const calculateSystemsBuilt = () => {
-    if (!projectsData) return '5+'
-    
-    const totalProjects = (projectsData.projects?.length || 0) + (projectsData.aiProjects?.length || 0)
-    return `${totalProjects}+`
-  }
+  const calculateSystemsBuilt = () => `${projectCount}+`
 
   useEffect(() => {
     const currentTech = techStack[currentIndex]
@@ -84,11 +79,13 @@ export default function Hero({ profile }: HeroProps) {
             <div className="relative">
               <Avatar className="w-24 h-24 sm:w-32 sm:h-32 border-4 border-gray-800 shadow-lg">
                 <AvatarImage 
-                  src={profile.avatar} 
+                  src={avatarSrc} 
                   alt={profile.name}
                   className="object-cover"
+                  onError={() => setAvatarError(true)}
+                  style={avatarError ? { display: 'none' } : undefined}
                 />
-                <AvatarFallback className="bg-primary text-white text-2xl sm:text-4xl font-bold">
+                <AvatarFallback className={`bg-primary text-white text-2xl sm:text-4xl font-bold ${avatarError ? '' : 'hidden'}`}>
                   {profile.name.split(' ').map(n => n[0]).join('')}
                 </AvatarFallback>
               </Avatar>
@@ -159,69 +156,76 @@ export default function Hero({ profile }: HeroProps) {
               size="lg"
               className="font-mono px-6 sm:px-8 py-3 bg-primary hover:bg-primary/80 w-full sm:w-auto"
             >
-              <ExternalLink className="w-4 h-4 mr-2" />
-              View Systems
+              View Systems ↗
             </Button>
             <Button
               asChild
+              href={profile.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               variant="outline"
               size="lg"
               className="font-mono px-6 sm:px-8 py-3 border-gray-800 hover:bg-surface/80 w-full sm:w-auto"
             >
-              <a
-                href={profile.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                View Resume
-              </a>
+              View Resume ↓
             </Button>
           </div>
 
           {/* Professional Links */}
           <div className="flex justify-center flex-wrap gap-4 sm:gap-6 mb-8 sm:mb-12 animate-fade-in px-4" style={{ animationDelay: '0.6s' }}>
-            <Button variant="ghost" size="sm" asChild className="text-text-secondary hover:text-primary font-mono text-xs sm:text-sm">
-              <a
-                href={profile.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 sm:gap-2"
-              >
-                <Github className="w-3 h-3 sm:w-4 sm:h-4" />
+            <Button
+              variant="ghost"
+              size="sm"
+              asChild
+              href={profile.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary hover:text-primary font-mono text-xs sm:text-sm"
+            >
+              <span className="flex items-center gap-1 sm:gap-2">
+                <span className="text-sm">🐙</span>
                 <span className="hidden sm:inline">GitHub</span>
-              </a>
+              </span>
             </Button>
-            <Button variant="ghost" size="sm" asChild className="text-text-secondary hover:text-primary font-mono text-xs sm:text-sm">
-              <a
-                href={profile.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 sm:gap-2"
-              >
-                <Linkedin className="w-3 h-3 sm:w-4 sm:h-4" />
+            <Button
+              variant="ghost"
+              size="sm"
+              asChild
+              href={profile.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary hover:text-primary font-mono text-xs sm:text-sm"
+            >
+              <span className="flex items-center gap-1 sm:gap-2">
+                <span className="text-sm">🔗</span>
                 <span className="hidden sm:inline">LinkedIn</span>
-              </a>
+              </span>
             </Button>
-            <Button variant="ghost" size="sm" asChild className="text-text-secondary hover:text-primary font-mono text-xs sm:text-sm">
-              <a
-                href={profile.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 sm:gap-2"
-              >
-                <Twitter className="w-3 h-3 sm:w-4 sm:h-4" />
+            <Button
+              variant="ghost"
+              size="sm"
+              asChild
+              href={profile.social.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary hover:text-primary font-mono text-xs sm:text-sm"
+            >
+              <span className="flex items-center gap-1 sm:gap-2">
+                <span className="text-sm">✖️</span>
                 <span className="hidden sm:inline">X (Twitter)</span>
-              </a>
+              </span>
             </Button>
-            <Button variant="ghost" size="sm" asChild className="text-text-secondary hover:text-primary font-mono text-xs sm:text-sm">
-              <a
-                href={`mailto:${profile.contact.email}`}
-                className="flex items-center gap-1 sm:gap-2"
-              >
-                <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
+            <Button
+              variant="ghost"
+              size="sm"
+              asChild
+              href={`mailto:${profile.contact.email}`}
+              className="text-text-secondary hover:text-primary font-mono text-xs sm:text-sm"
+            >
+              <span className="flex items-center gap-1 sm:gap-2">
+                <span className="text-sm">✉️</span>
                 <span className="hidden sm:inline">Email</span>
-              </a>
+              </span>
             </Button>
           </div>
 
@@ -229,7 +233,7 @@ export default function Hero({ profile }: HeroProps) {
           <div className="text-center animate-fade-in px-4" style={{ animationDelay: '0.8s' }}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-text-secondary text-xs sm:text-sm font-mono">
               <Badge variant="secondary" className="flex items-center gap-2">
-                <MapPin className="w-3 h-3" />
+                <span className="text-sm">📍</span>
                 {profile.contact.location}
               </Badge>
               {profile.availability.status === 'open' && (

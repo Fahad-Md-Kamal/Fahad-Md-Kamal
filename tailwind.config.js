@@ -143,5 +143,6 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  // Keep plugins list empty to avoid requiring packages that aren't installed in this static build.
+  plugins: [],
 }

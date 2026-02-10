@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react'
-import type { ExperienceData, Experience } from '../types'
+import type { ExperienceData, Experience, Profile } from '../types'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { CalendarDays, MapPin, ExternalLink, Download, CheckCircle } from 'lucide-react'
 
 interface ExperienceProps {
   experience: ExperienceData
+  profile: Profile
 }
 
 interface ExperienceCardProps {
@@ -77,21 +76,20 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
                   </h3>
                   <div className="flex items-center gap-3 mb-3">
                     {experience.website ? (
-                      <Button variant="link" className="p-0 h-auto text-primary font-medium hover:underline" asChild>
-                        <a 
-                          href={experience.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {experience.company}
-                          <ExternalLink className="w-3 h-3 ml-1" />
-                        </a>
+                      <Button 
+                        variant="link" 
+                        className="p-0 h-auto text-primary font-medium hover:underline"
+                        asChild
+                        href={experience.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {experience.company} ↗
                       </Button>
                     ) : (
                       <span className="text-primary font-medium">{experience.company}</span>
                     )}
                     <Badge variant="outline" className="flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />
                       {experience.location}
                     </Badge>
                   </div>
@@ -99,7 +97,6 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
                 
                 <div className="text-right">
                   <Badge variant="secondary" className="flex items-center gap-2 mb-2">
-                    <CalendarDays className="w-3 h-3" />
                     <span>{formatDate(experience.startDate)} - {formatDate(experience.endDate)}</span>
                   </Badge>
                   <div className="text-sm text-muted-foreground">
@@ -133,7 +130,7 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
             <ul className="space-y-3">
               {experience.highlights.map((highlight, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-primary mt-0.5">•</span>
                   <span className="text-muted-foreground text-sm leading-relaxed">{highlight}</span>
                 </li>
               ))}
@@ -157,21 +154,13 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
   )
 }
 
-export default function Experience({ experience }: ExperienceProps) {
-  const [profileData, setProfileData] = useState<any>(null)
-  
-  useEffect(() => {
-    // Load profile data to get resumeUrl and calculate years experience
-    import('../data/profile.json').then(data => {
-      setProfileData(data)
-    })
-  }, [])
+export default function Experience({ experience, profile }: ExperienceProps) {
   
   // Calculate years of experience from career start date (consistent with Hero and About)
   const calculateYearsExperience = () => {
-    if (!profileData?.career?.startDate) return '7+'
+    if (!profile?.career?.startDate) return '7+'
     
-    const startDate = new Date(profileData.career.startDate)
+    const startDate = new Date(profile.career.startDate)
     const today = new Date()
     const years = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25))
     
@@ -247,15 +236,11 @@ export default function Experience({ experience }: ExperienceProps) {
                     variant="outline" 
                     size="lg"
                     asChild
+                    href={profile?.resumeUrl || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <a 
-                      href={profileData?.resumeUrl || "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      Download Resume
-                    </a>
+                    Download Resume
                   </Button>
                 </div>
               </CardContent>

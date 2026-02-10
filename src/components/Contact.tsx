@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import emailjs from '@emailjs/browser'
+import { useState } from 'react'
 import type { Profile } from '../types'
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -7,13 +6,19 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
-import { Mail, Github, Linkedin, ExternalLink, Send, CheckCircle, AlertCircle } from 'lucide-react'
 
 interface ContactProps {
   profile: Profile
 }
 
 export default function Contact({ profile }: ContactProps) {
+  const resolveAsset = (path: string) => {
+    if (!path) return path
+    if (path.startsWith('http')) return path
+    const base = import.meta.env.BASE_URL || '/'
+    return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+  }
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,12 +29,6 @@ export default function Contact({ profile }: ContactProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [statusMessage, setStatusMessage] = useState('')
-
-  // Initialize EmailJS
-  useEffect(() => {
-    // Initialize EmailJS with hardcoded public key for GitHub Pages deployment
-    emailjs.init('IR-wrW93sA93wgG8f')
-  }, [])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -42,71 +41,40 @@ export default function Contact({ profile }: ContactProps) {
     setSubmitStatus('idle')
     setStatusMessage('')
 
-    try {
-      // EmailJS template parameters
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_name: profile.name,
-        email: formData.email,  // Additional email field for template compatibility
-        name: formData.name,    // Additional name field for template compatibility
-      }
+    const emailBody = `Name: ${formData.name}\\nEmail: ${formData.email}\\n\\nMessage:\\n${formData.message}`
+    const mailtoLink = `mailto:${profile.contact?.email || profile.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`
 
-      // Send email using EmailJS with hardcoded values for GitHub Pages
-      const response = await emailjs.send(
-        'service_uu5md37',     // Service ID
-        'template_dcinglc',    // Template ID
-        templateParams
-      )
+    // Open the user's email client with a pre-filled message
+    window.location.href = mailtoLink
 
-      console.log('Email sent successfully:', response)
-      setSubmitStatus('success')
-      setStatusMessage('Message sent successfully! I\'ll get back to you within 24 hours.')
-      
-      // Reset form after successful submission
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      
-    } catch (error) {
-      console.error('Email send failed:', error)
-      
-      // Fallback to mailto on EmailJS failure
-      const emailBody = `Name: ${formData.name}\\nEmail: ${formData.email}\\n\\nMessage:\\n${formData.message}`
-      const mailtoLink = `mailto:${profile.contact?.email || profile.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`
-      window.location.href = mailtoLink
-      
-      setSubmitStatus('success')
-      setStatusMessage('Opening your email client as backup. Please send the pre-filled message.')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-    } finally {
-      setIsSubmitting(false)
-      
-      // Clear status message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle')
-        setStatusMessage('')
-      }, 5000)
-    }
+    setSubmitStatus('success')
+    setStatusMessage('Opening your email client with the message pre-filled.')
+    setFormData({ name: '', email: '', subject: '', message: '' })
+    setIsSubmitting(false)
+
+    setTimeout(() => {
+      setSubmitStatus('idle')
+      setStatusMessage('')
+    }, 5000)
   }
 
   const contactMethods = [
     {
-      icon: <Mail className="w-5 h-5" />,
+      icon: '✉️',
       label: 'Email',
       value: profile.contact?.email || profile.email,
       href: `mailto:${profile.contact?.email || profile.email}`,
       description: 'Direct technical communication'
     },
     {
-      icon: <Github className="w-5 h-5" />,
+      icon: '🐙',
       label: 'GitHub',
       value: 'Technical portfolio & repositories',
       href: profile.social.github,
       description: 'Code samples and project architecture'
     },
     {
-      icon: <Linkedin className="w-5 h-5" />,
+      icon: '🔗',
       label: 'LinkedIn',
       value: 'Professional networking',
       href: profile.social.linkedin,
@@ -130,6 +98,24 @@ export default function Contact({ profile }: ContactProps) {
             {/* Contact Methods */}
             <div className="space-y-8">
               <Card>
+                <CardContent className="p-4 flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-800 bg-surface">
+                    <img
+                      src={resolveAsset(profile.avatar)}
+                      alt={profile.name}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => { e.currentTarget.style.display = 'none' }}
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-display text-text-primary">{profile.name}</p>
+                    <p className="text-xs font-mono text-text-secondary">{profile.role}</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
                 <CardHeader className="pb-4">
                   <div className="text-xs font-mono text-primary flex items-center gap-2">
                     <span>COMMUNICATION CHANNELS</span>
@@ -146,7 +132,7 @@ export default function Contact({ profile }: ContactProps) {
                       <CardContent className="p-4">
                         <div className="flex items-start gap-4">
                           <div className="w-10 h-10 bg-surface border border-gray-800 rounded flex items-center justify-center text-primary group-hover:text-primary/80">
-                            {method.icon}
+                            <span aria-hidden="true">{method.icon}</span>
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
@@ -161,7 +147,7 @@ export default function Contact({ profile }: ContactProps) {
                               {method.description}
                             </p>
                           </div>
-                          <ExternalLink className="w-4 h-4 text-text-secondary group-hover:text-primary transition-colors" />
+                          <span className="text-text-secondary group-hover:text-primary transition-colors text-sm">↗</span>
                         </div>
                       </CardContent>
                     </Card>
@@ -279,11 +265,10 @@ export default function Contact({ profile }: ContactProps) {
                     {isSubmitting ? (
                       <>
                         <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                        Sending...
+                        Preparing email...
                       </>
                     ) : (
                       <>
-                        <Send className="w-4 h-4" />
                         Send Message
                       </>
                     )}
@@ -296,17 +281,13 @@ export default function Contact({ profile }: ContactProps) {
                         ? 'bg-green-500/10 border-green-500/20 text-green-400'
                         : 'bg-red-500/10 border-red-500/20 text-red-400'
                     }`}>
-                      {submitStatus === 'success' ? (
-                        <CheckCircle className="w-5 h-5" />
-                      ) : (
-                        <AlertCircle className="w-5 h-5" />
-                      )}
+                      <span>{submitStatus === 'success' ? '✅' : '⚠️'}</span>
                       <span>{statusMessage}</span>
                     </div>
                   )}
 
                   <p className="text-xs text-text-secondary font-mono text-center mt-4">
-                    // Direct email delivery via EmailJS - production ready
+                    // Opens your default email client with all fields filled in
                   </p>
                 </form>
               </CardContent>
