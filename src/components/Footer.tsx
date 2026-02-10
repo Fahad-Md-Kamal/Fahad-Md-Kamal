@@ -1,4 +1,7 @@
 import type { Profile } from '../types'
+import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge"
 
 interface FooterProps {
   profile: Profile
@@ -29,17 +32,18 @@ export default function Footer({ profile }: FooterProps) {
   return (
     <footer className="bg-surface border-t border-gray-800">
       <div className="section-container">
-        <div className="max-w-6xl mx-auto py-16">
+        <div className="max-w-6xl mx-auto py-10">
           {/* System Info */}
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             {/* Engineer Identity */}
             <div>
-              <button
+              <Button
+                variant="ghost"
                 onClick={scrollToTop}
-                className="font-mono text-lg font-bold mb-4 text-text-primary hover:text-primary transition-colors"
+                className="font-mono text-lg font-bold mb-4 text-text-primary hover:text-primary transition-colors p-0 h-auto"
               >
                 {profile.name}
-              </button>
+              </Button>
               <p className="text-text-secondary text-sm font-mono leading-relaxed mb-6">
                 // Senior System Engineer specializing in scalable backend
                 <br />
@@ -92,18 +96,19 @@ export default function Footer({ profile }: FooterProps) {
             <div>
               <h3 className="text-xs font-mono text-primary mb-4 flex items-center gap-2">
                 <span>NAVIGATION</span>
-                <div className="flex-1 h-px bg-gray-800"></div>
+                <Separator className="flex-1" />
               </h3>
               <ul className="space-y-3">
                 {footerSections.map((section) => (
                   <li key={section.label}>
-                    <button
+                    <Button
+                      variant="ghost"
                       onClick={() => scrollToSection(section.href.slice(1))}
-                      className="font-mono text-sm text-text-secondary hover:text-text-primary transition-colors flex items-center gap-2 group"
+                      className="font-mono text-sm text-text-secondary hover:text-text-primary transition-colors flex items-center gap-2 group p-0 h-auto justify-start"
                     >
                       <span className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-primary"></span>
                       {section.label}
-                    </button>
+                    </Button>
                   </li>
                 ))}
               </ul>
@@ -113,16 +118,20 @@ export default function Footer({ profile }: FooterProps) {
             <div>
               <h3 className="text-xs font-mono text-secondary mb-4 flex items-center gap-2">
                 <span>SYSTEM STATUS</span>
-                <div className="flex-1 h-px bg-gray-800"></div>
+                <Separator className="flex-1" />
               </h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="font-mono text-sm text-text-secondary">Available for hire</span>
+                  <Badge variant="outline" className="bg-green-500/10 border-green-500/20 text-green-400">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></div>
+                    Available for hire
+                  </Badge>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-mono text-sm text-text-secondary">Accepting new projects</span>
+                  <Badge variant="outline" className="bg-primary/10 border-primary/20 text-primary">
+                    <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                    Accepting projects
+                  </Badge>
                 </div>
                 <a
                   href={profile.resumeUrl || '#'}
@@ -140,18 +149,11 @@ export default function Footer({ profile }: FooterProps) {
           </div>
 
           {/* Terminal Footer */}
-          <div className="border-t border-gray-800 pt-8">
+          <div className="pt-8 text-center border-t border-gray-800">
+            <Separator className="mb-8" />
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-xs">
               <div className="text-text-secondary">
                 © {currentYear} {profile.name} // All rights reserved
-              </div>
-              
-              <div className="flex items-center gap-6 text-text-secondary">
-                <span>Built with React + TypeScript + Tailwind</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-primary">localhost:3002</span>
-                  <div className="w-1 h-1 bg-green-500 rounded-full"></div>
-                </div>
               </div>
             </div>
           </div>

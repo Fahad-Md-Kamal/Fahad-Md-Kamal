@@ -1,5 +1,14 @@
 import { useState, useEffect } from 'react'
 import type { Profile } from '../types'
+import { Button } from '@/components/ui/button'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from '@/components/ui/navigation-menu'
+import { Menu, FileText } from 'lucide-react'
 
 interface HeaderProps {
   profile: Profile
@@ -7,7 +16,6 @@ interface HeaderProps {
 
 export default function Header({ profile }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +30,6 @@ export default function Header({ profile }: HeaderProps) {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
-      setIsMobileMenuOpen(false)
     }
   }
 
@@ -47,90 +54,89 @@ export default function Header({ profile }: HeaderProps) {
       <nav className="section-container">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <button
+          <Button
+            variant="ghost"
             onClick={() => scrollToSection('hero')}
-            className="font-mono font-bold text-lg text-primary hover:text-primary/80 transition-colors duration-200"
+            className="font-mono font-bold text-lg text-primary hover:text-primary/80 p-0 h-auto"
           >
             {profile.name.split(' ').map(word => word[0]).join('')}
-          </button>
+          </Button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => scrollToSection(link.href.slice(1))}
-                className="text-text-secondary hover:text-primary font-mono font-medium transition-colors duration-200"
-              >
-                {link.label}
-              </button>
-            ))}
-            <a
-              href={resumeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary font-mono"
-            >
-              Resume
-            </a>
-          </div>
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList className="flex items-center space-x-2">
+              {navLinks.map((link) => (
+                <NavigationMenuItem key={link.label}>
+                  <NavigationMenuLink asChild>
+                    <Button
+                      variant="ghost"
+                      onClick={() => scrollToSection(link.href.slice(1))}
+                      className="text-text-secondary hover:text-primary font-mono font-medium cursor-pointer"
+                    >
+                      {link.label}
+                    </Button>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Button asChild className="ml-4">
+                    <a
+                      href={resumeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono flex items-center gap-2"
+                    >
+                      <FileText className="w-4 h-4" />
+                      Resume
+                    </a>
+                  </Button>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-gray-800 bg-surface hover:bg-gray-800 text-text-primary transition-colors duration-200"
-            aria-label="Toggle mobile menu"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+          {/* Mobile Menu */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                className="md:hidden"
+              >
+                <Menu className="w-5 h-5" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-80">
+              <div className="flex flex-col space-y-4 mt-8">
+                {navLinks.map((link) => (
+                  <Button
+                    key={link.label}
+                    variant="ghost"
+                    onClick={() => scrollToSection(link.href.slice(1))}
+                    className="text-text-secondary hover:text-primary font-mono justify-start"
+                  >
+                    {link.label}
+                  </Button>
+                ))}
+                <Button asChild className="mt-4">
+                  <a
+                    href={resumeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono flex items-center gap-2 justify-center"
+                  >
+                    <FileText className="w-4 h-4" />
+                    Resume
+                  </a>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-surface border-b border-gray-800 shadow-lg">
-            <div className="p-4 space-y-4">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => scrollToSection(link.href.slice(1))}
-                  className="block w-full text-left text-text-secondary hover:text-primary font-mono font-medium py-2 transition-colors duration-200"
-                >
-                  {link.label}
-                </button>
-              ))}
-              <a
-                href={resumeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary block text-center mt-4 font-mono"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Resume
-              </a>
-            </div>
-          </div>
-        )}
+
       </nav>
     </header>
   )

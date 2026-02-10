@@ -112,7 +112,7 @@ export default function Skills({ skills }: SkillsProps) {
   const allCategories = skills.categories
 
   return (
-    <section id="skills" className="py-20 bg-background">
+    <section id="skills" className="py-10 bg-background">
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -125,18 +125,22 @@ export default function Skills({ skills }: SkillsProps) {
 
           {/* Tabs */}
           <Tabs defaultValue="all" className="mb-12">
-            <TabsList className="w-full mb-12">
-              <TabsTrigger value="all" className="flex-1 font-mono text-sm">
-                All Technologies ({allCategories.length})
+            <TabsList className="w-full mb-12 grid grid-cols-2 md:grid-cols-4 h-auto">
+              <TabsTrigger value="all" className="font-mono text-xs md:text-sm p-2 md:p-3">
+                <span className="hidden sm:inline">All Technologies ({allCategories.length})</span>
+                <span className="sm:hidden">All ({allCategories.length})</span>
               </TabsTrigger>
-              <TabsTrigger value="backend" className="flex-1 font-mono text-sm">
-                Backend & Core ({backendCategories.length})
+              <TabsTrigger value="backend" className="font-mono text-xs md:text-sm p-2 md:p-3">
+                <span className="hidden sm:inline">Backend & Core ({backendCategories.length})</span>
+                <span className="sm:hidden">Backend ({backendCategories.length})</span>
               </TabsTrigger>
-              <TabsTrigger value="devops" className="flex-1 font-mono text-sm">
-                DevOps & Cloud ({devopsCategories.length})
+              <TabsTrigger value="devops" className="font-mono text-xs md:text-sm p-2 md:p-3">
+                <span className="hidden sm:inline">DevOps & Cloud ({devopsCategories.length})</span>
+                <span className="sm:hidden">DevOps ({devopsCategories.length})</span>
               </TabsTrigger>
-              <TabsTrigger value="ai" className="flex-1 font-mono text-sm">
-                AI & LLMs ({aiCategories.length})
+              <TabsTrigger value="ai" className="font-mono text-xs md:text-sm p-2 md:p-3">
+                <span className="hidden sm:inline">AI & LLMs ({aiCategories.length})</span>
+                <span className="sm:hidden">AI ({aiCategories.length})</span>
               </TabsTrigger>
             </TabsList>
 

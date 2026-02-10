@@ -3,6 +3,7 @@
   "role": "Senior Full Stack Developer",
   "tagline": "Building Scalable Backends & Cloud-Native Systems for Global Teams",
   "summary": "Senior Software Engineer with 5+ years of experience designing, implementing, and scaling cloud-native, multi-tenant infrastructure. Proven track record of building reliable backend systems in Python and TypeScript that abstract over cloud providers. Strong expertise in event-driven architecture, messaging pipelines, and deploying services across AWS and Azure environments.",
+  "technicalSummary": "Specialized in designing event-driven architectures for high-throughput systems, with expertise in microservices patterns, serverless computing, and AI/LLM integration. Focus on measurable performance improvements and cost optimization strategies.",
   "location": "Dhaka, Bangladesh",
   "email": "fahadmdkamal@gmail.com",
   "phone": "+8801675759801",
@@ -25,6 +26,28 @@
   "availability": {
     "status": "open",
     "message": "Available for senior remote opportunities"
+  },
+  "stats": {
+    "clientsServed": "15+",
+    "techStackSize": "25+"
+  },
+  "expertise": {
+    "backend": {
+      "label": "Backend Systems",
+      "technologies": "Python, TypeScript, Microservices"
+    },
+    "cloud": {
+      "label": "Cloud Architecture", 
+      "technologies": "AWS, Azure, Serverless"
+    },
+    "messaging": {
+      "label": "Messaging",
+      "technologies": "Redis, Kafka, Event-Driven"
+    },
+    "ai": {
+      "label": "AI/LLM",
+      "technologies": "LangChain, RAG, OpenAI"
+    }
   },
   "career": {
     "startDate": "2019-05-01"

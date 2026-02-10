@@ -3,6 +3,7 @@ export interface Profile {
   role: string;
   tagline: string;
   summary: string;
+  technicalSummary?: string;
   location: string;
   email: string;
   phone: string;
@@ -25,6 +26,16 @@ export interface Profile {
   availability: {
     status: 'open' | 'closed' | 'busy';
     message: string;
+  };
+  stats?: {
+    clientsServed: string;
+    techStackSize: string;
+  };
+  expertise?: {
+    [key: string]: {
+      label: string;
+      technologies: string;
+    };
   };
   career?: {
     startDate: string;
