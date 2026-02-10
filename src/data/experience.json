@@ -13,12 +13,12 @@
       "description": "Senior role focusing on scalable microservices for US cybersecurity SaaS platforms and multi-tenant infrastructure.",
       "highlights": [
         "Engineered and optimized scalable microservices for a multi-tenant US cybersecurity SaaS platform, improving average API response times by 30%",
-        "Architected an event-driven data pipeline processing over 5 million threat records using Redis Pub/Sub for real-time updates, reducing data latency by 40%",
-        "Led migration of a legacy system to a serverless architecture using Azure Functions, demonstrating strong multi-cloud expertise",
-        "Developed full-stack features using TypeScript, React, and Vue for client-facing applications",
-        "Mentored junior developers in advanced Python and software engineering best practices under a World Bank-funded program"
+        "Architectured an event-driven data pipeline processing 5M+ threat records and leveraging Redis Pub/Sub for real-time updates, reducing data latency by 40%",
+        "Led the migration of a legacy system to a serverless architecture using Azure Functions, demonstrating multi-cloud deployment capability",
+        "Developed full-stack features using TypeScript/React and Vue for client-facing applications",
+        "Mentored junior developers in advanced Python and software engineering best practices"
       ],
-      "technologies": ["Python", "Django", "FastAPI", "TypeScript", "React", "Vue", "Azure Functions", "Redis", "Elasticsearch"]
+      "technologies": ["Python", "Django", "FastAPI", "TypeScript", "React", "Vue", "Azure Functions", "Redis", "Elasticsearch", "PostgreSQL", "AWS Lambda", "S3"]
     },
     {
       "id": "2",
@@ -26,58 +26,59 @@
       "role": "Senior Software Engineer",
       "type": "Full-time",
       "location": "Dhaka, Bangladesh",
-      "startDate": "2021-11",
+      "startDate": "2021-01",
       "endDate": "2023-07",
       "current": false,
       "website": "https://mevrik.com",
-      "description": "Led backend development for AI-powered customer care platform serving multiple enterprise clients.",
+      "description": "Led backend development of an AI customer care platform, architecting the system to handle 10,000+ concurrent users.",
       "highlights": [
-        "Led backend development of an AI-powered customer care platform handling over 10,000 concurrent users",
-        "Designed and implemented core microservice architecture using Django, FastAPI, and PostgreSQL",
-        "Integrated Kafka for asynchronous processing and WebSockets for real-time communication",
-        "Built FastAPI-based SaaS onboarding systems to automate multi-tenant client setup",
-        "Maintained 99.9% uptime on Dockerized on-premise infrastructure"
+        "Led backend development of an AI customer care platform, architecting the system to handle 10,000+ concurrent users (a strong demonstration of multi-tenant scale)",
+        "Designed the core microservice architecture using Django/FastAPI/PostgreSQL, integrating Kafka for asynchronous processing and WebSockets for real-time communication",
+        "Built FastAPI SaaS onboarding systems to automate the setup of client-specific platforms (multi-tenant automation)",
+        "Maintained 99.9% uptime on Dockerized on-prem infrastructure",
+        "Developed ML chatbots handling 10M+ conversations/month with Dialogflow NLP integration"
       ],
-      "technologies": ["Python", "Django", "FastAPI", "PostgreSQL", "Kafka", "WebSockets", "Docker", "Dialogflow"]
+      "technologies": ["Python", "Django", "FastAPI", "PostgreSQL", "Kafka", "WebSockets", "Docker", "Dialogflow", "Redis", "AWS", "React"]
     },
     {
       "id": "3",
       "company": "Alesha Tech Ltd.",
-      "role": "Software Engineer", 
+      "role": "Software Engineer",
       "type": "Full-time",
       "location": "Dhaka, Bangladesh",
       "startDate": "2021-02",
       "endDate": "2021-11",
       "current": false,
       "website": null,
-      "description": "ERP and B2B API development serving high-volume daily requests.",
+      "description": "Developed ERP & B2B APIs in Django serving 10K+ daily requests with complete SDLC management.",
       "highlights": [
-        "Developed ERP and B2B APIs in Django serving more than 10,000 daily requests",
-        "Managed the full software development lifecycle from requirements gathering to production deployment",
-        "Optimized database queries and API performance for high-traffic applications",
-        "Collaborated with cross-functional teams for feature development and deployment"
+        "Developed ERP & B2B APIs in Django serving 10K+ daily requests",
+        "Managed the complete SDLC from requirements gathering to production deployment",
+        "Designed DB and built CBC API for NFC based visiting cards",
+        "Developed Django service to handle NFC token generation under concurrency",
+        "Deployed solution on AWS EC2 server with optimized performance"
       ],
-      "technologies": ["Python", "Django", "PostgreSQL", "REST API", "Docker"]
+      "technologies": ["Python", "Django", "PostgreSQL", "REST API", "AWS EC2", "NFC", "ERPNext"]
     },
     {
       "id": "4",
       "company": "Dream Array",
       "role": "Software Developer",
-      "type": "Full-time",  
+      "type": "Full-time",
       "location": "Dhaka, Bangladesh",
       "startDate": "2019-09",
-      "endDate": "2021-11",
+      "endDate": "2021-02",
       "current": false,
       "website": null,
-      "description": "Full-stack development for healthcare and B2B systems with AWS deployment.",
+      "description": "Built scalable Django REST APIs for B2B and healthcare systems, deploying services on AWS EC2/RDS with CI/CD integration.",
       "highlights": [
-        "Built scalable Django REST APIs for B2B and healthcare systems",
-        "Developed backend services for 'Mayer Hashi', a Flutter mobile app for pregnant mothers",
-        "Implemented appointment scheduling, child health tracking, and doctor dashboards",
-        "Deployed services on AWS EC2 and RDS with CI/CD integration",
-        "Assisted with cloud infrastructure setup and optimization"
+        "Built scalable Django REST APIs for B2B and healthcare systems, deploying services on AWS EC2/RDS with CI/CD integration",
+        "Developed backend services for 'Mayer Hashi', a Flutter mobile app for pregnant mothers with health tracking features",
+        "Built Django REST APIs and Flutter app for maternal health tracking and doctor consultations",
+        "Designed PostgreSQL schema for appointments, reports, and nutrition tracking",
+        "Delivered full-stack solution independently during early career phase"
       ],
-      "technologies": ["Python", "Django", "REST API", "Flutter", "AWS", "PostgreSQL", "Docker"]
+      "technologies": ["Python", "Django", "REST API", "Flutter", "AWS", "PostgreSQL", "Docker", "CI/CD"]
     }
   ]
 }

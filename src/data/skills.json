@@ -1,16 +1,38 @@
 {
   "categories": [
     {
-      "name": "Backend & Core",
+      "name": "Languages & Core",
       "icon": "⚙️",
       "skills": [
         { "name": "Python", "level": 95, "years": 5 },
+        { "name": "Go", "level": 85, "years": 2 },
+        { "name": "JavaScript", "level": 90, "years": 4 },
         { "name": "TypeScript", "level": 90, "years": 4 },
-        { "name": "FastAPI", "level": 93, "years": 3 },
+        { "name": "SQL", "level": 88, "years": 5 }
+      ]
+    },
+    {
+      "name": "Backend & APIs",
+      "icon": "🔧",
+      "skills": [
         { "name": "Django", "level": 95, "years": 5 },
+        { "name": "FastAPI", "level": 93, "years": 3 },
         { "name": "Django REST Framework", "level": 95, "years": 5 },
-        { "name": "AsyncIO", "level": 85, "years": 3 },
-        { "name": "REST APIs", "level": 95, "years": 5 }
+        { "name": "REST API Development", "level": 95, "years": 5 },
+        { "name": "React", "level": 85, "years": 3 },
+        { "name": "AsyncIO", "level": 85, "years": 3 }
+      ]
+    },
+    {
+      "name": "Databases & Storage",
+      "icon": "🗄️",
+      "skills": [
+        { "name": "PostgreSQL", "level": 88, "years": 5 },
+        { "name": "MySQL", "level": 85, "years": 4 },
+        { "name": "Redis", "level": 90, "years": 4 },
+        { "name": "Elasticsearch", "level": 80, "years": 3 },
+        { "name": "PostGIS", "level": 75, "years": 2 },
+        { "name": "CosmosDB", "level": 70, "years": 1 }
       ]
     },
     {
@@ -26,15 +48,15 @@
       ]
     },
     {
-      "name": "Messaging & Data",
+      "name": "Messaging & Async",
       "icon": "📊",
       "skills": [
         { "name": "Kafka", "level": 85, "years": 3 },
         { "name": "Redis Pub/Sub", "level": 90, "years": 4 },
-        { "name": "PostgreSQL", "level": 88, "years": 5 },
-        { "name": "Elasticsearch", "level": 80, "years": 3 },
-        { "name": "Qdrant", "level": 75, "years": 2 },
-        { "name": "WebSockets", "level": 85, "years": 3 }
+        { "name": "Celery", "level": 88, "years": 4 },
+        { "name": "SQS", "level": 75, "years": 2 },
+        { "name": "WebSockets", "level": 85, "years": 3 },
+        { "name": "RabbitMQ", "level": 70, "years": 2 }
       ]
     },
     {
@@ -43,10 +65,35 @@
       "skills": [
         { "name": "LangChain", "level": 85, "years": 2 },
         { "name": "RAG", "level": 80, "years": 2 },
-        { "name": "LangGraph", "level": 75, "years": 1 },
-        { "name": "OpenAI", "level": 85, "years": 2 },
+        { "name": "OpenAI API", "level": 85, "years": 2 },
         { "name": "Azure OpenAI", "level": 80, "years": 2 },
-        { "name": "Ollama", "level": 70, "years": 1 }
+        { "name": "Claude API", "level": 75, "years": 1 },
+        { "name": "Azure Speech-to-Text", "level": 75, "years": 1 }
+      ]
+    },
+    {
+      "name": "Tools & Methodologies",
+      "icon": "🛠️",
+      "skills": [
+        { "name": "Git", "level": 90, "years": 5 },
+        { "name": "GitHub", "level": 90, "years": 5 },
+        { "name": "Agile/Scrum", "level": 85, "years": 4 },
+        { "name": "Jira", "level": 80, "years": 3 },
+        { "name": "Teamwork", "level": 75, "years": 2 },
+        { "name": "ClickUp", "level": 80, "years": 2 },
+        { "name": "Trello", "level": 85, "years": 4 }
+      ]
+    },
+    {
+      "name": "Leadership & Soft Skills",
+      "icon": "👥",
+      "skills": [
+        { "name": "Client Communication", "level": 90, "years": 5 },
+        { "name": "Mentorship", "level": 85, "years": 3 },
+        { "name": "Problem Solving", "level": 95, "years": 5 },
+        { "name": "Team Leadership", "level": 80, "years": 3 },
+        { "name": "Code Reviews", "level": 90, "years": 4 },
+        { "name": "Design Reviews", "level": 85, "years": 3 }
       ]
     }
   ]

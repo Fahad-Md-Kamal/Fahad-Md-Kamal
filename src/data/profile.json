@@ -1,9 +1,9 @@
 {
   "name": "Fahad Md Kamal",
-  "role": "Senior Full Stack Developer",
-  "tagline": "Building Scalable Backends & Cloud-Native Systems for Global Teams",
-  "summary": "Senior Software Engineer with 5+ years of experience designing, implementing, and scaling cloud-native, multi-tenant infrastructure. Proven track record of building reliable backend systems in Python and TypeScript that abstract over cloud providers. Strong expertise in event-driven architecture, messaging pipelines, and deploying services across AWS and Azure environments.",
-  "technicalSummary": "Specialized in designing event-driven architectures for high-throughput systems, with expertise in microservices patterns, serverless computing, and AI/LLM integration. Focus on measurable performance improvements and cost optimization strategies.",
+  "role": "Senior Software Engineer",
+  "tagline": "Building Scalable Cloud-Native Multi-Tenant Infrastructure for Enterprise Systems",
+  "summary": "Senior Software Engineer with 5+ years of experience designing, implementing, and scaling cloud-native, multi-tenant infrastructure. Proven track record of building reliable backend systems in Python and TypeScript that abstract over cloud providers. Expertise in event-driven architecture, messaging pipelines (Kafka, Redis Pub/Sub), containerization (Docker), and deploying services across AWS and Azure environments.",
+  "technicalSummary": "Specialized in designing event-driven architectures for high-throughput systems, with expertise in microservices patterns, serverless computing, and AI/LLM integration. Led teams handling 10,000+ concurrent users and processing 5M+ records with focus on measurable performance improvements and cost optimization strategies.",
   "location": "Dhaka, Bangladesh",
   "email": "fahadmdkamal@gmail.com",
   "phone": "+8801675759801",
@@ -28,8 +28,12 @@
     "message": "Available for senior remote opportunities"
   },
   "stats": {
+    "yearsExperience": "5+",
     "clientsServed": "15+",
-    "techStackSize": "25+"
+    "techStackSize": "25+",
+    "uptime": "99.9%",
+    "concurrentUsers": "10K+",
+    "recordsProcessed": "5M+"
   },
   "expertise": {
     "backend": {
@@ -47,6 +51,14 @@
     "ai": {
       "label": "AI/LLM",
       "technologies": "LangChain, RAG, OpenAI"
+    },
+    "database": {
+      "label": "Databases",
+      "technologies": "PostgreSQL, Redis, Elasticsearch"
+    },
+    "devops": {
+      "label": "DevOps",
+      "technologies": "Docker, CI/CD, Kubernetes"
     }
   },
   "career": {
