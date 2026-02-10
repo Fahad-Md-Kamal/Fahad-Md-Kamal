@@ -18,11 +18,16 @@ export interface Profile {
     github: string;
     linkedin: string;
     twitter: string;
+    medium: string;
+    stackoverflow: string;
     portfolio: string;
   };
   availability: {
     status: 'open' | 'closed' | 'busy';
     message: string;
+  };
+  career?: {
+    startDate: string;
   };
 }
 

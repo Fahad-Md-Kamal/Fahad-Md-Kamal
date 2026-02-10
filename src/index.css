@@ -1,56 +1,86 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Custom styles */
 @layer base {
+  :root {
+    --radius: 0.625rem;
+    --background: 210 33% 7%;
+    --foreground: 220 13% 91%;
+    --card: 220 26% 14%;
+    --card-foreground: 220 13% 91%;
+    --popover: 220 26% 14%;
+    --popover-foreground: 220 13% 91%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 33% 7%;
+    --secondary: 267 85% 78%;
+    --secondary-foreground: 210 33% 7%;
+    --muted: 220 26% 14%;
+    --muted-foreground: 220 9% 66%;
+    --accent: 220 26% 14%;
+    --accent-foreground: 220 13% 91%;
+    --destructive: 0 84% 60%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 199 89% 48%;
+    --chart-1: 199 89% 48%;
+    --chart-2: 267 85% 78%;
+    --chart-3: 220 26% 14%;
+    --chart-4: 220 9% 66%;
+    --chart-5: 215 28% 17%;
+    --text-primary: 220 13% 91%;
+    --text-secondary: 220 9% 66%;
+    --surface: 220 26% 14%;
+  }
+  
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 9%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 220 13% 9%;
+    --muted: 220 13% 91%;
+    --muted-foreground: 220 9% 66%;
+    --accent: 220 13% 91%;
+    --accent-foreground: 220 13% 9%;
+    --destructive: 0 84% 50%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 199 89% 48%;
+    --chart-1: 199 89% 48%;
+    --chart-2: 267 85% 78%;
+    --chart-3: 220 26% 14%;
+    --chart-4: 220 9% 66%;
+    --chart-5: 215 28% 17%;
+    --text-primary: 220 13% 9%;
+    --text-secondary: 220 9% 46%;
+    --surface: 220 13% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
   html {
     scroll-behavior: smooth;
   }
-  
   body {
-    @apply font-sans text-text-primary bg-background;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-text-primary;
+    @apply bg-background text-foreground;
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply px-6 py-3 bg-primary text-background font-medium rounded-lg hover:bg-primary/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background;
-  }
-  
-  .btn-secondary {
-    @apply px-6 py-3 border-2 border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-background transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background;
-  }
-  
   .section-container {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .card {
-    @apply bg-surface rounded-lg border border-gray-800 p-6 hover:border-gray-700 transition-all duration-200 shadow-lg;
-  }
-  
-  .tech-badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-mono bg-surface border border-gray-800 text-text-secondary;
   }
   
   .section-title {
     @apply text-2xl sm:text-3xl font-display font-semibold text-primary mb-8;
   }
-}
-
-/* Scroll animations */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.animate-on-scroll.animate {
-  opacity: 1;
-  transform: translateY(0);
 }

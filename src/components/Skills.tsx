@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card, CardHeader, CardContent, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import type { SkillsData, SkillCategory } from '../types'
 
 interface SkillsProps {
@@ -12,8 +13,8 @@ interface SkillItemProps {
 
 function SkillItem({ skill, index }: SkillItemProps) {
   return (
-    <div 
-      className="flex items-center justify-between p-3 bg-background rounded border border-gray-800 hover:border-primary/50 transition-colors animate-fade-in"
+    <Card 
+      className="flex items-center justify-between p-3 hover:border-primary/60 transition-all duration-200 animate-fade-in"
       style={{ animationDelay: `${index * 0.05}s` }}
     >
       <div className="flex items-center gap-3">
@@ -34,7 +35,7 @@ function SkillItem({ skill, index }: SkillItemProps) {
         </div>
         <span className="text-xs font-mono text-primary min-w-[3ch]">{skill.level}%</span>
       </div>
-    </div>
+    </Card>
   )
 }
 
@@ -45,20 +46,22 @@ interface CategorySectionProps {
 
 function CategorySection({ category, index }: CategorySectionProps) {
   return (
-    <div className="card animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-      <div className="flex items-center gap-4 mb-6">
-        <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-          <span className="text-2xl">{category.icon}</span>
+    <Card className="animate-slide-up flex flex-col h-full" style={{ animationDelay: `${index * 0.1}s` }}>
+      <CardHeader className="pb-4">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+            <span className="text-2xl">{category.icon}</span>
+          </div>
+          <div>
+            <CardTitle className="text-lg font-display font-semibold text-primary">{category.name}</CardTitle>
+            <CardDescription className="text-sm text-text-secondary font-mono">
+              {category.skills.length} technologies
+            </CardDescription>
+          </div>
         </div>
-        <div>
-          <h3 className="text-lg font-display font-semibold text-primary">{category.name}</h3>
-          <p className="text-sm text-text-secondary font-mono">
-            {category.skills.length} technologies
-          </p>
-        </div>
-      </div>
+      </CardHeader>
 
-      <div className="space-y-3">
+      <CardContent className="space-y-3 flex-1">
         {category.skills.map((skill, skillIndex) => (
           <SkillItem 
             key={skill.name} 
@@ -66,11 +69,11 @@ function CategorySection({ category, index }: CategorySectionProps) {
             index={skillIndex}
           />
         ))}
-      </div>
+      </CardContent>
 
       {/* Proficiency Summary */}
-      <div className="mt-6 pt-6 border-t border-gray-800">
-        <div className="grid grid-cols-3 gap-4 text-center">
+      <CardFooter className="flex-col pt-6 border-t border-gray-800 mt-auto">
+        <div className="grid grid-cols-3 gap-4 text-center w-full">
           <div>
             <div className="text-sm font-mono font-bold text-primary">
               {category.skills.filter(s => s.level >= 90).length}
@@ -90,14 +93,12 @@ function CategorySection({ category, index }: CategorySectionProps) {
             <div className="text-xs text-text-secondary font-mono">Avg Exp</div>
           </div>
         </div>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   )
 }
 
 export default function Skills({ skills }: SkillsProps) {
-  const [activeTab, setActiveTab] = useState<'backend' | 'devops' | 'ai'>('backend')
-
   // Group categories by type for tabbed interface
   const backendCategories = skills.categories.filter(cat => 
     cat.name.includes('Backend') || cat.name.includes('Core') || cat.name.includes('Data')
@@ -108,19 +109,7 @@ export default function Skills({ skills }: SkillsProps) {
   const aiCategories = skills.categories.filter(cat => 
     cat.name.includes('AI') || cat.name.includes('LLM')
   )
-
-  const getActiveCategories = () => {
-    switch (activeTab) {
-      case 'backend':
-        return backendCategories
-      case 'devops':
-        return devopsCategories
-      case 'ai':
-        return aiCategories
-      default:
-        return backendCategories
-    }
-  }
+  const allCategories = skills.categories
 
   return (
     <section id="skills" className="py-20 bg-background">
@@ -135,49 +124,70 @@ export default function Skills({ skills }: SkillsProps) {
           </div>
 
           {/* Tabs */}
-          <div className="inline-flex gap-1 p-1 bg-surface rounded-lg mb-12">
-            <button
-              onClick={() => setActiveTab('backend')}
-              className={`px-6 py-3 rounded font-mono text-sm transition-all ${
-                activeTab === 'backend'
-                  ? 'bg-primary text-background'
-                  : 'text-text-secondary hover:text-primary'
-              }`}
-            >
-              Backend & Core ({backendCategories.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('devops')}
-              className={`px-6 py-3 rounded font-mono text-sm transition-all ${
-                activeTab === 'devops'
-                  ? 'bg-primary text-background'
-                  : 'text-text-secondary hover:text-primary'
-              }`}
-            >
-              DevOps & Cloud ({devopsCategories.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('ai')}
-              className={`px-6 py-3 rounded font-mono text-sm transition-all ${
-                activeTab === 'ai'
-                  ? 'bg-secondary text-background'
-                  : 'text-text-secondary hover:text-secondary'
-              }`}
-            >
-              AI & LLMs ({aiCategories.length})
-            </button>
-          </div>
+          <Tabs defaultValue="all" className="mb-12">
+            <TabsList className="w-full mb-12">
+              <TabsTrigger value="all" className="flex-1 font-mono text-sm">
+                All Technologies ({allCategories.length})
+              </TabsTrigger>
+              <TabsTrigger value="backend" className="flex-1 font-mono text-sm">
+                Backend & Core ({backendCategories.length})
+              </TabsTrigger>
+              <TabsTrigger value="devops" className="flex-1 font-mono text-sm">
+                DevOps & Cloud ({devopsCategories.length})
+              </TabsTrigger>
+              <TabsTrigger value="ai" className="flex-1 font-mono text-sm">
+                AI & LLMs ({aiCategories.length})
+              </TabsTrigger>
+            </TabsList>
 
-          {/* Skills Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {getActiveCategories().map((category, index) => (
-              <CategorySection 
-                key={category.name} 
-                category={category} 
-                index={index}
-              />
-            ))}
-          </div>
+            <TabsContent value="all">
+              <div className="grid md:grid-cols-2 gap-8">
+                {allCategories.map((category, index) => (
+                  <CategorySection 
+                    key={category.name} 
+                    category={category} 
+                    index={index}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="backend">
+              <div className="grid md:grid-cols-2 gap-8">
+                {backendCategories.map((category, index) => (
+                  <CategorySection 
+                    key={category.name} 
+                    category={category} 
+                    index={index}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="devops">
+              <div className="grid md:grid-cols-2 gap-8">
+                {devopsCategories.map((category, index) => (
+                  <CategorySection 
+                    key={category.name} 
+                    category={category} 
+                    index={index}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="ai">
+              <div className="grid md:grid-cols-2 gap-8">
+                {aiCategories.map((category, index) => (
+                  <CategorySection 
+                    key={category.name} 
+                    category={category} 
+                    index={index}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
 
           {/* Technical Notes */}
           <div className="mt-20 p-8 bg-surface rounded-lg border border-gray-800">

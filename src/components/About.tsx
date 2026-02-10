@@ -1,13 +1,42 @@
 import type { Profile } from '../types'
+import { useEffect, useState } from 'react'
 
 interface AboutProps {
   profile: Profile
 }
 
 export default function About({ profile }: AboutProps) {
+  const [projectsData, setProjectsData] = useState<any>(null)
+  
+  useEffect(() => {
+    // Load projects data to count systems built
+    import('../data/projects.json').then(data => {
+      setProjectsData(data)
+    })
+  }, [])
+  
+  // Calculate years of experience dynamically
+  const calculateYearsExperience = () => {
+    if (!profile.career?.startDate) return '5+'
+    
+    const startDate = new Date(profile.career.startDate)
+    const today = new Date()
+    const years = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25))
+    
+    return years >= 5 ? `${years}+` : `${years}+`
+  }
+  
+  // Calculate systems built from projects
+  const calculateSystemsBuilt = () => {
+    if (!projectsData) return '5+'
+    
+    const totalProjects = (projectsData.projects?.length || 0) + (projectsData.aiProjects?.length || 0)
+    return `${totalProjects}+`
+  }
+
   const stats = [
-    { label: 'Years Experience', value: '5+' },
-    { label: 'Systems Built', value: '20+' },
+    { label: 'Years Experience', value: calculateYearsExperience() },
+    { label: 'Systems Built', value: calculateSystemsBuilt() },
     { label: 'Clients Served', value: '15+' },
     { label: 'Tech Stack Size', value: '25+' }
   ]

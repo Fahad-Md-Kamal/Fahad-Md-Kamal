@@ -39,7 +39,7 @@
         "Multi-tenant design for SaaS scalability"
       ],
       "links": {
-        "live": null,
+        "live": "https://cyrisk.com/",
         "github": null,
         "demo": null
       }
@@ -83,7 +83,7 @@
         "Microservice separation by business domain"
       ],
       "links": {
-        "live": null,
+        "live": "https://mevrik.com/",
         "github": null,
         "demo": null
       }
@@ -216,7 +216,7 @@
       ],
       "links": {
         "live": null,
-        "github": null, 
+        "github": null,
         "demo": null
       }
     }

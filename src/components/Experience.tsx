@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react'
 import type { ExperienceData, Experience } from '../types'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
 
 interface ExperienceProps {
   experience: ExperienceData
@@ -156,18 +158,31 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
 }
 
 export default function Experience({ experience }: ExperienceProps) {
-  const totalYears = experience.experiences.reduce((total, exp) => {
-    const start = new Date(exp.startDate)
-    const end = exp.endDate ? new Date(exp.endDate) : new Date()
-    const years = (end.getFullYear() - start.getFullYear()) + (end.getMonth() - start.getMonth()) / 12
-    return total + years
-  }, 0)
+  const [profileData, setProfileData] = useState<any>(null)
+  
+  useEffect(() => {
+    // Load profile data to get resumeUrl and calculate years experience
+    import('../data/profile.json').then(data => {
+      setProfileData(data)
+    })
+  }, [])
+  
+  // Calculate years of experience from career start date (consistent with Hero and About)
+  const calculateYearsExperience = () => {
+    if (!profileData?.career?.startDate) return '7+'
+    
+    const startDate = new Date(profileData.career.startDate)
+    const today = new Date()
+    const years = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25))
+    
+    return years >= 5 ? `${years}+` : `${years}+`
+  }
 
   const stats = [
-    { label: 'Years of Experience', value: Math.round(totalYears).toString() + '+' },
+    { label: 'Years Experience', value: calculateYearsExperience() },
     { label: 'Companies', value: experience.experiences.length.toString() },
-    { label: 'Current Role', value: experience.experiences.find(exp => exp.current)?.role || 'Available' },
-    { label: 'Location', value: experience.experiences[0]?.location || 'Remote' }
+    { label: 'Current Role', value: experience.experiences.find(exp => exp.current)?.role?.replace('Senior ', 'Sr. ') || 'Available' },
+    { label: 'Location', value: experience.experiences[0]?.location.split(',')[0] || 'Remote' }
   ]
 
   return (
@@ -185,14 +200,16 @@ export default function Experience({ experience }: ExperienceProps) {
           {/* Experience Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center p-6 bg-white rounded-xl shadow-sm border border-gray-200">
-                <div className="text-3xl font-bold text-primary-600 mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-600 font-medium">
+              <Card key={index} className="text-center h-28 flex flex-col">
+                <CardContent className="flex-1 flex items-center justify-center p-4">
+                  <div className="text-lg font-bold text-primary leading-tight">
+                    {stat.value}
+                  </div>
+                </CardContent>
+                <CardFooter className="text-xs text-text-secondary font-mono py-2 px-4 border-t border-gray-800 justify-center">
                   {stat.label}
-                </div>
-              </div>
+                </CardFooter>
+              </Card>
             ))}
           </div>
 
@@ -225,7 +242,7 @@ export default function Experience({ experience }: ExperienceProps) {
                   Get In Touch
                 </a>
                 <a 
-                  href="/images/fahad-md-kamal.pdf"
+                  href={profileData?.resumeUrl || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary"

@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card, CardHeader, CardContent, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import type { ProjectsData, Project } from '../types'
 
 interface ProjectsProps {
@@ -11,17 +12,17 @@ interface ProjectCardProps {
 
 function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="card group hover:border-primary/50 transition-all duration-300">
+    <Card className="group hover:border-primary/50 transition-all duration-300 flex flex-col h-full">
       {/* Project Header */}
-      <div className="mb-6">
+      <CardHeader className="pb-4">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 className="text-xl font-display font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
+            <CardTitle className="text-xl font-display font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
               {project.title}
-            </h3>
-            <p className="text-text-secondary text-sm leading-relaxed mb-3">
+            </CardTitle>
+            <CardDescription className="text-text-secondary text-sm leading-relaxed mb-3">
               {project.shortDescription}
-            </p>
+            </CardDescription>
           </div>
           <div className="flex gap-2">
             {project.featured && (
@@ -37,88 +38,100 @@ function ProjectCard({ project }: ProjectCardProps) {
             <p className="text-sm text-text-secondary leading-relaxed">{project.context}</p>
           </div>
         )}
-      </div>
+      </CardHeader>
 
-      {/* Architecture & Scale */}
-      {project.architecture && (
-        <div className="mb-6">
-          <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
-            <span>ARCHITECTURE</span>
-            <div className="flex-1 h-px bg-gray-800"></div>
-          </div>
-          <div className="grid grid-cols-2 gap-3 text-sm">
-            <div>
-              <span className="text-text-secondary">Pattern:</span>
-              <div className="font-mono text-text-primary">{project.architecture.pattern}</div>
+      <CardContent className="space-y-6 flex-1">
+        {/* Architecture & Scale */}
+        {project.architecture && (
+          <div>
+            <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
+              <span>ARCHITECTURE</span>
+              <div className="flex-1 h-px bg-gray-800"></div>
             </div>
-            <div>
-              <span className="text-text-secondary">Scale:</span>
-              <div className="font-mono text-primary">{project.architecture.scale}</div>
-            </div>
-            <div className="col-span-2">
-              <span className="text-text-secondary">Infrastructure:</span>
-              <div className="font-mono text-text-primary">{project.architecture.infrastructure}</div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Impact Metrics */}
-      {project.impact && (
-        <div className="mb-6">
-          <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
-            <span>IMPACT</span>
-            <div className="flex-1 h-px bg-gray-800"></div>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {Object.entries(project.impact).slice(0, 4).map(([key, value]) => (
-              <div key={key} className="text-center p-2 bg-background rounded">
-                <div className="text-sm font-mono font-bold text-primary">{value}</div>
-                <div className="text-xs text-text-secondary capitalize">{key.replace('_', ' ')}</div>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <div>
+                <span className="text-text-secondary">Pattern:</span>
+                <div className="font-mono text-text-primary">{project.architecture.pattern}</div>
               </div>
+              <div>
+                <span className="text-text-secondary">Scale:</span>
+                <div className="font-mono text-primary">{project.architecture.scale}</div>
+              </div>
+              <div className="col-span-2">
+                <span className="text-text-secondary">Infrastructure:</span>
+                <div className="font-mono text-text-primary">{project.architecture.infrastructure}</div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Impact Metrics */}
+        {project.impact && (
+          <div>
+            <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
+              <span>IMPACT</span>
+              <div className="flex-1 h-px bg-gray-800"></div>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {Object.entries(project.impact).slice(0, 4).map(([key, value]) => (
+                <div key={key} className="text-center p-2 bg-background rounded">
+                  <div className="text-sm font-mono font-bold text-primary">{value}</div>
+                  <div className="text-xs text-text-secondary capitalize">{key.replace('_', ' ')}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Technologies */}
+        <div>
+          <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
+            <span>TECH STACK</span>
+            <div className="flex-1 h-px bg-gray-800"></div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech, index) => (
+              <span
+                key={index}
+                className="tech-badge"
+                style={{ borderBottomColor: tech.color, borderBottomWidth: '2px' }}
+              >
+                {tech.name}
+              </span>
             ))}
           </div>
         </div>
-      )}
 
-      {/* Technologies */}
-      <div className="mb-6">
-        <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
-          <span>TECH STACK</span>
-          <div className="flex-1 h-px bg-gray-800"></div>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech, index) => (
-            <span
-              key={index}
-              className="tech-badge"
-              style={{ borderBottomColor: tech.color, borderBottomWidth: '2px' }}
-            >
-              {tech.name}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Design Decisions (collapsed by default) */}
-      {project.design_decisions && (
-        <details className="mb-4">
-          <summary className="text-xs font-mono text-secondary cursor-pointer hover:text-primary transition-colors mb-2">
-            DESIGN DECISIONS
-          </summary>
-          <ul className="text-sm text-text-secondary space-y-1 ml-4">
-            {project.design_decisions.map((decision, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <span className="text-primary mt-1.5">•</span>
-                <span>{decision}</span>
-              </li>
-            ))}
-          </ul>
-        </details>
-      )}
+        {/* Design Decisions (collapsed by default) */}
+        {project.design_decisions && (
+          <details className="mb-4">
+            <summary className="text-xs font-mono text-secondary cursor-pointer hover:text-primary transition-colors mb-2">
+              DESIGN DECISIONS
+            </summary>
+            <ul className="text-sm text-text-secondary space-y-1 ml-4">
+              {project.design_decisions.map((decision, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <span className="text-primary mt-1.5">•</span>
+                  <span>{decision}</span>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
+      </CardContent>
 
       {/* Action Links */}
-      <div className="flex gap-3 pt-4 border-t border-gray-800">
+      <CardFooter className="flex gap-3 pt-4 border-t border-gray-800 mt-auto">
+        {project.links.live && (
+          <a
+            href={project.links.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center py-2 px-3 bg-primary text-background hover:bg-primary/90 transition-colors font-mono text-sm rounded"
+          >
+            Live Site
+          </a>
+        )}
         {project.links.github && (
           <a
             href={project.links.github}
@@ -134,22 +147,26 @@ function ProjectCard({ project }: ProjectCardProps) {
             href={project.links.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center py-2 px-3 bg-primary text-background hover:bg-primary/90 transition-colors font-mono text-sm rounded"
+            className="flex-1 text-center py-2 px-3 border border-secondary text-secondary hover:bg-secondary/10 hover:border-secondary/70 transition-all font-mono text-sm rounded"
           >
             Demo
           </a>
         )}
-      </div>
-    </div>
+        {!project.links.live && !project.links.github && !project.links.demo && (
+          <div className="flex-1 text-center py-2 px-3 border border-gray-600 text-gray-500 font-mono text-sm rounded cursor-not-allowed">
+            Private Project
+          </div>
+        )}
+      </CardFooter>
+    </Card>
   )
 }
 
 export default function Projects({ projects }: ProjectsProps) {
-  const [activeSection, setActiveSection] = useState<'systems' | 'ai'>('systems')
-
   // Separate regular projects and AI projects
   const systemsProjects = projects.projects || []
   const aiProjects = projects.aiProjects || []
+  const allProjects = [...systemsProjects, ...aiProjects]
 
   return (
     <section id="projects" className="py-20 bg-background">
@@ -162,65 +179,85 @@ export default function Projects({ projects }: ProjectsProps) {
               Production systems built for scale, reliability, and maintainability. 
               Focus on architecture decisions, performance impact, and real-world constraints.
             </p>
-            
-            {/* Section Tabs */}
-            <div className="inline-flex gap-1 p-1 bg-surface rounded-lg">
-              <button
-                onClick={() => setActiveSection('systems')}
-                className={`px-6 py-3 rounded font-mono text-sm transition-all ${
-                  activeSection === 'systems'
-                    ? 'bg-primary text-background'
-                    : 'text-text-secondary hover:text-primary'
-                }`}
-              >
-                Backend Systems ({systemsProjects.length})
-              </button>
-              <button
-                onClick={() => setActiveSection('ai')}
-                className={`px-6 py-3 rounded font-mono text-sm transition-all ${
-                  activeSection === 'ai'
-                    ? 'bg-secondary text-background'
-                    : 'text-text-secondary hover:text-secondary'
-                }`}
-              >
-                AI & LLM Systems ({aiProjects.length})
-              </button>
-            </div>
           </div>
 
-          {/* Backend Systems Section */}
-          {activeSection === 'systems' && (
-            <div className="space-y-12">
-              <div>
-                <div className="flex items-center gap-4 mb-8">
-                  <h3 className="text-xl font-display text-primary">Backend & Infrastructure</h3>
-                  <div className="flex-1 h-px bg-gray-800"></div>
-                </div>
-                <div className="grid lg:grid-cols-2 gap-8">
-                  {systemsProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
+          {/* Tabs */}
+          <Tabs defaultValue="all" className="mb-12">
+            <TabsList className="w-full mb-12">
+              <TabsTrigger value="all" className="flex-1 font-mono text-sm">
+                All Projects ({allProjects.length})
+              </TabsTrigger>
+              <TabsTrigger value="systems" className="flex-1 font-mono text-sm">
+                Backend Systems ({systemsProjects.length})
+              </TabsTrigger>
+              <TabsTrigger value="ai" className="flex-1 font-mono text-sm">
+                AI & LLM Systems ({aiProjects.length})
+              </TabsTrigger>
+            </TabsList>
 
-          {/* AI & LLM Systems Section */}
-          {activeSection === 'ai' && (
-            <div className="space-y-12">
-              <div>
-                <div className="flex items-center gap-4 mb-8">
-                  <h3 className="text-xl font-display text-secondary">AI & LLM Systems</h3>
-                  <div className="flex-1 h-px bg-gray-800"></div>
-                </div>
-                <div className="grid lg:grid-cols-2 gap-8">
-                  {aiProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
+            <TabsContent value="all">
+              <div className="space-y-12">
+                {systemsProjects.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-4 mb-8">
+                      <h3 className="text-xl font-display text-primary">Backend & Infrastructure</h3>
+                      <div className="flex-1 h-px bg-gray-800"></div>
+                    </div>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      {systemsProjects.map((project) => (
+                        <ProjectCard key={project.id} project={project} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {aiProjects.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-4 mb-8">
+                      <h3 className="text-xl font-display text-secondary">AI & LLM Systems</h3>
+                      <div className="flex-1 h-px bg-gray-800"></div>
+                    </div>
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      {aiProjects.map((project) => (
+                        <ProjectCard key={project.id} project={project} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="systems">
+              <div className="space-y-12">
+                <div>
+                  <div className="flex items-center gap-4 mb-8">
+                    <h3 className="text-xl font-display text-primary">Backend & Infrastructure</h3>
+                    <div className="flex-1 h-px bg-gray-800"></div>
+                  </div>
+                  <div className="grid lg:grid-cols-2 gap-8">
+                    {systemsProjects.map((project) => (
+                      <ProjectCard key={project.id} project={project} />
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            </TabsContent>
+
+            <TabsContent value="ai">
+              <div className="space-y-12">
+                <div>
+                  <div className="flex items-center gap-4 mb-8">
+                    <h3 className="text-xl font-display text-secondary">AI & LLM Systems</h3>
+                    <div className="flex-1 h-px bg-gray-800"></div>
+                  </div>
+                  <div className="grid lg:grid-cols-2 gap-8">
+                    {aiProjects.map((project) => (
+                      <ProjectCard key={project.id} project={project} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
+          </Tabs>
 
           {/* Engineering Notes Section */}
           <div className="mt-20 p-8 bg-surface rounded-lg border border-gray-800">
