@@ -1,20 +1,30 @@
 {
   "categories": [
     {
-      "name": "Backend & APIs",
-      "icon": "🧰",
+      "name": "Languages & Paradigms",
+      "icon": "💻",
       "skills": [
-        { "name": "Python", "level": 95, "years": 5 },
-        { "name": "TypeScript", "level": 90, "years": 4 },
-        { "name": "Django", "level": 95, "years": 5 },
-        { "name": "FastAPI", "level": 93, "years": 3 },
-        { "name": "Django REST Framework", "level": 95, "years": 5 },
-        { "name": "AsyncIO", "level": 85, "years": 3 },
-        { "name": "REST API Design", "level": 95, "years": 5 }
+        { "name": "Python", "level": 95, "years": 6 },
+        { "name": "Golang", "level": 75, "years": 2 },
+        { "name": "TypeScript", "level": 70, "years": 3 },
+        { "name": "JavaScript", "level": 70, "years": 3 },
+        { "name": "Functional Programming", "level": 80, "years": 4 },
+        { "name": "Object-Oriented Programming", "level": 70, "years": 6 }
       ]
     },
     {
-      "name": "Data, Messaging & Search",
+      "name": "Backend Frameworks & APIs",
+      "icon": "🧰",
+      "skills": [
+        { "name": "Django", "level": 95, "years": 6 },
+        { "name": "Django REST Framework", "level": 95, "years": 5 },
+        { "name": "FastAPI", "level": 93, "years": 3 },
+        { "name": "Gin Framework (gin-gonic)", "level": 40, "years": 1 },
+        { "name": "Fiber (fiber-go)", "level": 40, "years": 1 }
+      ]
+    },
+    {
+      "name": "Data Platforms, Messaging & Search",
       "icon": "📊",
       "skills": [
         { "name": "PostgreSQL / PostGIS", "level": 90, "years": 5 },
@@ -27,7 +37,7 @@
       ]
     },
     {
-      "name": "Cloud & DevOps",
+      "name": "Cloud, DevOps & Architecture",
       "icon": "☁️",
       "skills": [
         { "name": "AWS (EC2, Lambda, RDS, S3)", "level": 88, "years": 4 },
@@ -43,17 +53,17 @@
       "icon": "🤖",
       "skills": [
         { "name": "LangChain / RAG", "level": 85, "years": 2 },
-        { "name": "OpenAI & Azure OpenAI", "level": 85, "years": 2 },
+        { "name": "OpenAI", "level": 85, "years": 2 },
         { "name": "Claude API", "level": 75, "years": 1 },
         { "name": "Azure Speech-to-Text", "level": 75, "years": 1 }
       ]
     },
     {
-      "name": "Frontend & Client",
+      "name": "Frontend & Mobile",
       "icon": "🖥️",
       "skills": [
         { "name": "React", "level": 85, "years": 3 },
-        { "name": "JavaScript", "level": 90, "years": 4 },
+        { "name": "vue", "level": 75, "years": 2 },
         { "name": "TypeScript (Frontend)", "level": 90, "years": 4 },
         { "name": "Flutter (mobile)", "level": 70, "years": 1 }
       ]

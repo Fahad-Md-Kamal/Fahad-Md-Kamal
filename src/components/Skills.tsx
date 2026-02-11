@@ -24,11 +24,18 @@ function SkillItem({ skill, index }: SkillItemProps) {
         </span>
       </div>
       <div className="flex items-center gap-2">
-        <div className="w-16 h-1 bg-surface rounded-full overflow-hidden">
+        <div className="relative w-16 h-2 rounded-full overflow-hidden bg-gray-900/60">
           <div
-            className="h-full bg-primary transition-all duration-1000 ease-out"
+            className="absolute left-0 top-0 h-full bg-primary transition-all duration-1000 ease-out"
             style={{ 
               width: `${skill.level}%`,
+              animationDelay: `${index * 0.05 + 0.3}s`
+            }}
+          />
+          <div
+            className="absolute right-0 top-0 h-full bg-gray-500/50 transition-all duration-1000 ease-out"
+            style={{ 
+              width: `${100 - skill.level}%`,
               animationDelay: `${index * 0.05 + 0.3}s`
             }}
           />
