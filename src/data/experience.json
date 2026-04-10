@@ -10,15 +10,15 @@
       "endDate": null,
       "current": true,
       "website": "https://bjitgroup.com",
-      "description": "Senior role focusing on scalable microservices for US cybersecurity SaaS platforms and multi-tenant infrastructure.",
+      "description": "Building scalable Django and FastAPI microservices, event-driven pipelines, and production backend features for a SaaS platform.",
       "highlights": [
-        "Engineered and optimized scalable microservices for a multi-tenant US cybersecurity SaaS platform, improving average API response times by 30%",
-        "Architectured an event-driven data pipeline processing 5M+ threat records and leveraging Redis Pub/Sub for real-time updates, reducing data latency by 40%",
-        "Led the migration of a legacy system to a serverless architecture using Azure Functions, demonstrating multi-cloud deployment capability",
-        "Developed full-stack features using TypeScript/React and Vue for client-facing applications",
-        "Mentored junior developers in advanced Python and software engineering best practices"
+        "Engineered scalable Django and FastAPI microservices for a SaaS platform",
+        "Improved API response time by approximately 30% through query optimization and backend performance tuning",
+        "Designed event-driven pipelines processing 5M+ records using Redis Pub/Sub",
+        "Collaborated in cross-functional Agile teams delivering production-grade features",
+        "Contributed to clean, modular architecture following best coding standards"
       ],
-      "technologies": ["Python", "Django", "FastAPI", "TypeScript", "React", "Vue", "Azure Functions", "Redis", "Elasticsearch", "PostgreSQL", "AWS Lambda", "S3"]
+      "technologies": ["Python", "Django", "FastAPI", "Redis Pub/Sub", "PostgreSQL", "Elasticsearch", "Docker", "AWS"]
     },
     {
       "id": "2",
@@ -26,19 +26,18 @@
       "role": "Senior Software Engineer",
       "type": "Full-time",
       "location": "Dhaka, Bangladesh",
-      "startDate": "2021-01",
+      "startDate": "2021-12",
       "endDate": "2023-07",
       "current": false,
       "website": "https://mevrik.com",
-      "description": "Led backend development of an AI customer care platform, architecting the system to handle 10,000+ concurrent users.",
+      "description": "Developed backend systems for an AI-driven digital customer care platform with Python microservices and SaaS onboarding automation.",
       "highlights": [
-        "Led backend development of an AI customer care platform, architecting the system to handle 10,000+ concurrent users (a strong demonstration of multi-tenant scale)",
-        "Designed the core microservice architecture using Django/FastAPI/PostgreSQL, integrating Kafka for asynchronous processing and WebSockets for real-time communication",
-        "Built FastAPI SaaS onboarding systems to automate the setup of client-specific platforms (multi-tenant automation)",
-        "Maintained 99.9% uptime on Dockerized on-prem infrastructure",
-        "Developed ML chatbots handling 10M+ conversations/month with Dialogflow NLP integration"
+        "Developed an AI-driven digital customer care platform serving 3,000+ concurrent users daily",
+        "Designed Python-based microservices for backend services",
+        "Integrated Celery for asynchronous workflows and background task processing",
+        "Built SaaS onboarding automation systems using FastAPI"
       ],
-      "technologies": ["Python", "Django", "FastAPI", "PostgreSQL", "Kafka", "WebSockets", "Docker", "Dialogflow", "Redis", "AWS", "React"]
+      "technologies": ["Python", "Django", "FastAPI", "Celery", "PostgreSQL", "Docker", "Redis", "WebSockets"]
     },
     {
       "id": "3",
@@ -50,35 +49,29 @@
       "endDate": "2021-11",
       "current": false,
       "website": null,
-      "description": "Developed ERP & B2B APIs in Django serving 10K+ daily requests with complete SDLC management.",
+      "description": "Worked on in-house ERP and B2B APIs in Python, covering delivery from requirements through deployment.",
       "highlights": [
-        "Developed ERP & B2B APIs in Django serving 10K+ daily requests",
-        "Managed the complete SDLC from requirements gathering to production deployment",
-        "Designed DB and built CBC API for NFC based visiting cards",
-        "Developed Django service to handle NFC token generation under concurrency",
-        "Deployed solution on AWS EC2 server with optimized performance"
+        "Developed in-house ERP and B2B APIs with Python",
+        "Managed SDLC from requirements to deployment"
       ],
-      "technologies": ["Python", "Django", "PostgreSQL", "REST API", "AWS EC2", "NFC", "ERPNext"]
+      "technologies": ["Python", "Django", "PostgreSQL", "REST API", "ERP"]
     },
     {
       "id": "4",
       "company": "Dream Array",
-      "role": "Software Developer",
-      "type": "Full-time",
+      "role": "Intern Software Engineer",
+      "type": "Internship",
       "location": "Dhaka, Bangladesh",
-      "startDate": "2019-09",
-      "endDate": "2021-02",
+      "startDate": "2020-09",
+      "endDate": "2020-12",
       "current": false,
-      "website": null,
-      "description": "Built scalable Django REST APIs for B2B and healthcare systems, deploying services on AWS EC2/RDS with CI/CD integration.",
+      "website": "https://dreamarray.com/",
+      "description": "Internship focused on Django REST backend work for B2B and healthcare systems with AWS deployment support.",
       "highlights": [
-        "Built scalable Django REST APIs for B2B and healthcare systems, deploying services on AWS EC2/RDS with CI/CD integration",
-        "Developed backend services for 'Mayer Hashi', a Flutter mobile app for pregnant mothers with health tracking features",
-        "Built Django REST APIs and Flutter app for maternal health tracking and doctor consultations",
-        "Designed PostgreSQL schema for appointments, reports, and nutrition tracking",
-        "Delivered full-stack solution independently during early career phase"
+        "Built scalable Django REST APIs for B2B and healthcare systems",
+        "Deployed services on AWS EC2 and RDS with CI/CD integration"
       ],
-      "technologies": ["Python", "Django", "REST API", "Flutter", "AWS", "PostgreSQL", "Docker", "CI/CD"]
+      "technologies": ["Python", "Django", "Django REST Framework", "AWS EC2", "AWS RDS", "PostgreSQL", "CI/CD"]
     }
   ]
 }
