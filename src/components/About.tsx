@@ -34,8 +34,8 @@ export default function About({ profile, projectCount }: AboutProps) {
   const stats = [
     { label: 'Years Experience', value: calculateYearsExperience() },
     { label: 'Systems Built', value: calculateSystemsBuilt() },
-    { label: 'Clients Served', value: profile.stats?.clientsServed || '15+' },
-    { label: 'Tech Stack Size', value: profile.stats?.techStackSize || '25+' }
+    { label: 'Organizations', value: profile.stats?.clientsServed || '4+' },
+    { label: 'Core Tools', value: profile.stats?.techStackSize || '12+' }
   ]
 
   return (
@@ -44,9 +44,9 @@ export default function About({ profile, projectCount }: AboutProps) {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="mb-16">
-            <h2 className="section-title mb-8">System Engineer Profile</h2>
+            <h2 className="section-title mb-8">About</h2>
             <p className="text-lg text-text-secondary max-w-3xl font-mono leading-relaxed">
-              // Senior engineer with focus on scalable backend systems, cloud architecture, and AI integration
+              // Backend-focused engineer working across Python services, event-driven systems, and practical AI applications
             </p>
           </div>
 

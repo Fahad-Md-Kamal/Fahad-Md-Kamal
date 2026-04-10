@@ -88,9 +88,9 @@ export default function Contact({ profile }: ContactProps) {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="mb-16">
-            <h2 className="section-title mb-8">System Integration</h2>
+            <h2 className="section-title mb-8">Contact</h2>
             <p className="text-lg text-text-secondary max-w-3xl font-mono leading-relaxed">
-              // Ready to architect your next scalable system? Let's discuss technical requirements
+              // Open to backend engineering roles, contract work, and technical conversations
             </p>
           </div>
 

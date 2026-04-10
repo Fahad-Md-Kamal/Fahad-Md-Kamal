@@ -126,7 +126,7 @@ export default function Skills({ skills }: SkillsProps) {
           <div className="mb-16">
             <h2 className="section-title mb-8">Technology Stack</h2>
             <p className="text-lg text-text-secondary max-w-3xl font-mono leading-relaxed">
-              // Production-grade technologies for scalable system architecture
+              // Tools and technologies I have used in real backend and AI-focused projects
             </p>
           </div>
 
@@ -207,15 +207,15 @@ export default function Skills({ skills }: SkillsProps) {
               <div>
                 <div className="font-mono text-secondary mb-2">ARCHITECTURE PRINCIPLES</div>
                 <p className="text-text-secondary leading-relaxed">
-                  Event-driven design for loose coupling, microservices for domain separation, 
-                  and infrastructure as code for reproducible deployments.
+                  Prefer simple, maintainable backend designs first, then introduce asynchronous processing,
+                  event-driven flows, and service boundaries where they clearly improve reliability or scale.
                 </p>
               </div>
               <div>
                 <div className="font-mono text-secondary mb-2">PERFORMANCE FOCUS</div>
                 <p className="text-text-secondary leading-relaxed">
-                  Sub-100ms API response times, horizontal scaling patterns, 
-                  and monitoring-first development for production observability.
+                  Focus on query optimization, background jobs, cache-aware design,
+                  and production visibility so backend systems stay understandable under load.
                 </p>
               </div>
             </div>

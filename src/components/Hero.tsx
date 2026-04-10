@@ -23,7 +23,7 @@ export default function Hero({ profile, projectCount }: HeroProps) {
   }
   const avatarSrc = resolveAsset(profile.avatar)
   
-  const techStack = ['Python • FastAPI • Django', 'TypeScript • React • Node.js', 'AWS • Azure • Docker', 'LangChain • RAG • LLMs']
+  const techStack = ['Python • Django • FastAPI', 'PostgreSQL • Redis • Celery', 'AWS • Docker • CI/CD', 'LangChain • RAG • Azure OpenAI']
 
   // Calculate years of experience dynamically
   const calculateYearsExperience = () => {
@@ -107,7 +107,7 @@ export default function Hero({ profile, projectCount }: HeroProps) {
               Senior Software Engineer
             </h2>
             <div className="text-base sm:text-xl lg:text-3xl text-text-secondary mb-6 sm:mb-8 leading-relaxed text-center px-4">
-              Building cloud-native, event-driven systems & AI platforms
+              Building backend systems, event-driven services, and applied AI tools
             </div>
             {/* Tech Stack Rotation */}
             <div className="flex items-center justify-center mb-6 sm:mb-8 px-4">
@@ -143,8 +143,8 @@ export default function Hero({ profile, projectCount }: HeroProps) {
             </Card>
             <Card className="bg-surface/50 border-gray-800 hover:bg-surface/80 transition-colors">
               <CardContent className="p-3 sm:p-4 text-center">
-                <div className="text-lg sm:text-2xl font-bold text-primary mb-1">15+</div>
-                <div className="text-xs sm:text-sm text-text-secondary font-mono">Clients Served</div>
+                <div className="text-lg sm:text-2xl font-bold text-primary mb-1">5M+</div>
+                <div className="text-xs sm:text-sm text-text-secondary font-mono">Records Processed</div>
               </CardContent>
             </Card>
           </div>

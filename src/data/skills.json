@@ -1,51 +1,44 @@
 {
   "categories": [
     {
-      "name": "Languages & Paradigms",
+      "name": "Backend Foundations",
       "icon": "💻",
       "skills": [
-        { "name": "Python", "level": 95, "years": 6 },
-        { "name": "Golang", "level": 75, "years": 2 },
-        { "name": "TypeScript", "level": 70, "years": 3 },
-        { "name": "JavaScript", "level": 70, "years": 3 },
-        { "name": "Functional Programming", "level": 80, "years": 4 },
-        { "name": "Object-Oriented Programming", "level": 70, "years": 6 }
+        { "name": "Python", "level": 95, "years": 5 },
+        { "name": "REST API Design", "level": 90, "years": 5 },
+        { "name": "Async Processing", "level": 85, "years": 3 },
+        { "name": "TypeScript", "level": 65, "years": 3 }
       ]
     },
     {
-      "name": "Backend Frameworks & APIs",
+      "name": "Frameworks & APIs",
       "icon": "🧰",
       "skills": [
-        { "name": "Django", "level": 95, "years": 6 },
+        { "name": "Django", "level": 95, "years": 5 },
         { "name": "Django REST Framework", "level": 95, "years": 5 },
         { "name": "FastAPI", "level": 93, "years": 3 },
-        { "name": "Gin Framework (gin-gonic)", "level": 40, "years": 1 },
-        { "name": "Fiber (fiber-go)", "level": 40, "years": 1 }
+        { "name": "Celery", "level": 88, "years": 3 }
       ]
     },
     {
-      "name": "Data Platforms, Messaging & Search",
+      "name": "Data, Messaging & Search",
       "icon": "📊",
       "skills": [
-        { "name": "PostgreSQL / PostGIS", "level": 90, "years": 5 },
+        { "name": "PostgreSQL", "level": 90, "years": 5 },
         { "name": "Redis & Redis Pub/Sub", "level": 90, "years": 4 },
-        { "name": "Kafka", "level": 85, "years": 3 },
         { "name": "Elasticsearch", "level": 80, "years": 3 },
-        { "name": "Celery & Task Queues", "level": 88, "years": 4 },
-        { "name": "WebSockets", "level": 85, "years": 3 },
-        { "name": "RabbitMQ / SQS", "level": 75, "years": 2 }
+        { "name": "WebSockets", "level": 80, "years": 2 },
+        { "name": "MySQL", "level": 75, "years": 2 }
       ]
     },
     {
-      "name": "Cloud, DevOps & Architecture",
+      "name": "Cloud & Delivery",
       "icon": "☁️",
       "skills": [
         { "name": "AWS (EC2, Lambda, RDS, S3)", "level": 88, "years": 4 },
-        { "name": "Azure Functions", "level": 85, "years": 3 },
         { "name": "Docker", "level": 90, "years": 4 },
         { "name": "CI/CD Pipelines", "level": 85, "years": 4 },
-        { "name": "Microservices", "level": 90, "years": 4 },
-        { "name": "Serverless Architecture", "level": 80, "years": 2 }
+        { "name": "Microservices", "level": 85, "years": 3 }
       ]
     },
     {
@@ -62,9 +55,9 @@
       "name": "Frontend & Mobile",
       "icon": "🖥️",
       "skills": [
-        { "name": "React", "level": 85, "years": 3 },
-        { "name": "vue", "level": 75, "years": 2 },
-        { "name": "TypeScript (Frontend)", "level": 90, "years": 4 },
+        { "name": "React", "level": 75, "years": 2 },
+        { "name": "Vue", "level": 65, "years": 1 },
+        { "name": "TypeScript (Frontend)", "level": 70, "years": 2 },
         { "name": "Flutter (mobile)", "level": 70, "years": 1 }
       ]
     },
@@ -72,13 +65,12 @@
       "name": "Leadership & Delivery",
       "icon": "👥",
       "skills": [
-        { "name": "Client Communication", "level": 90, "years": 5 },
-        { "name": "Mentorship", "level": 85, "years": 3 },
-        { "name": "Team Leadership", "level": 80, "years": 3 },
-        { "name": "Problem Solving", "level": 95, "years": 5 },
-        { "name": "Code & Design Reviews", "level": 90, "years": 4 },
+        { "name": "Client Communication", "level": 85, "years": 4 },
+        { "name": "Mentorship", "level": 80, "years": 2 },
+        { "name": "Problem Solving", "level": 90, "years": 5 },
+        { "name": "Code Reviews", "level": 88, "years": 4 },
         { "name": "Agile/Scrum", "level": 85, "years": 4 },
-        { "name": "Tools: Git/GitHub, Jira, Trello", "level": 85, "years": 4 }
+        { "name": "GitHub, Jira, Trello", "level": 85, "years": 4 }
       ]
     }
   ]
