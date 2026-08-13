@@ -1,8 +1,8 @@
 # 👋 Who I Am?
 
-- 🧑‍💻 A **Software Engineer** (`Python`, `Full Stack`) based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh)**.
-- 💼 Working as an **Augmented Resource** for a **Cyber Insurance Company** in the USA.
-- 🚀 Currently working with **SaaS Applications** and **Microservices**.
+- 🧑‍💻 A **Senior Software Engineer** (`Python`, `Backend & Full Stack`) based in **[Dhaka](https://en.wikipedia.org/wiki/Dhaka), [Bangladesh](https://en.wikipedia.org/wiki/Bangladesh)**.
+- 💼 5+ years building production backend systems — SaaS platforms, geospatial data pipelines, and enterprise APIs.
+- 🚀 Currently working with **FastAPI/Django microservices**, **geospatial data pipelines**, and **AWS-based async processing**.
 - 📄 [Resume](https://flowcv.com/resume/69kur1fdef)
 
 ---
@@ -10,48 +10,53 @@
 # 🛠️ What I'm Doing?
 
 - 🏢 Working at **[BJIT Group](https://bjitgroup.com/)** as a **Senior Software Engineer**.
-- 👨‍💻 Writing `Python`, `SQL`, `JavaScript`, and `YAML`.
+- 👨‍💻 Writing `Python`, `SQL`, `JavaScript/TypeScript`, and `YAML`.
 - 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahad-md-kamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
-- 📚 Currently learning about **Clean Code**, **Test-Driven Development (TDD)**, **Domain-Driven Design (DDD)**, **SOLID Principles**, and **Software Design Patterns**.
-- 🛠️ Working on **Web Development**, **Server Deployment**, and **Web APIs** professionally.
-- 👯 Looking to collaborate on **Full-Stack Projects** and **DevOps Roles**.
-- 🥰 Developing **[Cyber Risk Analysis for Cyber Insurance](https://cyrisk.com/blog/10-cyber-insurtech-companies-driving-innovation-for-the-industry)**.
+- 📚 Currently deepening: **Geospatial systems (PostGIS)**, **Async data pipelines (AWS Lambda/SQS/Athena)**, **Clean Code**, **Test-Driven Development (TDD)**, **Domain-Driven Design (DDD)**, and **SOLID Principles**.
+- 🛠️ Working on **Backend API Development**, **Geospatial Data Systems**, **Cloud Deployment (AWS)**, and **Performance Optimization**.
+- 👯 Looking to collaborate on **Backend-Heavy Full-Stack Projects** and **Cloud/DevOps Roles**.
+- 🥰 Previously built backend systems for **[Cyber Risk Analysis](https://cyrisk.com/blog/10-cyber-insurtech-companies-driving-innovation-for-the-industry)**; currently focused on **geospatial/location-intelligence platforms**.
 
 ---
 
 # 💬 What I Like to Discuss?
 
 - 💬 Ask me about:
-  - `Web APIs`
-  - `System Design`
-  - `Scalability`
-  - `Design Patterns`
-  - `Data Structures`
-  - `Clean Code`
+  - `Backend APIs & Microservices`
+  - `Geospatial Systems (PostGIS)`
+  - `System Design & Scalability`
+  - `Async Processing & Cloud Pipelines (AWS)`
+  - `Design Patterns & Clean Code`
   - `Choice of Frameworks`
 
 ---
 
 # 🛠️ What My Skill Set Looks Like?
 
-## 🖥️ **Front-End:**
-- **📜 Languages:** `JavaScript`, `HTML`, `CSS`
-- **🔬 Frameworks:**
-  - **🌐 Web:** [React](https://reactjs.org/)
-  - **📱 Mobile:** [Flutter](https://flutter.dev/)
-
 ## 🗄️ **Back-End:**
 - **📜 Languages:** `Python 3`, `Golang`
-- **🔭 Frameworks:** [Django](https://www.djangoproject.com/), [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/), [Gin-Gonic](https://gin-gonic.com/), [React TS](https://react.dev/learn/typescript)
-- **💾 Databases:** [PostgreSQL](https://www.postgresql.org/), [MongoDB](https://www.mongodb.com/), [MySQL](https://www.mysql.com/), [SQLite](https://www.sqlite.org/)
-- **🎛️ System Architecture:** Monolithic, Microservices
-- **🔌 Communication Protocols:** REST, RabbitMQ, WebSocket
+- **🔭 Frameworks:** [Django](https://www.djangoproject.com/), [Django REST Framework](https://www.django-rest-framework.org/), [FastAPI](https://fastapi.tiangolo.com/), [Flask](https://flask.palletsprojects.com/), [Gin-Gonic](https://gin-gonic.com/)
+- **💾 Databases:** [PostgreSQL](https://www.postgresql.org/), [PostGIS](https://postgis.net/), [MongoDB](https://www.mongodb.com/), [MySQL](https://www.mysql.com/), [SQLite](https://www.sqlite.org/), [Elasticsearch](https://www.elastic.co/)
+- **⚙️ Async & Background Processing:** Celery, Redis, AWS SQS
+- **🎛️ System Architecture:** Monolithic, Microservices, Event-driven pipelines
+- **🔌 Communication Protocols:** REST, WebSocket, RabbitMQ
+
+## ☁️ **Cloud & Infrastructure:**
+- **AWS:** Lambda, S3, Athena, EC2
+- **IaC & Containers:** Docker, Terraform
+- **Web Server:** Nginx
+
+## 🖥️ **Front-End:**
+- **📜 Languages:** `JavaScript`, `TypeScript`, `HTML`, `CSS`
+- **🔬 Frameworks:**
+  - **🌐 Web:** [React](https://reactjs.org/), [Vue.js](https://vuejs.org/)
+  - **📱 Mobile:** [Flutter](https://flutter.dev/)
 
 ## 🎡 **Software Development Ecosystem:**
 - **📁 Code Repository:** Git, BitBucket, GitLab
 - **🗃️ Project Management:** Confluence, Space, Redmine
 - **🗂️ CI/CD:** GitHub Actions
-- **🗃️ DevOps:** Docker, Nginx
+- **🧪 Testing:** pytest, pytest-django
 
 ## 🧙‍♂️ **Coding Patterns & Principles:**
 - **🗜️ Principles:** DRY, DDD, SOLID
@@ -71,18 +76,20 @@
 - 🧐 I strive to be **precise** and **thorough** in everything I do.
 - ✍️ I write **why a certain code is written** instead of **what** in the comments.
 - ⏱️ I'm a **workaholic** geek who enjoys R&D on new technologies, even on holidays.
-- 😅 I can't resist the urge to **explore** new tech releases in **Python** or **Golang** web development.
+- 😅 I can't resist the urge to **explore** new tech releases in **Python**, **Golang**, or cloud/geospatial tooling.
 
 ---
 
 # 🚀 Projects I've Worked On
 
-- [**Mevrik DCX**](https://www.mevrik.com/) (SaaS)
-- [**CyRisk Insights**](https://cyrisk.com) (SaaS)
+- [**Mevrik DCX**](https://www.mevrik.com/) (SaaS — Omnichannel Customer Engagement Platform)
+- [**CyRisk Insights**](https://cyrisk.com) (SaaS — Cyber Risk Rating Platform) *(past project)*
+- **Geospatial Data & Business Intelligence Platforms** (Enterprise, Confidential — mapping/location-intelligence)
+- **AI-Powered Document Processing Tool** (Confidential — LLM-based audio/PDF-to-report automation)
 - **Alesha DCX**: Contactless Business Card
 - **Alesha CRM**: Customer Relationship Management System
 - **Mayer Hashi**: Application for Assisting Expecting Mothers
-- **BDOPS**: Bangladesh Dengue Outbreak Prevention & Surveillance System (Including API & Mobile App)
+- **BDOPS**: Bangladesh Dengue Outbreak Prevention & Surveillance System (API & Mobile App)
 - **Budget Car Hire**
 
 ---
