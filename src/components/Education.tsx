@@ -1,0 +1,142 @@
+import { useState } from 'react'
+import type { EducationData, Education } from '../types'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+
+interface EducationProps {
+  education: EducationData
+}
+
+interface EducationCardProps {
+  education: Education
+  index: number
+}
+
+function resolveAsset(path: string) {
+  if (!path) return path
+  if (path.startsWith('http')) return path
+  const base = import.meta.env.BASE_URL || '/'
+  return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+}
+
+function EducationCard({ education, index }: EducationCardProps) {
+  const [logoError, setLogoError] = useState(false)
+
+  const formatDate = (dateString: string | null) => {
+    if (!dateString) return 'Present'
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+  }
+
+  return (
+    <div className="relative mb-8 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+      <div className="absolute left-6 top-20 bottom-0 w-px bg-border hidden md:block"></div>
+
+      <div className="absolute left-2 top-16 w-8 h-8 bg-primary rounded-full border-4 border-background shadow-lg hidden md:flex items-center justify-center">
+        <div className="w-2 h-2 bg-white rounded-full"></div>
+      </div>
+
+      <Card className="md:ml-16 border-border hover:shadow-md transition-shadow duration-200">
+        <CardHeader className="pb-4">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-6">
+            <div className="flex-shrink-0">
+              <div className="w-16 h-16 bg-muted rounded-xl flex items-center justify-center overflow-hidden border p-2">
+                {education.logo && !logoError ? (
+                  <img
+                    src={resolveAsset(education.logo)}
+                    alt={`${education.institution} logo`}
+                    className="w-full h-full object-contain"
+                    onError={() => setLogoError(true)}
+                  />
+                ) : (
+                  <span className="text-primary font-bold text-lg">
+                    {education.institution[0]}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="flex-1">
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    {education.degree}
+                  </h3>
+                  <div className="flex items-center gap-3 mb-3">
+                    {education.website ? (
+                      <Button
+                        variant="link"
+                        className="p-0 h-auto text-primary font-medium hover:underline"
+                        asChild
+                        href={education.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {education.institution} ↗
+                      </Button>
+                    ) : (
+                      <span className="text-primary font-medium">{education.institution}</span>
+                    )}
+                    <Badge variant="outline" className="flex items-center gap-1">
+                      {education.location}
+                    </Badge>
+                  </div>
+                </div>
+
+                <div className="text-right">
+                  <Badge variant="secondary" className="flex items-center gap-2">
+                    <span>{formatDate(education.startDate)} - {formatDate(education.endDate)}</span>
+                  </Badge>
+                </div>
+              </div>
+            </div>
+          </div>
+        </CardHeader>
+
+        <CardContent className="pt-0">
+          <p className="text-muted-foreground mb-6 leading-relaxed">
+            {education.description}
+          </p>
+
+          {education.highlights && education.highlights.length > 0 && (
+            <div>
+              <h4 className="font-semibold text-foreground mb-3">Highlights:</h4>
+              <ul className="space-y-3">
+                {education.highlights.map((highlight, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="text-primary mt-0.5">•</span>
+                    <span className="text-muted-foreground text-sm leading-relaxed">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+export default function Education({ education }: EducationProps) {
+  return (
+    <section id="education" className="py-10 bg-background">
+      <div className="section-container">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-16">
+            <h2 className="section-title mb-8">Education</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Academic background behind the engineering work
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {education.education.map((edu, index) => (
+              <EducationCard key={edu.id} education={edu} index={index} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -21,6 +21,8 @@ export default function Header({ profile }: HeaderProps) {
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
     { label: 'Experience', href: '#experience' },
+    { label: 'Education', href: '#education' },
+    { label: 'Certifications', href: '#certifications' },
     { label: 'Blog', href: '#blogs' },
     { label: 'Contact', href: '#contact' },
   ]

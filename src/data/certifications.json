@@ -1,0 +1,13 @@
+{
+  "certifications": [
+    {
+      "id": "1",
+      "name": "IELTS",
+      "score": "Overall Band Score: 6.00",
+      "date": "08-Oct-2015",
+      "issuer": "British Council",
+      "credentialId": "15BD008309KAMF001A",
+      "credentialUrl": "https://www.ielts.org/"
+    }
+  ]
+}

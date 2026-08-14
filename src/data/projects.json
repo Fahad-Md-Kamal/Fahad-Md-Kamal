@@ -166,8 +166,53 @@
       "design_decisions": [
         "Used Django REST for structured healthcare APIs",
         "Modeled relational healthcare data in PostgreSQL",
+        "Designed the schema so appointments, medical reports, and nutrition tracking could be queried independently without duplicating patient data across tables",
         "Used AWS EC2 and RDS for deployment",
         "Focused on practical business workflows and backend reliability"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    },
+    {
+      "id": "5",
+      "title": "B-DOPS - Dengue Outbreak Prevention Surveillance",
+      "shortDescription": "Mobile-first public health platform for citizen-reported dengue breeding-site surveillance",
+      "description": "Led development of a public health platform where citizens photograph and geo-tag suspected mosquito breeding sites; an automated visual check flags likely larvae, and credible reports route to health authorities for review and field-staff dispatch.",
+      "image": "images/projects/b-dops.jpg",
+      "category": "Healthcare Systems",
+      "featured": true,
+      "status": "Completed",
+      "startDate": "2019-09",
+      "endDate": "2020-01",
+      "technologies": [
+        { "name": "Django REST", "color": "#092e20" },
+        { "name": "Django Channels", "color": "#092e20" },
+        { "name": "Flutter", "color": "#02569b" },
+        { "name": "OpenCV", "color": "#5c3ee8" },
+        { "name": "PostgreSQL", "color": "#336791" },
+        { "name": "Stripe", "color": "#635bff" }
+      ],
+      "architecture": {
+        "pattern": "Mobile-First Public Health Platform",
+        "scale": "Citizen-reported case surveillance with authority review and field dispatch",
+        "infrastructure": "Django REST + Channels (ASGI) backend, Flutter mobile client, PostgreSQL",
+        "messaging": "Django Channels for real-time citizen-to-specialist chat"
+      },
+      "impact": {
+        "detection": "OpenCV-based automated larvae detection as a triage aid for citizen-submitted reports",
+        "realtime": "Real-time in-app chat between citizens and medical specialists",
+        "workflow": "End-to-end pipeline from citizen photo/GPS report to authority review and field-staff dispatch",
+        "publichealth": "Public warning-zone mapping driven by a confirmed-patient registry"
+      },
+      "context": "Public health authorities needed a way to crowdsource mosquito breeding-site reports and route credible cases to field staff faster than manual reporting allowed.",
+      "design_decisions": [
+        "Used a classical OpenCV Haar-cascade classifier for fast, explainable larvae triage rather than a heavier trained model",
+        "Built real-time specialist chat on Django Channels alongside the existing synchronous DRF API",
+        "Modeled case status as independent solved/approved flags to reflect that field resolution and authority approval happen on separate timelines",
+        "Used Stripe Checkout for donations, backed by a ledger table for tracking"
       ],
       "links": {
         "live": null,
@@ -223,9 +268,9 @@
     }
   ],
   "categories": [
-    { "name": "All", "count": 5 },
+    { "name": "All", "count": 6 },
     { "name": "Backend Systems", "count": 3 },
     { "name": "AI & LLM Systems", "count": 1 },
-    { "name": "Healthcare Systems", "count": 1 }
+    { "name": "Healthcare Systems", "count": 2 }
   ]
 }

@@ -78,6 +78,38 @@ export interface ExperienceData {
   experiences: Experience[];
 }
 
+export interface Education {
+  id: string;
+  degree: string;
+  institution: string;
+  location: string;
+  startDate: string;
+  endDate: string | null;
+  website?: string;
+  logo?: string;
+  description: string;
+  highlights?: string[];
+}
+
+
+export interface EducationData {
+  education: Education[];
+}
+
+export interface Certification {
+  id: string;
+  name: string;
+  issuer?: string;
+  score?: string;
+  date?: string;
+  credentialUrl?: string;
+  logo?: string;
+}
+
+export interface CertificationsData {
+  certifications: Certification[];
+}
+
 export interface Technology {
   name: string;
   color: string;

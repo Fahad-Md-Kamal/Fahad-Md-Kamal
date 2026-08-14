@@ -5,6 +5,9 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
+import Education from './components/Education'
+import Certifications from './components/Certifications'
+import GithubActivity from './components/GithubActivity'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -14,10 +17,12 @@ import Blogs from './components/Blogs'
 import profileData from './data/profile.json'
 import skillsData from './data/skills.json'
 import experienceData from './data/experience.json'
+import educationData from './data/education.json'
+import certificationsData from './data/certifications.json'
 import projectsData from './data/projects.json'
 
 // Import types
-import type { Profile, SkillsData, ExperienceData, ProjectsData } from './types'
+import type { Profile, SkillsData, ExperienceData, EducationData, CertificationsData, ProjectsData } from './types'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -25,6 +30,8 @@ function App() {
   const profile = profileData as Profile
   const skills = skillsData as SkillsData
   const experience = experienceData as ExperienceData
+  const education = educationData as EducationData
+  const certifications = certificationsData as CertificationsData
   const projects = projectsData as ProjectsData
 
   const totalProjects = (projects.projects?.length || 0) + (projects.aiProjects?.length || 0)
@@ -70,6 +77,9 @@ function App() {
         <Skills skills={skills} />
         <Projects projects={projects} />
         <Experience experience={experience} profile={profile} />
+        <Education education={education} />
+        <Certifications certifications={certifications} />
+        <GithubActivity profile={profile} />
         <Blogs />
         <Contact profile={profile} />
       </main>
