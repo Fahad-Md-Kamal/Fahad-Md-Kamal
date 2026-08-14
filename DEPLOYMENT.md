@@ -1,192 +1,116 @@
-# 🚀 Deployment Guide
+# Deployment Guide — Fahad-Md-Kamal Portfolio
 
-This guide will walk you through deploying your portfolio to GitHub Pages for **free hosting**.
+How this specific repo is set up and deployed. Written from the actual
+state of the repo (checked via `gh api repos/.../pages`, `git remote -v`,
+`vite.config.ts`) — not a generic template.
 
-## Prerequisites
+## Current setup
 
-- GitHub account
-- Git installed on your computer
-- Your portfolio files ready
+- **Remote:** `git@github.com:Fahad-Md-Kamal/Fahad-Md-Kamal.git`
+- **Source branch:** `portfolio` (the branch you edit and commit on)
+- **Vite base path:** `/Fahad-Md-Kamal/` (set in `vite.config.ts`, prod only)
+- **GitHub Pages source:** **legacy branch-based deploy from `gh-pages`**
+  (confirmed via `gh api repos/Fahad-Md-Kamal/Fahad-Md-Kamal/pages` →
+  `"build_type":"legacy","source":{"branch":"gh-pages"}`)
+- **Live URL:** https://fahad-md-kamal.github.io/Fahad-Md-Kamal/
 
-## Step 1: Repository Setup
+### About `.github/workflows/deploy.yml`
 
-1. **Create a new repository on GitHub**:
-   - Go to [GitHub](https://github.com) and click "New repository"
-   - Name it `portfolio` (or any name you prefer)
-   - Make sure it's **public** (required for free GitHub Pages)
-   - Don't initialize with README (we already have files)
+This workflow exists in the repo and is wired to run on push to `main`
+using the newer Actions-based Pages deployment
+(`actions/deploy-pages@v2`). **It does not currently publish anything** —
+Pages is set to the legacy `gh-pages`-branch source, not "GitHub Actions",
+so this workflow's deploy job has no effect even if it runs. The only
+thing that actually publishes the live site is `npm run deploy` (below).
+If you ever want the Actions workflow to be the real deploy path instead,
+switch the Pages source in Settings → Pages → Build and deployment →
+Source → "GitHub Actions", and push to `main` instead of `portfolio`.
 
-2. **Update your configuration**:
-   - Open `vite.config.ts`
-   - Change `base: '/portfolio/'` to match your repository name
-   - If your repo is named `my-website`, use `base: '/my-website/'`
+## Routine deploy (the normal case)
 
-3. **Update package.json**:
-   - Change `"homepage": "https://your-username.github.io/portfolio"`
-   - Replace `your-username` with your GitHub username
-   - Replace `portfolio` with your actual repository name
-
-## Step 2: Initialize Git and Push
+You're on the `portfolio` branch, you've made changes, and you want them
+live.
 
 ```bash
-# Navigate to your portfolio folder
-cd /home/bjit/Desktop/portfolio
+# 1. Sanity-check the build compiles
+npm run build
 
-# Initialize git repository
-git init
+# 2. (optional) preview it locally
+npm run dev
+# or: npm run preview
 
-# Add all files
-git add .
+# 3. Commit and push your source changes
+git add <files>
+git commit -m "Describe the change"
+git push origin portfolio
 
-# Make first commit
-git commit -m "Initial portfolio setup"
-
-# Add your GitHub repository as remote
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-
-# Push to GitHub
-git branch -M main
-git push -u origin main
+# 4. Build + publish to GitHub Pages (this is the actual deploy step)
+npm run deploy
 ```
 
-## Step 3: Enable GitHub Pages
+`npm run deploy` runs `npm run build && gh-pages -d dist` — it rebuilds
+`dist/` and force-pushes it to the `gh-pages` branch via the `gh-pages`
+npm package. GitHub Pages serves directly from that branch, so the site
+updates within roughly a minute.
 
-1. **Go to your repository on GitHub**
-2. **Click "Settings" tab**
-3. **Scroll to "Pages" in the left sidebar**
-4. **Under "Source", select "GitHub Actions"**
-5. **Save the settings**
+### Verify it went live
 
-## Step 4: Automatic Deployment
+```bash
+git fetch origin gh-pages
+git log origin/gh-pages -1 --oneline
 
-The GitHub Action is already configured! Every time you push changes to the main branch:
+curl -sIL https://fahad-md-kamal.github.io/Fahad-Md-Kamal/ | head -5
+# look for a fresh "last-modified" header
+```
 
-1. **The workflow will automatically**:
-   - Install dependencies
-   - Build your project
-   - Deploy to GitHub Pages
+## Common edits
 
-2. **Your site will be available at**:
-   `https://YOUR-USERNAME.github.io/YOUR-REPO-NAME`
+**Add/update a project:** edit `src/data/projects.json`, put any image
+under `public/images/projects/` (and mirror into `images/projects/` to
+match the existing convention), then run the routine deploy above.
 
-## Step 5: Enable GitHub Pages (Alternative Method)
+**Update profile/experience/education/certifications:** edit the
+matching file in `src/data/` (`profile.json`, `experience.json`,
+`education.json`, `certifications.json`), then deploy.
 
-If you prefer manual deployment:
+**Add a new top-level section:** add a component in `src/components/`,
+wire it into `src/App.tsx` and, if it should be reachable from the nav,
+into `navLinks` in `src/components/Header.tsx`.
 
-1. **Build your project locally**:
-   ```bash
-   npm run build
-   ```
+## Troubleshooting
 
-2. **Install gh-pages** (if not already installed):
-   ```bash
-   npm install --save-dev gh-pages
-   ```
+- **404 / broken asset paths after deploy:** check `vite.config.ts` —
+  `base` must stay `/Fahad-Md-Kamal/` to match this repo's Pages URL.
+- **Images not loading:** files must exist under `public/images/...`
+  (that's what Vite actually serves); the top-level `images/` folder is
+  a mirror kept for convention but isn't the one Vite reads from.
+- **`npm run deploy` fails on push:** `gh-pages` pushes over SSH/HTTPS
+  using your existing git credentials — make sure `git push` works
+  normally first.
+- **Pushed to `portfolio` but the site didn't change:** expected —
+  pushing source doesn't publish by itself. You still need to run
+  `npm run deploy`.
 
-3. **Deploy manually**:
-   ```bash
-   npm run deploy
-   ```
 
-## 🔄 Updating Your Portfolio
 
-### To add a new project:
 
-1. **Edit `src/data/projects.json`**
-2. **Add your project images to `public/images/projects/`**
-3. **Commit and push**:
-   ```bash
-   git add .
-   git commit -m "Add new project: Your Project Name"
-   git push
-   ```
-4. **Wait 2-3 minutes for deployment**
 
-### To update personal info:
 
-1. **Edit `src/data/profile.json`**
-2. **Replace `public/resume.pdf` with your latest resume**
-3. **Commit and push changes**
 
-## 🛠️ Troubleshooting
 
-### Common Issues:
 
-1. **404 Error after deployment**:
-   - Check that `base` in `vite.config.ts` matches your repository name
-   - Ensure repository is public
-   - Wait a few minutes after enabling GitHub Pages
 
-2. **Images not loading**:
-   - Ensure images are in the `public/images/` directory
-   - Use paths starting with `/images/` in your JSON files
-   - Check image file names match exactly (case-sensitive)
 
-3. **Build fails**:
-   - Check the Actions tab in your GitHub repository
-   - Look for error messages in the workflow run
-   - Common fix: ensure all image paths in JSON files are correct
 
-### Build Optimization:
 
-- **Images**: Use optimized images (WebP format recommended)
-- **File sizes**: Keep images under 1MB for best performance
-- **Alt text**: Add descriptive alt text for accessibility
 
-## 🎨 Custom Domain (Optional)
 
-To use your own domain:
 
-1. **Buy a domain** from any registrar
-2. **Add CNAME file** to `public/` directory with your domain
-3. **Configure DNS** with your domain provider:
-   - Add CNAME record: `www` → `your-username.github.io`
-   - Add A records for apex domain to GitHub's IPs
-4. **Update GitHub Pages settings** with your custom domain
 
-## 📊 Analytics (Optional)
 
-Add Google Analytics:
 
-1. **Create Google Analytics account**
-2. **Add tracking code to `index.html`**:
-   ```html
-   <!-- Google tag (gtag.js) -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-   <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'GA_MEASUREMENT_ID');
-   </script>
-   ```
 
-## ✅ Success Checklist
 
-- [ ] Repository created and configured
-- [ ] All files pushed to GitHub
-- [ ] GitHub Pages enabled 
-- [ ] First deployment successful
-- [ ] Site accessible at GitHub Pages URL
-- [ ] All sections loading correctly
-- [ ] Images displaying properly
-- [ ] Mobile responsive
-- [ ] Contact form working
-- [ ] Resume download working
 
-## 🆘 Need Help?
 
-1. **Check GitHub Actions**: Look at the "Actions" tab for deployment logs
-2. **Browser Console**: Open developer tools to check for errors
-3. **GitHub Issues**: Create an issue in the repository for bugs
-4. **Documentation**: Refer to the main README.md for configuration help
 
----
-
-**🎉 Congratulations!** Your professional portfolio is now live and accessible to potential employers and clients worldwide!
-
-**Next Steps**:
-1. Share your portfolio URL on social media
-2. Add it to your resume and LinkedIn profile  
-3. Keep it updated with new projects and achievements
-4. Monitor analytics to see visitor engagement
