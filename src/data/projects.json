@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": "1",
-      "title": "CyRisk Insight Engine",
+      "title": "Cyber Risk Rating Platform",
       "shortDescription": "Cybersecurity backend platform for large-scale threat intelligence analysis",
       "description": "Built backend microservices and data-processing flows for a cyber-risk rating and vendor-risk-management platform — scanning a company's internet-facing footprint and correlating findings against vulnerability/threat-intel databases to produce a security rating.",
       "image": "images/projects/cyrisk-engine.png",
@@ -46,7 +46,7 @@
     },
     {
       "id": "2",
-      "title": "Mevrik Digital Customer Experience Platform",
+      "title": "Omnichannel Customer Engagement Platform",
       "shortDescription": "Backend platform for AI-driven customer care and SaaS onboarding",
       "description": "Developed backend services for an omnichannel customer engagement platform — bringing email, social, live chat, and chatbot conversations into one system with multi-tenant routing to human agents.",
       "image": "images/projects/mevrik-platform.png",
@@ -89,54 +89,11 @@
       }
     },
     {
-      "id": "3",
-      "title": "Event-Driven Data Pipeline",
-      "shortDescription": "Backend data pipeline built around Redis Pub/Sub and FastAPI services",
-      "description": "Implemented event-driven backend processing flows using Redis Pub/Sub, FastAPI, and Elasticsearch to support near real-time data movement and search.",
-      "image": "images/projects/data-pipeline.jpg",
-      "category": "Backend Systems",
-      "featured": false,
-      "status": "Completed",
-      "startDate": "2023-08",
-      "endDate": "2023-11",
-      "technologies": [
-        { "name": "Python", "color": "#3776ab" },
-        { "name": "Redis Pub/Sub", "color": "#dc382d" },
-        { "name": "FastAPI", "color": "#009688" },
-        { "name": "Docker", "color": "#2496ed" },
-        { "name": "Elasticsearch", "color": "#005571" }
-      ],
-      "architecture": {
-        "pattern": "Event-Driven Pipeline",
-        "scale": "High-volume backend processing",
-        "infrastructure": "FastAPI services, Redis Pub/Sub, Elasticsearch",
-        "messaging": "Redis Pub/Sub for low-latency event distribution"
-      },
-      "impact": {
-        "latency": "Reduced processing latency through event-driven flows",
-        "throughput": "Supported high-volume backend ingestion",
-        "reliability": "Improved stability of always-on processing",
-        "search": "Fed searchable data into Elasticsearch"
-      },
-      "context": "The system needed a practical event-driven approach for moving backend data between services with low latency.",
-      "design_decisions": [
-        "Used Redis Pub/Sub for lightweight event fan-out",
-        "Separated ingestion and processing concerns",
-        "Used Elasticsearch for search-oriented access patterns",
-        "Focused on operational simplicity over unnecessary complexity"
-      ],
-      "links": {
-        "live": null,
-        "github": null,
-        "demo": null
-      }
-    },
-    {
       "id": "4",
       "title": "Mayer Hashi - Maternal Health Platform",
       "shortDescription": "Healthcare backend APIs supporting maternal health tracking and doctor interactions",
       "description": "Built backend APIs for a maternal health application with appointment, reporting, and health-tracking workflows, deployed on AWS EC2 and RDS.",
-      "image": "images/projects/mayer-hashi.jpg",
+      "image": "",
       "category": "Healthcare Systems",
       "featured": false,
       "status": "Completed",
@@ -307,12 +264,56 @@
         "github": null,
         "demo": null
       }
+    },
+    {
+      "id": "8",
+      "title": "Geospatial Data Platform",
+      "shortDescription": "Backend platform for exploring and managing large-scale enterprise geospatial datasets",
+      "description": "Built backend services for a web-based geospatial data viewer and management platform, enabling regional similarity analysis and business insight generation over large-scale map/GIS datasets.",
+      "image": "images/projects/geospatial-data-platform.png",
+      "category": "Backend Systems",
+      "featured": true,
+      "status": "Completed",
+      "startDate": "2023-07",
+      "endDate": null,
+      "technologies": [
+        { "name": "Django REST", "color": "#092e20" },
+        { "name": "PostgreSQL/PostGIS", "color": "#336791" },
+        { "name": "AWS Lambda", "color": "#ff9900" },
+        { "name": "AWS Athena", "color": "#ff9900" },
+        { "name": "React", "color": "#61dafb" },
+        { "name": "Docker", "color": "#2496ed" }
+      ],
+      "architecture": {
+        "pattern": "Serverless Geospatial Ingestion Pipeline",
+        "scale": "Enterprise-scale GIS dataset ingestion and querying",
+        "infrastructure": "Django REST + PostgreSQL/PostGIS backend, S3 → SQS → Lambda pipeline converting uploads to geoparquet, queried via Amazon Athena",
+        "messaging": "SQS-driven async file processing"
+      },
+      "impact": {
+        "pipeline": "Converted uploaded geospatial files (CSV, Shapefile, KML, GeoJSON) into geoparquet for fast large-scale querying via Athena",
+        "security": "Led a security review addressing a query-builder injection risk and token-handling concerns",
+        "access": "Role-based access control with group-based file sharing and granular permissions",
+        "isolation": "Two PostGIS-backed databases dedicated to mesh/shape/coordinate lookups"
+      },
+      "context": "The platform needed a way to ingest and query large enterprise GIS datasets without every consumer needing direct database access.",
+      "design_decisions": [
+        "Designed a callback-authenticated handoff between the async Lambda ingestion pipeline and the Django backend",
+        "Converted uploaded formats to geoparquet for efficient large-scale querying via Amazon Athena",
+        "Used two PostGIS-backed databases for mesh/shape/coordinate lookups, separate from the primary business database",
+        "Conducted a security review and addressed a query-builder injection risk and token-handling concerns"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
     }
   ],
   "aiProjects": [
     {
       "id": "ai-1",
-      "title": "IR Tool (RAG Pipeline)",
+      "title": "AI Document Processing Tool",
       "shortDescription": "AI workflow converting media into structured business content",
       "description": "Built an AI workflow using LangChain, Azure OpenAI, Azure Speech-to-Text, and Cosmos DB to convert media into structured business content.",
       "image": "images/projects/ir-tool-rag.png",

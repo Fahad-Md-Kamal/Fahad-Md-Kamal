@@ -15,6 +15,14 @@ const base = (props: IconProps) => ({
   ...props,
 })
 
+export const IconLayers = (props: IconProps) => (
+  <svg {...base(props)}>
+    <path d="m12 3 8.5 5-8.5 5-8.5-5L12 3Z" />
+    <path d="m3.5 13 8.5 5 8.5-5" />
+    <path d="m3.5 17.5 8.5 5 8.5-5" />
+  </svg>
+)
+
 export const IconMail = (props: IconProps) => (
   <svg {...base(props)}>
     <path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />

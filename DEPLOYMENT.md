@@ -66,8 +66,9 @@ curl -sIL https://fahad-md-kamal.github.io/Fahad-Md-Kamal/ | head -5
 ## Common edits
 
 **Add/update a project:** edit `src/data/projects.json`, put any image
-under `public/images/projects/` (and mirror into `images/projects/` to
-match the existing convention), then run the routine deploy above.
+under `public/images/projects/` (that's the only image directory —
+Vite's `publicDir` is `public/`, so files must live there to be served),
+then run the routine deploy above.
 
 **Update profile/experience/education/certifications:** edit the
 matching file in `src/data/` (`profile.json`, `experience.json`,
@@ -82,8 +83,8 @@ into `navLinks` in `src/components/Header.tsx`.
 - **404 / broken asset paths after deploy:** check `vite.config.ts` —
   `base` must stay `/Fahad-Md-Kamal/` to match this repo's Pages URL.
 - **Images not loading:** files must exist under `public/images/...`
-  (that's what Vite actually serves); the top-level `images/` folder is
-  a mirror kept for convention but isn't the one Vite reads from.
+  — that's the only image directory this repo uses (a duplicate
+  top-level `images/` folder existed at one point and was removed).
 - **`npm run deploy` fails on push:** `gh-pages` pushes over SSH/HTTPS
   using your existing git credentials — make sure `git push` works
   normally first.

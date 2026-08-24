@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Card, CardHeader, CardContent, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
+import { Card, CardHeader, CardContent, CardTitle, CardDescription } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import type { ProjectsData, Project } from '../types'
 import { Button } from './ui/button'
+import { IconLayers } from './icons'
 
 interface ProjectsProps {
   projects: ProjectsData
@@ -11,7 +12,10 @@ interface ProjectsProps {
 
 interface ProjectCardProps {
   project: Project
+  onOpen: (project: Project) => void
 }
+
+const MAX_VISIBLE_TECH = 4
 
 function resolveAsset(path: string) {
   if (!path) return path
@@ -20,172 +24,264 @@ function resolveAsset(path: string) {
   return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
 }
 
-function ProjectCard({ project }: ProjectCardProps) {
+function ProjectImage({ project, className }: { project: Project; className: string }) {
   const [imageError, setImageError] = useState(false)
 
   return (
-    <Card className="group hover:border-primary/50 transition-all duration-300 flex flex-col h-full overflow-hidden">
-      {project.image && !imageError && (
+    <div className={className}>
+      {project.image && !imageError ? (
         <img
           src={resolveAsset(project.image)}
           alt={`${project.title} architecture overview`}
-          className="w-full h-auto border-b border-border/60"
+          className="absolute inset-0 w-full h-full object-cover object-top"
           onError={() => setImageError(true)}
         />
-      )}
-      {/* Project Header */}
-      <CardHeader className="pb-4">
-        <div className="flex items-start justify-between mb-4">
-          <div>
-            <CardTitle className="text-xl font-display font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
-              {project.title}
-            </CardTitle>
-            <CardDescription className="text-text-secondary text-sm leading-relaxed mb-3">
-              {project.shortDescription}
-            </CardDescription>
-          </div>
-          <div className="flex gap-2">
-            {project.featured && (
-              <Badge variant="default" className="border-primary text-primary bg-primary/10">
-                Featured
-              </Badge>
-            )}
-          </div>
+      ) : (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-text-secondary/70">
+          <IconLayers className="w-8 h-8" />
+          <span className="text-xs font-mono uppercase tracking-wider">{project.category}</span>
         </div>
+      )}
+    </div>
+  )
+}
 
-        {/* Context & Problem */}
-        {project.context && (
-          <div className="mb-4 p-3 bg-background border-l-2 border-secondary rounded-r">
-            <div className="text-xs font-mono text-secondary mb-1">CONTEXT</div>
-            <p className="text-sm text-text-secondary leading-relaxed">{project.context}</p>
-          </div>
-        )}
+function ProjectCard({ project, onOpen }: ProjectCardProps) {
+  const visibleTech = project.technologies.slice(0, MAX_VISIBLE_TECH)
+  const hiddenCount = project.technologies.length - visibleTech.length
+
+  return (
+    <Card
+      role="button"
+      tabIndex={0}
+      onClick={() => onOpen(project)}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(project) } }}
+      className="group hover:border-primary/50 hover:-translate-y-1 hover:shadow-glow transition-all duration-300 flex flex-col h-full overflow-hidden cursor-pointer"
+    >
+      <ProjectImage
+        project={project}
+        className="relative aspect-[16/9] w-full border-b border-border/60 overflow-hidden bg-gradient-to-br from-primary/10 via-surface to-secondary/10"
+      />
+
+      <CardHeader className="pb-3">
+        <div className="flex items-start justify-between gap-3">
+          <CardTitle className="text-lg font-display font-semibold text-text-primary group-hover:text-primary transition-colors">
+            {project.title}
+          </CardTitle>
+          {project.featured && (
+            <Badge variant="default" className="border-primary text-primary bg-primary/10 flex-shrink-0">
+              Featured
+            </Badge>
+          )}
+        </div>
+        <CardDescription className="text-text-secondary text-sm leading-relaxed line-clamp-2">
+          {project.shortDescription}
+        </CardDescription>
       </CardHeader>
 
-      <CardContent className="space-y-6 flex-1">
-        {/* Architecture & Scale */}
-        {project.architecture && (
-          <div>
-            <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
-              <span>ARCHITECTURE</span>
-              <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
-            </div>
-            <div className="grid grid-cols-2 gap-3 text-sm">
-              <div>
-                <span className="text-text-secondary">Pattern:</span>
-                <div className="font-mono text-text-primary">{project.architecture.pattern}</div>
-              </div>
-              <div>
-                <span className="text-text-secondary">Scale:</span>
-                <div className="font-mono text-primary">{project.architecture.scale}</div>
-              </div>
-              <div className="col-span-2">
-                <span className="text-text-secondary">Infrastructure:</span>
-                <div className="font-mono text-text-primary">{project.architecture.infrastructure}</div>
-              </div>
-            </div>
-          </div>
-        )}
+      <CardContent className="pt-0 flex-1 flex flex-col justify-end">
+        <div className="flex flex-wrap gap-2 mb-4">
+          {visibleTech.map((tech, index) => (
+            <Badge
+              key={index}
+              variant="outline"
+              className="font-mono text-xs"
+              style={{
+                borderBottomColor: tech.color,
+                borderBottomWidth: '2px',
+                borderBottomStyle: 'solid'
+              }}
+            >
+              {tech.name}
+            </Badge>
+          ))}
+          {hiddenCount > 0 && (
+            <Badge variant="outline" className="font-mono text-xs text-text-secondary">
+              +{hiddenCount} more
+            </Badge>
+          )}
+        </div>
+        <div className="text-sm text-primary font-medium flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+          View details
+          <span aria-hidden="true">→</span>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
 
-        {/* Impact Metrics */}
-        {project.impact && (
-          <div>
-            <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
-              <span>IMPACT</span>
-              <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              {Object.entries(project.impact).slice(0, 4).map(([key, value]) => (
-                <div key={key} className="text-center p-2 bg-background rounded">
-                  <div className="text-sm font-mono font-bold text-primary">{value}</div>
-                  <div className="text-xs text-text-secondary capitalize">{key.replace('_', ' ')}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', handler)
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', handler)
+      document.body.style.overflow = previousOverflow
+    }
+  }, [onClose])
 
-        {/* Technologies */}
-        <div>
-          <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
-            <span>TECH STACK</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-8 overflow-y-auto overscroll-contain"
+      onClick={onClose}
+    >
+      <div
+        className="max-w-5xl w-full max-h-[85vh] overflow-y-auto bg-surface rounded-2xl border border-border/60 shadow-glow-lg"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <ProjectImage
+          project={project}
+          className="relative aspect-[16/9] w-full border-b border-border/60 overflow-hidden bg-gradient-to-br from-primary/10 via-surface to-secondary/10"
+        />
+
+        <div className="flex items-start justify-between gap-4 p-6 pb-0">
+          <div>
+            <div className="flex items-center gap-3 mb-1">
+              <h3 className="text-2xl font-display font-semibold text-text-primary">{project.title}</h3>
+              {project.featured && (
+                <Badge variant="default" className="border-primary text-primary bg-primary/10">
+                  Featured
+                </Badge>
+              )}
+            </div>
+            <p className="text-text-secondary text-sm leading-relaxed">{project.shortDescription}</p>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech, index) => (
-              <Badge
-                key={index}
-                variant="outline"
-                className="font-mono text-xs"
-                style={{
-                  borderBottomColor: tech.color,
-                  borderBottomWidth: '2px',
-                  borderBottomStyle: 'solid'
-                }}
-              >
-                {tech.name}
-              </Badge>
-            ))}
-          </div>
+          <Button size="sm" variant="ghost" onClick={onClose} aria-label="Close">
+            Close
+          </Button>
         </div>
 
-        {/* Design Decisions (collapsed by default) */}
-        {project.design_decisions && (
-          <details className="mb-4">
-            <summary className="text-xs font-mono text-secondary cursor-pointer hover:text-primary transition-colors mb-2">
-              DESIGN DECISIONS
-            </summary>
-            <ul className="text-sm text-text-secondary space-y-1 ml-4">
-              {project.design_decisions.map((decision, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <span className="text-primary mt-1.5">•</span>
-                  <span>{decision}</span>
-                </li>
-              ))}
-            </ul>
-          </details>
-        )}
-      </CardContent>
+        <div className="p-6 space-y-6">
+          {project.context && (
+            <div className="p-3 bg-background border-l-2 border-secondary rounded-r">
+              <div className="text-xs font-mono uppercase tracking-wider text-secondary mb-1">Context</div>
+              <p className="text-sm text-text-secondary leading-relaxed">{project.context}</p>
+            </div>
+          )}
 
-      {/* Action Links */}
-      <CardFooter className="flex gap-3 pt-4 border-t border-border/60 mt-auto">
-        {project.links.live && (
-          <a
-            href={project.links.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center py-2 px-3 bg-primary text-background hover:bg-primary/90 transition-colors font-mono text-sm rounded"
-          >
-            Live Site
-          </a>
-        )}
-        {project.links.github && (
-          <a
-            href={project.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center py-2 px-3 border border-border/60 text-text-secondary hover:text-primary hover:border-primary/50 transition-all font-mono text-sm rounded"
-          >
-            Code
-          </a>
-        )}
-        {project.links.demo && (
-          <a
-            href={project.links.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center py-2 px-3 border border-secondary text-secondary hover:bg-secondary/10 hover:border-secondary/70 transition-all font-mono text-sm rounded"
-          >
-            Demo
-          </a>
-        )}
-        {!project.links.live && !project.links.github && !project.links.demo && (
-          <div className="flex-1 text-center py-2 px-3 border border-gray-600 text-gray-500 font-mono text-sm rounded cursor-not-allowed">
-            Private Project
+          {project.architecture && (
+            <div>
+              <div className="text-xs font-mono uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
+                <span>Architecture</span>
+                <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
+              </div>
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <span className="text-text-secondary">Pattern:</span>
+                  <div className="font-mono text-text-primary">{project.architecture.pattern}</div>
+                </div>
+                <div>
+                  <span className="text-text-secondary">Scale:</span>
+                  <div className="font-mono text-primary">{project.architecture.scale}</div>
+                </div>
+                <div className="col-span-2">
+                  <span className="text-text-secondary">Infrastructure:</span>
+                  <div className="font-mono text-text-primary">{project.architecture.infrastructure}</div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {project.impact && (
+            <div>
+              <div className="text-xs font-mono uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
+                <span>Impact</span>
+                <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {Object.entries(project.impact).map(([key, value]) => (
+                  <div key={key} className="text-center p-2 rounded-xl border border-border/60 bg-background/40">
+                    <div className="text-sm font-mono font-bold text-primary">{value}</div>
+                    <div className="text-xs text-text-secondary capitalize">{key.replace('_', ' ')}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div>
+            <div className="text-xs font-mono uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
+              <span>Tech Stack</span>
+              <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech, index) => (
+                <Badge
+                  key={index}
+                  variant="outline"
+                  className="font-mono text-xs"
+                  style={{
+                    borderBottomColor: tech.color,
+                    borderBottomWidth: '2px',
+                    borderBottomStyle: 'solid'
+                  }}
+                >
+                  {tech.name}
+                </Badge>
+              ))}
+            </div>
           </div>
-        )}
-      </CardFooter>
-    </Card>
+
+          {project.design_decisions && (
+            <div>
+              <div className="text-xs font-mono uppercase tracking-wider text-secondary mb-3 flex items-center gap-2">
+                <span>Design Decisions</span>
+                <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
+              </div>
+              <ul className="text-sm text-text-secondary space-y-2">
+                {project.design_decisions.map((decision, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-primary mt-1.5">•</span>
+                    <span>{decision}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {/* Action Links */}
+        <div className="flex gap-3 p-6 pt-0">
+          {project.links.live && (
+            <a
+              href={project.links.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center py-2 px-3 bg-primary text-background hover:bg-primary/90 transition-colors font-mono text-sm rounded-xl"
+            >
+              Live Site
+            </a>
+          )}
+          {project.links.github && (
+            <a
+              href={project.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center py-2 px-3 border border-border/60 text-text-secondary hover:text-primary hover:border-primary/50 transition-all font-mono text-sm rounded-xl"
+            >
+              Code
+            </a>
+          )}
+          {project.links.demo && (
+            <a
+              href={project.links.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center py-2 px-3 border border-secondary text-secondary hover:bg-secondary/10 hover:border-secondary/70 transition-all font-mono text-sm rounded-xl"
+            >
+              Demo
+            </a>
+          )}
+          {!project.links.live && !project.links.github && !project.links.demo && (
+            <div className="flex-1 text-center py-2 px-3 border border-border/60 text-text-secondary/60 font-mono text-sm rounded-xl cursor-not-allowed">
+              Private Project
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -194,6 +290,8 @@ export default function Projects({ projects }: ProjectsProps) {
   const systemsProjects = projects.projects || []
   const aiProjects = projects.aiProjects || []
   const allProjects = [...systemsProjects, ...aiProjects]
+
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   return (
     <section id="projects" className="py-20 md:py-28 bg-background">
@@ -236,7 +334,7 @@ export default function Projects({ projects }: ProjectsProps) {
                     </div>
                     <div className="grid lg:grid-cols-2 gap-8">
                       {systemsProjects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
+                        <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
                       ))}
                     </div>
                   </div>
@@ -249,7 +347,7 @@ export default function Projects({ projects }: ProjectsProps) {
                     </div>
                     <div className="grid lg:grid-cols-2 gap-8">
                       {aiProjects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
+                        <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
                       ))}
                     </div>
                   </div>
@@ -266,7 +364,7 @@ export default function Projects({ projects }: ProjectsProps) {
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8">
                     {systemsProjects.map((project) => (
-                      <ProjectCard key={project.id} project={project} />
+                      <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
                     ))}
                   </div>
                 </div>
@@ -282,7 +380,7 @@ export default function Projects({ projects }: ProjectsProps) {
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8">
                     {aiProjects.map((project) => (
-                      <ProjectCard key={project.id} project={project} />
+                      <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
                     ))}
                   </div>
                 </div>
@@ -357,6 +455,10 @@ export default function Projects({ projects }: ProjectsProps) {
           </div>
         </div>
       </div>
+
+      {selectedProject && (
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      )}
     </section>
   )
 }
