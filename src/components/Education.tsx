@@ -3,6 +3,8 @@ import type { EducationData, Education } from '../types'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface EducationProps {
   education: EducationData
@@ -30,7 +32,7 @@ function EducationCard({ education, index }: EducationCardProps) {
   }
 
   return (
-    <div className="relative mb-8 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+    <Reveal delay={index * 100} className="relative mb-8">
       <div className="absolute left-6 top-20 bottom-0 w-px bg-gradient-to-b from-border via-border to-transparent hidden md:block"></div>
 
       <div className="absolute left-2 top-16 w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full border-4 border-background shadow-glow hidden md:flex items-center justify-center">
@@ -60,9 +62,7 @@ function EducationCard({ education, index }: EducationCardProps) {
             <div className="flex-1">
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {education.degree}
-                  </h3>
+                  <DecodeText as="h3" text={education.degree} className="text-xl font-semibold text-foreground mb-2" />
                   <div className="flex items-center gap-3 mb-3">
                     {education.website ? (
                       <Button
@@ -86,7 +86,7 @@ function EducationCard({ education, index }: EducationCardProps) {
 
                 <div className="text-right">
                   <Badge variant="secondary" className="flex items-center gap-2">
-                    <span>{formatDate(education.startDate)} - {formatDate(education.endDate)}</span>
+                    <DecodeText text={`${formatDate(education.startDate)} - ${formatDate(education.endDate)}`} />
                   </Badge>
                 </div>
               </div>
@@ -114,7 +114,7 @@ function EducationCard({ education, index }: EducationCardProps) {
           )}
         </CardContent>
       </Card>
-    </div>
+    </Reveal>
   )
 }
 
@@ -123,13 +123,15 @@ export default function Education({ education }: EducationProps) {
     <section id="education" className="py-20 md:py-28 bg-background/85">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-16">
-            <div className="section-eyebrow">Background</div>
-            <h2 className="section-title mb-4">Education</h2>
+          <Reveal className="mb-16">
+            <div className="section-eyebrow">
+              <DecodeText text="Background" />
+            </div>
+            <DecodeText as="h2" text="Education" className="section-title mb-4" />
             <p className="text-xl text-muted-foreground max-w-2xl">
               Academic background behind the engineering work.
             </p>
-          </div>
+          </Reveal>
 
           <div className="space-y-8">
             {education.education.map((edu, index) => (

@@ -5,6 +5,8 @@ import { Badge } from '@/components/ui/badge'
 import type { ProjectsData, Project } from '../types'
 import { Button } from './ui/button'
 import { IconLayers } from './icons'
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface ProjectsProps {
   projects: ProjectsData
@@ -13,6 +15,7 @@ interface ProjectsProps {
 interface ProjectCardProps {
   project: Project
   onOpen: (project: Project) => void
+  delay?: number
 }
 
 const MAX_VISIBLE_TECH = 4
@@ -46,67 +49,71 @@ function ProjectImage({ project, className }: { project: Project; className: str
   )
 }
 
-function ProjectCard({ project, onOpen }: ProjectCardProps) {
+function ProjectCard({ project, onOpen, delay = 0 }: ProjectCardProps) {
   const visibleTech = project.technologies.slice(0, MAX_VISIBLE_TECH)
   const hiddenCount = project.technologies.length - visibleTech.length
 
   return (
-    <Card
-      role="button"
-      tabIndex={0}
-      onClick={() => onOpen(project)}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(project) } }}
-      className="group hover:border-primary/50 hover:-translate-y-1 hover:shadow-glow transition-all duration-300 flex flex-col h-full overflow-hidden cursor-pointer"
-    >
-      <ProjectImage
-        project={project}
-        className="relative aspect-[16/9] w-full border-b border-border/60 overflow-hidden bg-gradient-to-br from-primary/10 via-surface to-secondary/10"
-      />
+    <Reveal delay={delay}>
+      <Card
+        role="button"
+        tabIndex={0}
+        onClick={() => onOpen(project)}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(project) } }}
+        className="group hover:border-primary/50 hover:-translate-y-1 hover:shadow-glow transition-all duration-300 flex flex-col h-full overflow-hidden cursor-pointer"
+      >
+        <ProjectImage
+          project={project}
+          className="relative aspect-[16/9] w-full border-b border-border/60 overflow-hidden bg-gradient-to-br from-primary/10 via-surface to-secondary/10"
+        />
 
-      <CardHeader className="pb-3">
-        <div className="flex items-start justify-between gap-3">
-          <CardTitle className="text-lg font-display font-semibold text-text-primary group-hover:text-primary transition-colors">
-            {project.title}
-          </CardTitle>
-          {project.featured && (
-            <Badge variant="default" className="border-primary text-primary bg-primary/10 flex-shrink-0">
-              Featured
-            </Badge>
-          )}
-        </div>
-        <CardDescription className="text-text-secondary text-sm leading-relaxed line-clamp-2">
-          {project.shortDescription}
-        </CardDescription>
-      </CardHeader>
+        <CardHeader className="pb-3">
+          <div className="flex items-start justify-between gap-3">
+            <DecodeText
+              as={CardTitle as any}
+              text={project.title}
+              className="text-lg font-display font-semibold text-text-primary group-hover:text-primary transition-colors"
+            />
+            {project.featured && (
+              <Badge variant="default" className="border-primary text-primary bg-primary/10 flex-shrink-0">
+                Featured
+              </Badge>
+            )}
+          </div>
+          <CardDescription className="text-text-secondary text-sm leading-relaxed line-clamp-2">
+            {project.shortDescription}
+          </CardDescription>
+        </CardHeader>
 
-      <CardContent className="pt-0 flex-1 flex flex-col justify-end">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {visibleTech.map((tech, index) => (
-            <Badge
-              key={index}
-              variant="outline"
-              className="font-mono text-xs"
-              style={{
-                borderBottomColor: tech.color,
-                borderBottomWidth: '2px',
-                borderBottomStyle: 'solid'
-              }}
-            >
-              {tech.name}
-            </Badge>
-          ))}
-          {hiddenCount > 0 && (
-            <Badge variant="outline" className="font-mono text-xs text-text-secondary">
-              +{hiddenCount} more
-            </Badge>
-          )}
-        </div>
-        <div className="text-sm text-primary font-medium flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-          View details
-          <span aria-hidden="true">→</span>
-        </div>
-      </CardContent>
-    </Card>
+        <CardContent className="pt-0 flex-1 flex flex-col justify-end">
+          <div className="flex flex-wrap gap-2 mb-4">
+            {visibleTech.map((tech, index) => (
+              <Badge
+                key={index}
+                variant="outline"
+                className="font-mono text-xs"
+                style={{
+                  borderBottomColor: tech.color,
+                  borderBottomWidth: '2px',
+                  borderBottomStyle: 'solid'
+                }}
+              >
+                {tech.name}
+              </Badge>
+            ))}
+            {hiddenCount > 0 && (
+              <Badge variant="outline" className="font-mono text-xs text-text-secondary">
+                +{hiddenCount} more
+              </Badge>
+            )}
+          </div>
+          <div className="text-sm text-primary font-medium flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+            View details
+            <span aria-hidden="true">→</span>
+          </div>
+        </CardContent>
+      </Card>
+    </Reveal>
   )
 }
 
@@ -139,7 +146,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         <div className="flex items-start justify-between gap-4 p-6 pb-0">
           <div>
             <div className="flex items-center gap-3 mb-1">
-              <h3 className="text-2xl font-display font-semibold text-text-primary">{project.title}</h3>
+              <DecodeText as="h3" text={project.title} className="text-2xl font-display font-semibold text-text-primary" />
               {project.featured && (
                 <Badge variant="default" className="border-primary text-primary bg-primary/10">
                   Featured
@@ -156,7 +163,9 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         <div className="p-6 space-y-6">
           {project.context && (
             <div className="p-3 bg-background border-l-2 border-secondary rounded-r">
-              <div className="text-xs font-mono uppercase tracking-wider text-secondary mb-1">Context</div>
+              <div className="text-xs font-mono uppercase tracking-wider text-secondary mb-1">
+                <DecodeText text="Context" />
+              </div>
               <p className="text-sm text-text-secondary leading-relaxed">{project.context}</p>
             </div>
           )}
@@ -164,21 +173,21 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           {project.architecture && (
             <div>
               <div className="text-xs font-mono uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
-                <span>Architecture</span>
+                <DecodeText text="Architecture" />
                 <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
               </div>
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div>
                   <span className="text-text-secondary">Pattern:</span>
-                  <div className="font-mono text-text-primary">{project.architecture.pattern}</div>
+                  <DecodeText text={project.architecture.pattern} className="font-mono text-text-primary block" />
                 </div>
                 <div>
                   <span className="text-text-secondary">Scale:</span>
-                  <div className="font-mono text-primary">{project.architecture.scale}</div>
+                  <DecodeText text={project.architecture.scale} className="font-mono text-primary block" />
                 </div>
                 <div className="col-span-2">
                   <span className="text-text-secondary">Infrastructure:</span>
-                  <div className="font-mono text-text-primary">{project.architecture.infrastructure}</div>
+                  <DecodeText text={project.architecture.infrastructure} className="font-mono text-text-primary block" />
                 </div>
               </div>
             </div>
@@ -187,15 +196,15 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           {project.impact && (
             <div>
               <div className="text-xs font-mono uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
-                <span>Impact</span>
+                <DecodeText text="Impact" />
                 <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {Object.entries(project.impact).map(([key, value]) => (
-                  <div key={key} className="text-center p-2 rounded-xl border border-border/60 bg-background/40">
-                    <div className="text-sm font-mono font-bold text-primary">{value}</div>
+                {Object.entries(project.impact).map(([key, value], i) => (
+                  <Reveal key={key} delay={i * 60} className="text-center p-2 rounded-xl border border-border/60 bg-background/40">
+                    <DecodeText text={value || ''} className="text-sm font-mono font-bold text-primary block" />
                     <div className="text-xs text-text-secondary capitalize">{key.replace('_', ' ')}</div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -203,7 +212,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
           <div>
             <div className="text-xs font-mono uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
-              <span>Tech Stack</span>
+              <DecodeText text="Tech Stack" />
               <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -227,7 +236,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           {project.design_decisions && (
             <div>
               <div className="text-xs font-mono uppercase tracking-wider text-secondary mb-3 flex items-center gap-2">
-                <span>Design Decisions</span>
+                <DecodeText text="Design Decisions" />
                 <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
               </div>
               <ul className="text-sm text-text-secondary space-y-2">
@@ -302,14 +311,16 @@ export default function Projects({ projects }: ProjectsProps) {
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="mb-16">
-            <div className="section-eyebrow">Selected Work</div>
-            <h2 className="section-title">Engineering Systems</h2>
+          <Reveal className="mb-16">
+            <div className="section-eyebrow">
+              <DecodeText text="Selected Work" />
+            </div>
+            <DecodeText as="h2" text="Engineering Systems" className="section-title" />
             <p className="text-lg text-text-secondary max-w-3xl mb-8">
               Production systems built for scale, reliability, and maintainability.
               Focus on architecture decisions, performance impact, and real-world constraints.
             </p>
-          </div>
+          </Reveal>
 
           {/* Tabs */}
           <Tabs defaultValue="all" className="mb-12">
@@ -333,12 +344,12 @@ export default function Projects({ projects }: ProjectsProps) {
                 {systemsProjects.length > 0 && (
                   <div>
                     <div className="flex items-center gap-4 mb-8">
-                      <h3 className="text-xl font-display text-primary">Backend & Infrastructure</h3>
+                      <DecodeText as="h3" text="Backend & Infrastructure" className="text-xl font-display text-primary" />
                       <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                     </div>
                     <div className="grid lg:grid-cols-2 gap-8">
-                      {systemsProjects.map((project) => (
-                        <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
+                      {systemsProjects.map((project, i) => (
+                        <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} delay={i * 80} />
                       ))}
                     </div>
                   </div>
@@ -346,12 +357,12 @@ export default function Projects({ projects }: ProjectsProps) {
                 {aiProjects.length > 0 && (
                   <div>
                     <div className="flex items-center gap-4 mb-8">
-                      <h3 className="text-xl font-display text-secondary">AI & LLM Systems</h3>
+                      <DecodeText as="h3" text="AI & LLM Systems" className="text-xl font-display text-secondary" />
                       <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                     </div>
                     <div className="grid lg:grid-cols-2 gap-8">
-                      {aiProjects.map((project) => (
-                        <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
+                      {aiProjects.map((project, i) => (
+                        <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} delay={i * 80} />
                       ))}
                     </div>
                   </div>
@@ -363,12 +374,12 @@ export default function Projects({ projects }: ProjectsProps) {
               <div className="space-y-12">
                 <div>
                   <div className="flex items-center gap-4 mb-8">
-                    <h3 className="text-xl font-display text-primary">Backend & Infrastructure</h3>
+                    <DecodeText as="h3" text="Backend & Infrastructure" className="text-xl font-display text-primary" />
                     <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8">
-                    {systemsProjects.map((project) => (
-                      <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
+                    {systemsProjects.map((project, i) => (
+                      <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} delay={i * 80} />
                     ))}
                   </div>
                 </div>
@@ -379,12 +390,12 @@ export default function Projects({ projects }: ProjectsProps) {
               <div className="space-y-12">
                 <div>
                   <div className="flex items-center gap-4 mb-8">
-                    <h3 className="text-xl font-display text-secondary">AI & LLM Systems</h3>
+                    <DecodeText as="h3" text="AI & LLM Systems" className="text-xl font-display text-secondary" />
                     <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8">
-                    {aiProjects.map((project) => (
-                      <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
+                    {aiProjects.map((project, i) => (
+                      <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} delay={i * 80} />
                     ))}
                   </div>
                 </div>
@@ -393,44 +404,44 @@ export default function Projects({ projects }: ProjectsProps) {
           </Tabs>
 
           {/* Engineering Notes Section */}
-          <Card className="mt-20 bg-surface border-border/60">
+          <Reveal as={Card as any} className="mt-20 bg-surface border-border/60">
             <CardHeader>
-              <CardTitle className="text-lg font-display text-primary">Engineering Notes</CardTitle>
+              <DecodeText as={CardTitle as any} text="Engineering Notes" className="text-lg font-display text-primary" />
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-3 gap-6">
-                <Card className="bg-background border-border/60">
+                <Reveal as={Card as any} delay={0} className="bg-background border-border/60">
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-xs font-mono text-secondary">TRADE-OFFS</CardTitle>
+                    <DecodeText as={CardTitle as any} text="TRADE-OFFS" className="text-xs font-mono text-secondary" />
                   </CardHeader>
                   <CardContent className="text-sm text-text-secondary leading-relaxed">
                     Redis Pub/Sub vs Kafka: Chosen Redis for sub-100ms latency requirements in threat processing,
                     accepting trade-off in total ordering guarantees for real-time performance.
                   </CardContent>
-                </Card>
+                </Reveal>
 
-                <Card className="bg-background border-border/60">
+                <Reveal as={Card as any} delay={80} className="bg-background border-border/60">
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-xs font-mono text-secondary">SCALE PATTERNS</CardTitle>
+                    <DecodeText as={CardTitle as any} text="SCALE PATTERNS" className="text-xs font-mono text-secondary" />
                   </CardHeader>
                   <CardContent className="text-sm text-text-secondary leading-relaxed">
                     Event-driven architecture with circuit breakers enables 10K+ req/sec while maintaining
                     system stability during downstream service degradation.
                   </CardContent>
-                </Card>
+                </Reveal>
 
-                <Card className="bg-background border-border/60">
+                <Reveal as={Card as any} delay={160} className="bg-background border-border/60">
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-xs font-mono text-secondary">LESSONS LEARNED</CardTitle>
+                    <DecodeText as={CardTitle as any} text="LESSONS LEARNED" className="text-xs font-mono text-secondary" />
                   </CardHeader>
                   <CardContent className="text-sm text-text-secondary leading-relaxed">
                     Serverless cost optimization: 40% savings achieved by right-sizing function memory and
                     implementing intelligent cold-start warming strategies.
                   </CardContent>
-                </Card>
+                </Reveal>
               </div>
             </CardContent>
-          </Card>
+          </Reveal>
 
           {/* CTA */}
           <div className="text-center mt-16">

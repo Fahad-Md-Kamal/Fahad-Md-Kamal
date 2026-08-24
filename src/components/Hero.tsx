@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { IconGithub, IconLinkedin, IconX, IconMail, IconMapPin, IconArrowDown } from '@/components/icons'
+import DecodeText from './DecodeText'
 interface HeroProps {
   profile: Profile
   projectCount: number
@@ -116,9 +117,11 @@ export default function Hero({ profile, projectCount }: HeroProps) {
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold mb-4 sm:mb-6 leading-[1.05] tracking-tight text-center">
               <span className="gradient-text">{profile.name}</span>
             </h1>
-            <h2 className="text-lg sm:text-2xl lg:text-3xl text-text-primary/90 mb-3 sm:mb-4 text-center font-display font-medium">
-              Senior Software Engineer
-            </h2>
+            <DecodeText
+              as="h2"
+              text="Senior Software Engineer"
+              className="text-lg sm:text-2xl lg:text-3xl text-text-primary/90 mb-3 sm:mb-4 text-center font-display font-medium block"
+            />
             <div className="text-base sm:text-xl lg:text-2xl text-text-secondary mb-6 sm:mb-8 leading-relaxed text-center px-4 max-w-2xl mx-auto">
               Building backend systems, event-driven services, and applied AI tools
             </div>
@@ -138,25 +141,25 @@ export default function Hero({ profile, projectCount }: HeroProps) {
           <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-8 sm:mb-12 animate-slide-up px-4" style={{ animationDelay: '0.2s' }}>
             <Card className="card-hover">
               <CardContent className="p-3 sm:p-5 text-center">
-                <div className="text-xl sm:text-3xl font-display font-bold text-primary mb-1">{calculateYearsExperience()}</div>
+                <DecodeText text={calculateYearsExperience()} className="text-xl sm:text-3xl font-display font-bold text-primary mb-1 block" />
                 <div className="text-xs sm:text-sm text-text-secondary">Years Experience</div>
               </CardContent>
             </Card>
             <Card className="card-hover">
               <CardContent className="p-3 sm:p-5 text-center">
-                <div className="text-xl sm:text-3xl font-display font-bold text-primary mb-1">{calculateSystemsBuilt()}</div>
+                <DecodeText text={calculateSystemsBuilt()} className="text-xl sm:text-3xl font-display font-bold text-primary mb-1 block" />
                 <div className="text-xs sm:text-sm text-text-secondary">Systems Built</div>
               </CardContent>
             </Card>
             <Card className="card-hover">
               <CardContent className="p-3 sm:p-5 text-center">
-                <div className="text-xl sm:text-3xl font-display font-bold text-primary mb-1">99.9%</div>
+                <DecodeText text="99.9%" className="text-xl sm:text-3xl font-display font-bold text-primary mb-1 block" />
                 <div className="text-xs sm:text-sm text-text-secondary">Uptime Achieved</div>
               </CardContent>
             </Card>
             <Card className="card-hover">
               <CardContent className="p-3 sm:p-5 text-center">
-                <div className="text-xl sm:text-3xl font-display font-bold text-primary mb-1">5M+</div>
+                <DecodeText text="5M+" className="text-xl sm:text-3xl font-display font-bold text-primary mb-1 block" />
                 <div className="text-xs sm:text-sm text-text-secondary">Records Processed</div>
               </CardContent>
             </Card>
@@ -214,12 +217,12 @@ export default function Hero({ profile, projectCount }: HeroProps) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-text-secondary text-xs sm:text-sm">
               <Badge variant="secondary" className="flex items-center gap-2">
                 <IconMapPin className="w-3.5 h-3.5" />
-                {profile.contact.location}
+                <DecodeText text={profile.contact.location} />
               </Badge>
               {profile.availability.status === 'open' && (
                 <Badge variant="outline" className="flex items-center gap-2 border-green-500/25 text-green-400">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span>{profile.availability.message}</span>
+                  <DecodeText text={profile.availability.message} />
                 </Badge>
               )}
             </div>

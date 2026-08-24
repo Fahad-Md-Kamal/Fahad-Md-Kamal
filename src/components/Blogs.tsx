@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface BlogPost {
   slug: string
@@ -173,18 +175,20 @@ export default function Blogs() {
     <section id="blogs" className="py-20 md:py-28 bg-surface/90">
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-12">
-            <div className="section-eyebrow">Writing</div>
-            <h2 className="section-title mb-4">Technical Notes</h2>
+          <Reveal className="mb-12">
+            <div className="section-eyebrow">
+              <DecodeText text="Writing" />
+            </div>
+            <DecodeText as="h2" text="Technical Notes" className="section-title mb-4" />
             <p className="text-text-secondary">Occasional write-ups on architecture, lessons learned, and experiments.</p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {posts.map(post => (
-              <Card key={post.slug} className="card-hover h-full">
+            {posts.map((post, i) => (
+              <Reveal key={post.slug} delay={i * 80} as={Card as any} className="card-hover h-full">
                 <div className="p-5 flex flex-col gap-3 h-full">
                   <div>
-                    <div className="text-lg text-text-primary font-display font-semibold">{post.title}</div>
+                    <DecodeText text={post.title} className="text-lg text-text-primary font-display font-semibold block" />
                     <div className="text-xs text-text-secondary font-mono mt-1">{post.formattedDate}</div>
                   </div>
                   <p className="text-sm text-text-secondary leading-relaxed flex-1">{post.excerpt}</p>
@@ -194,7 +198,7 @@ export default function Blogs() {
                     </Button>
                   </div>
                 </div>
-              </Card>
+              </Reveal>
             ))}
           </div>
 
@@ -209,7 +213,7 @@ export default function Blogs() {
               >
                 <div className="flex items-start justify-between p-4 border-b border-border/60">
                   <div>
-                    <h3 className="text-2xl text-text-primary font-display">{modalPost.title}</h3>
+                    <DecodeText as="h3" text={modalPost.title} className="text-2xl text-text-primary font-display" />
                     <p className="text-xs text-text-secondary font-mono">{modalPost.formattedDate}</p>
                   </div>
                   <Button size="sm" variant="ghost" onClick={() => setModalPost(null)}>

@@ -1,6 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardHeader, CardContent, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import type { SkillsData, SkillCategory } from '../types'
+import { useInView } from '../hooks/useInView'
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface SkillsProps {
   skills: SkillsData
@@ -12,13 +15,16 @@ interface SkillItemProps {
 }
 
 function SkillItem({ skill, index }: SkillItemProps) {
+  const { ref, inView } = useInView<HTMLDivElement>()
+
   return (
     <div
-      className="flex items-center justify-between p-3 rounded-xl border border-border/60 bg-background/30 hover:border-primary/40 hover:bg-background/50 transition-all duration-200 animate-fade-in"
-      style={{ animationDelay: `${index * 0.05}s` }}
+      ref={ref}
+      className="flex items-center justify-between p-3 rounded-xl border border-border/60 bg-background/30 hover:border-primary/40 hover:bg-background/50 transition-all duration-300"
+      style={{ transitionDelay: `${index * 40}ms` }}
     >
       <div className="flex items-center gap-3">
-        <span className="text-text-primary text-sm font-medium">{skill.name}</span>
+        <DecodeText text={skill.name} delay={index * 40} className="text-text-primary text-sm font-medium" />
         <span className="text-xs font-mono text-text-secondary">
           {skill.years}yr{skill.years > 1 ? 's' : ''}
         </span>
@@ -28,12 +34,12 @@ function SkillItem({ skill, index }: SkillItemProps) {
           <div
             className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-1000 ease-out"
             style={{
-              width: `${skill.level}%`,
-              animationDelay: `${index * 0.05 + 0.3}s`
+              width: inView ? `${skill.level}%` : '0%',
+              transitionDelay: `${index * 40 + 200}ms`
             }}
           />
         </div>
-        <span className="text-xs font-mono text-primary min-w-[3ch]">{skill.level}%</span>
+        <span className="text-xs font-mono text-primary min-w-[3ch]">{inView ? `${skill.level}%` : '0%'}</span>
       </div>
     </div>
   )
@@ -46,14 +52,14 @@ interface CategorySectionProps {
 
 function CategorySection({ category, index }: CategorySectionProps) {
   return (
-    <Card className="animate-slide-up flex flex-col h-full" style={{ animationDelay: `${index * 0.1}s` }}>
+    <Reveal delay={index * 100} className="flex flex-col h-full" as={Card as any}>
       <CardHeader className="pb-4">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 border border-border/60 rounded-xl flex items-center justify-center">
             <span className="text-2xl">{category.icon}</span>
           </div>
           <div>
-            <CardTitle className="text-lg font-display font-semibold text-text-primary">{category.name}</CardTitle>
+            <DecodeText as={CardTitle as any} text={category.name} className="text-lg font-display font-semibold text-text-primary" />
             <CardDescription className="text-sm text-text-secondary">
               {category.skills.length} technologies
             </CardDescription>
@@ -63,9 +69,9 @@ function CategorySection({ category, index }: CategorySectionProps) {
 
       <CardContent className="space-y-3 flex-1">
         {category.skills.map((skill, skillIndex) => (
-          <SkillItem 
-            key={skill.name} 
-            skill={skill} 
+          <SkillItem
+            key={skill.name}
+            skill={skill}
             index={skillIndex}
           />
         ))}
@@ -75,26 +81,20 @@ function CategorySection({ category, index }: CategorySectionProps) {
       <CardFooter className="flex-col pt-6 border-t border-border/60 mt-auto">
         <div className="grid grid-cols-3 gap-4 text-center w-full">
           <div>
-            <div className="text-sm font-mono font-bold text-primary">
-              {category.skills.filter(s => s.level >= 90).length}
-            </div>
+            <DecodeText text={String(category.skills.filter(s => s.level >= 90).length)} className="text-sm font-mono font-bold text-primary" />
             <div className="text-xs text-text-secondary font-mono">Expert</div>
           </div>
           <div>
-            <div className="text-sm font-mono font-bold text-secondary">
-              {category.skills.filter(s => s.level >= 70 && s.level < 90).length}
-            </div>
+            <DecodeText text={String(category.skills.filter(s => s.level >= 70 && s.level < 90).length)} className="text-sm font-mono font-bold text-secondary" />
             <div className="text-xs text-text-secondary font-mono">Advanced</div>
           </div>
           <div>
-            <div className="text-sm font-mono font-bold text-text-secondary">
-              {Math.round(category.skills.reduce((acc, s) => acc + s.years, 0) / category.skills.length)}yr
-            </div>
+            <DecodeText text={`${Math.round(category.skills.reduce((acc, s) => acc + s.years, 0) / category.skills.length)}yr`} className="text-sm font-mono font-bold text-text-secondary" />
             <div className="text-xs text-text-secondary font-mono">Avg Exp</div>
           </div>
         </div>
       </CardFooter>
-    </Card>
+    </Reveal>
   )
 }
 
@@ -116,13 +116,15 @@ export default function Skills({ skills }: SkillsProps) {
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="mb-16">
-            <div className="section-eyebrow">Technology Stack</div>
-            <h2 className="section-title mb-4">Tools I reach for</h2>
+          <Reveal className="mb-16">
+            <div className="section-eyebrow">
+              <DecodeText text="Technology Stack" />
+            </div>
+            <DecodeText as="h2" text="Tools I reach for" className="section-title mb-4" />
             <p className="text-lg text-text-secondary max-w-3xl leading-relaxed">
               Tools and technologies I have used in real backend and AI-focused projects.
             </p>
-          </div>
+          </Reveal>
 
           {/* Tabs */}
           <Tabs defaultValue="all" className="mb-12">
@@ -195,25 +197,29 @@ export default function Skills({ skills }: SkillsProps) {
           </Tabs>
 
           {/* Technical Notes */}
-          <div className="mt-20 p-8 bg-gradient-to-br from-surface to-surface/60 rounded-2xl border border-border/60 shadow-soft">
-            <h3 className="text-lg font-display font-semibold text-text-primary mb-4">Technical Philosophy</h3>
+          <Reveal className="mt-20 p-8 bg-gradient-to-br from-surface to-surface/60 rounded-2xl border border-border/60 shadow-soft">
+            <DecodeText as="h3" text="Technical Philosophy" className="text-lg font-display font-semibold text-text-primary mb-4" />
             <div className="grid md:grid-cols-2 gap-6 text-sm">
               <div>
-                <div className="font-mono text-xs uppercase tracking-wider text-secondary mb-2">Architecture Principles</div>
+                <div className="font-mono text-xs uppercase tracking-wider text-secondary mb-2">
+                  <DecodeText text="Architecture Principles" />
+                </div>
                 <p className="text-text-secondary leading-relaxed">
                   Prefer simple, maintainable backend designs first, then introduce asynchronous processing,
                   event-driven flows, and service boundaries where they clearly improve reliability or scale.
                 </p>
               </div>
               <div>
-                <div className="font-mono text-xs uppercase tracking-wider text-secondary mb-2">Performance Focus</div>
+                <div className="font-mono text-xs uppercase tracking-wider text-secondary mb-2">
+                  <DecodeText text="Performance Focus" />
+                </div>
                 <p className="text-text-secondary leading-relaxed">
                   Focus on query optimization, background jobs, cache-aware design,
                   and production visibility so backend systems stay understandable under load.
                 </p>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

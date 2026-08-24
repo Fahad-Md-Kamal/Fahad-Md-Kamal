@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { IconArrowDown } from "@/components/icons"
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface FooterProps {
   profile: Profile
@@ -35,7 +37,7 @@ export default function Footer({ profile }: FooterProps) {
       <div className="section-container">
         <div className="max-w-6xl mx-auto py-16 md:py-20">
           {/* System Info */}
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
+          <Reveal className="grid md:grid-cols-3 gap-12 mb-12">
             {/* Engineer Identity */}
             <div>
               <Button
@@ -71,9 +73,7 @@ export default function Footer({ profile }: FooterProps) {
                       className="w-9 h-9 bg-surface border border-border/60 rounded-xl flex items-center justify-center text-text-secondary hover:border-primary/50 hover:text-primary hover:-translate-y-0.5 transition-all duration-200"
                       aria-label={`${platform} profile`}
                     >
-                      <span className="font-mono text-xs">
-                        {labelMap[platform] || platform.slice(0, 2).toUpperCase()}
-                      </span>
+                      <DecodeText text={labelMap[platform] || platform.slice(0, 2).toUpperCase()} className="font-mono text-xs" />
                     </a>
                   )
                 })}
@@ -83,7 +83,7 @@ export default function Footer({ profile }: FooterProps) {
             {/* Navigation Interface */}
             <div>
               <h3 className="section-eyebrow">
-                <span>Navigation</span>
+                <DecodeText text="Navigation" />
               </h3>
               <ul className="space-y-3">
                 {footerSections.map((section) => (
@@ -104,7 +104,7 @@ export default function Footer({ profile }: FooterProps) {
             {/* System Status */}
             <div>
               <h3 className="section-eyebrow">
-                <span>Status</span>
+                <DecodeText text="Status" />
               </h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -130,7 +130,7 @@ export default function Footer({ profile }: FooterProps) {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Terminal Footer */}
           <div className="text-center">

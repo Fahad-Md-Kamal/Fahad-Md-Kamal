@@ -2,6 +2,8 @@ import type { ExperienceData, Experience, Profile } from '../types'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface ExperienceProps {
   experience: ExperienceData
@@ -33,7 +35,7 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
   }
 
   return (
-    <div className={`relative mb-8 animate-fade-in`} style={{ animationDelay: `${index * 0.2}s` }}>
+    <Reveal delay={index * 100} className="relative mb-8">
       {/* Timeline line */}
       <div className="absolute left-6 top-20 bottom-0 w-px bg-gradient-to-b from-border via-border to-transparent hidden md:block"></div>
 
@@ -71,13 +73,11 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
             <div className="flex-1">
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {experience.role}
-                  </h3>
+                  <DecodeText as="h3" text={experience.role} className="text-xl font-semibold text-foreground mb-2" />
                   <div className="flex items-center gap-3 mb-3">
                     {experience.website ? (
-                      <Button 
-                        variant="link" 
+                      <Button
+                        variant="link"
                         className="p-0 h-auto text-primary font-medium hover:underline"
                         asChild
                         href={experience.website}
@@ -94,10 +94,10 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
                     </Badge>
                   </div>
                 </div>
-                
+
                 <div className="text-right">
                   <Badge variant="secondary" className="flex items-center gap-2 mb-2">
-                    <span>{formatDate(experience.startDate)} - {formatDate(experience.endDate)}</span>
+                    <DecodeText text={`${formatDate(experience.startDate)} - ${formatDate(experience.endDate)}`} />
                   </Badge>
                   <div className="text-sm text-muted-foreground">
                     {calculateDuration(experience.startDate, experience.endDate)}
@@ -150,7 +150,7 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </Reveal>
   )
 }
 
@@ -179,25 +179,27 @@ export default function Experience({ experience, profile }: ExperienceProps) {
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="mb-16">
-            <div className="section-eyebrow">Career Path</div>
-            <h2 className="section-title mb-4">Engineering Experience</h2>
+          <Reveal className="mb-16">
+            <div className="section-eyebrow">
+              <DecodeText text="Career Path" />
+            </div>
+            <DecodeText as="h2" text="Engineering Experience" className="section-title mb-4" />
             <p className="text-xl text-muted-foreground max-w-2xl">
               My professional journey and the impact I've made at various organizations.
             </p>
-          </div>
+          </Reveal>
 
           {/* Experience Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {stats.map((stat, index) => (
-              <Card key={index} className="text-center h-28 flex flex-col card-hover">
+              <Reveal key={index} delay={index * 80} as={Card as any} className="text-center h-28 flex flex-col card-hover">
                 <CardContent className="flex-1 flex items-center justify-center p-4">
-                    {stat.value.length <= 2 ? <div className="w-full text-center text-5xl pb-0 font-display font-bold text-primary leading-tight">{stat.value}</div> : <div className="w-full text-center text-lg font-display font-bold text-primary leading-tight">{stat.value}</div>}
+                    {stat.value.length <= 2 ? <DecodeText text={stat.value} className="w-full text-center text-5xl pb-0 font-display font-bold text-primary leading-tight block" /> : <DecodeText text={stat.value} className="w-full text-center text-lg font-display font-bold text-primary leading-tight block" />}
                 </CardContent>
                 <CardFooter className="text-xs text-muted-foreground py-2 px-4 border-t border-border/60 justify-center">
                   {stat.label}
                 </CardFooter>
-              </Card>
+              </Reveal>
             ))}
           </div>
 
@@ -209,12 +211,10 @@ export default function Experience({ experience, profile }: ExperienceProps) {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-16">
+          <Reveal className="text-center mt-16">
             <Card className="p-8 bg-gradient-to-br from-primary/10 via-card to-secondary/10">
               <CardHeader className="pb-4">
-                <h3 className="text-2xl font-display font-semibold text-foreground mb-2">
-                  Ready to Work Together?
-                </h3>
+                <DecodeText as="h3" text="Ready to Work Together?" className="text-2xl font-display font-semibold text-foreground mb-2" />
                 <p className="text-muted-foreground max-w-2xl mx-auto">
                   I'm always interested in new opportunities and challenges.
                   Let's discuss how my experience can contribute to your team's success.
@@ -244,7 +244,7 @@ export default function Experience({ experience, profile }: ExperienceProps) {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

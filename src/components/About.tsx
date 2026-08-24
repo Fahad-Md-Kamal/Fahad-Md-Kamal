@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { IconMapPin, IconMail } from '@/components/icons'
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface AboutProps {
   profile: Profile
@@ -44,24 +46,26 @@ export default function About({ profile, projectCount }: AboutProps) {
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="mb-16">
-            <div className="section-eyebrow">About Me</div>
-            <h2 className="section-title mb-4">The engineer behind the systems</h2>
+          <Reveal className="mb-16">
+            <div className="section-eyebrow">
+              <DecodeText text="About Me" />
+            </div>
+            <DecodeText as="h2" text="The engineer behind the systems" className="section-title mb-4" />
             <p className="text-lg text-text-secondary max-w-3xl leading-relaxed">
               Backend-focused engineer working across Python services, event-driven systems, and practical AI applications.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Left - Technical Summary */}
-            <div className="lg:col-span-2 space-y-8">
+            <Reveal className="lg:col-span-2 space-y-8">
               <Card>
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4">
                     <Avatar className="w-12 h-12">
-                      <AvatarImage 
-                        src={resolveAsset(profile.avatar)} 
-                        alt={profile.name} 
+                      <AvatarImage
+                        src={resolveAsset(profile.avatar)}
+                        alt={profile.name}
                         referrerPolicy="no-referrer"
                         onError={() => setAvatarError(true)}
                         style={avatarError ? { display: 'none' } : undefined}
@@ -71,7 +75,7 @@ export default function About({ profile, projectCount }: AboutProps) {
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h3 className="text-xl font-display font-semibold text-text-primary">{profile.name}</h3>
+                      <DecodeText as="h3" text={profile.name} className="text-xl font-display font-semibold text-text-primary" />
                       <p className="text-text-secondary font-mono">{profile.role}</p>
                     </div>
                   </div>
@@ -79,27 +83,29 @@ export default function About({ profile, projectCount }: AboutProps) {
 
                 <CardContent className="space-y-4">
                   <div className="text-xs font-mono uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
-                    <span>TECHNICAL SUMMARY</span>
+                    <DecodeText text="TECHNICAL SUMMARY" />
                     <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
-                  
+
                   <p className="text-text-secondary leading-relaxed">
                     {profile.summary}
                   </p>
-                  
+
                   <p className="text-text-secondary leading-relaxed">
                     {profile.technicalSummary || "Specialized in designing event-driven architectures for high-throughput systems, with expertise in microservices patterns, serverless computing, and AI/LLM integration. Focus on measurable performance improvements and cost optimization strategies."}
                   </p>
 
                   <div className="mt-6 pt-6 border-t border-border/60">
-                    <div className="text-xs font-mono uppercase tracking-wider text-primary mb-3">Core Expertise</div>
+                    <div className="text-xs font-mono uppercase tracking-wider text-primary mb-3">
+                      <DecodeText text="Core Expertise" />
+                    </div>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       {profile.expertise ? (
-                        Object.entries(profile.expertise).map(([key, expertise]) => (
-                          <div key={key}>
+                        Object.entries(profile.expertise).map(([key, expertise], i) => (
+                          <Reveal key={key} delay={i * 60}>
                             <span className="text-text-secondary">{expertise.label}:</span>
-                            <div className="font-mono text-text-primary">{expertise.technologies}</div>
-                          </div>
+                            <DecodeText text={expertise.technologies} className="font-mono text-text-primary block" />
+                          </Reveal>
                         ))
                       ) : (
                         <>
@@ -125,29 +131,27 @@ export default function About({ profile, projectCount }: AboutProps) {
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            </Reveal>
 
             {/* Right - Stats & Contact */}
-            <div className="space-y-8">
+            <Reveal className="space-y-8" delay={120}>
               {/* Stats */}
               <Card>
                 <CardHeader className="pb-4">
                   <div className="text-xs font-mono uppercase tracking-wider text-primary flex items-center gap-2">
-                    <span>METRICS</span>
+                    <DecodeText text="METRICS" />
                     <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-4">
                     {stats.map((stat, index) => (
-                      <div key={index} className="text-center p-4 rounded-xl border border-border/60 bg-background/40">
-                        <div className="text-2xl font-display font-bold text-primary mb-1">
-                          {stat.value}
-                        </div>
+                      <Reveal key={index} delay={index * 60} className="text-center p-4 rounded-xl border border-border/60 bg-background/40">
+                        <DecodeText text={stat.value} className="text-2xl font-display font-bold text-primary mb-1 block" />
                         <div className="text-xs text-text-secondary">
                           {stat.label}
                         </div>
-                      </div>
+                      </Reveal>
                     ))}
                   </div>
                 </CardContent>
@@ -157,7 +161,7 @@ export default function About({ profile, projectCount }: AboutProps) {
               <Card>
                 <CardHeader className="pb-4">
                   <div className="text-xs font-mono uppercase tracking-wider text-primary flex items-center gap-2">
-                    <span>CONTACT</span>
+                    <DecodeText text="CONTACT" />
                     <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                 </CardHeader>
@@ -168,7 +172,7 @@ export default function About({ profile, projectCount }: AboutProps) {
                     </div>
                     <div>
                       <p className="text-xs text-text-secondary">Location</p>
-                      <p className="text-text-primary">{profile.contact?.location || profile.location}</p>
+                      <DecodeText text={profile.contact?.location || profile.location} className="text-text-primary block" />
                     </div>
                   </div>
 
@@ -197,7 +201,7 @@ export default function About({ profile, projectCount }: AboutProps) {
                   )}
                 </CardContent>
               </Card>
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>

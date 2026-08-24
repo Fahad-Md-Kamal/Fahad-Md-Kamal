@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { IconMail, IconGithub, IconLinkedin, IconTelegram, IconExternalLink, IconCheckCircle, IconAlertCircle } from '@/components/icons'
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface ContactProps {
   profile: Profile
@@ -97,17 +99,19 @@ export default function Contact({ profile }: ContactProps) {
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="mb-16">
-            <div className="section-eyebrow">Get in Touch</div>
-            <h2 className="section-title mb-4">Contact</h2>
+          <Reveal className="mb-16">
+            <div className="section-eyebrow">
+              <DecodeText text="Get in Touch" />
+            </div>
+            <DecodeText as="h2" text="Contact" className="section-title mb-4" />
             <p className="text-lg text-text-secondary max-w-3xl leading-relaxed">
               Open to backend engineering roles, contract work, and technical conversations.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Methods */}
-            <div className="space-y-8">
+            <Reveal className="space-y-8">
               <Card>
                 <CardContent className="p-4 flex items-center gap-4">
                   <div className="w-14 h-14 rounded-full overflow-hidden border border-border/60 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
@@ -135,14 +139,15 @@ export default function Contact({ profile }: ContactProps) {
               <Card>
                 <CardHeader className="pb-4">
                   <div className="text-xs font-mono uppercase tracking-wider text-primary flex items-center gap-2">
-                    <span>Communication Channels</span>
+                    <DecodeText text="Communication Channels" />
                     <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {contactMethods.map((method, index) => (
-                    <div
+                    <Reveal
                       key={index}
+                      delay={index * 80}
                       className="group rounded-xl border border-border/60 bg-background/30 hover:border-primary/40 hover:bg-background/50 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
                       onClick={() => window.open(method.href, '_blank')}
                     >
@@ -157,9 +162,7 @@ export default function Contact({ profile }: ContactProps) {
                                 {method.label}
                               </h3>
                             </div>
-                            <p className="text-sm text-text-secondary mb-2">
-                              {method.value}
-                            </p>
+                            <DecodeText text={method.value} className="text-sm text-text-secondary mb-2 block" />
                             <p className="text-xs text-text-secondary">
                               {method.description}
                             </p>
@@ -167,7 +170,7 @@ export default function Contact({ profile }: ContactProps) {
                           <IconExternalLink className="w-4 h-4 text-text-secondary group-hover:text-primary transition-colors flex-shrink-0" />
                         </div>
                       </div>
-                    </div>
+                    </Reveal>
                   ))}
                 </CardContent>
               </Card>
@@ -176,14 +179,14 @@ export default function Contact({ profile }: ContactProps) {
               <Card>
                 <CardHeader className="pb-4">
                   <div className="text-xs font-mono uppercase tracking-wider text-primary flex items-center gap-2">
-                    <span>Response Metrics</span>
+                    <DecodeText text="Response Metrics" />
                     <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div className="rounded-xl border border-border/60 bg-background/40 p-3">
-                      <div className="text-lg font-display font-bold text-primary">24h</div>
+                      <DecodeText text="24h" className="text-lg font-display font-bold text-primary block" />
                       <div className="text-xs text-text-secondary">Email Response</div>
                     </div>
                     <div className="rounded-xl border border-border/60 bg-background/40 p-3">
@@ -193,13 +196,13 @@ export default function Contact({ profile }: ContactProps) {
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            </Reveal>
 
             {/* Contact Form */}
-            <Card>
+            <Reveal delay={120} as={Card as any}>
               <CardHeader className="pb-4">
                 <div className="text-xs font-mono uppercase tracking-wider text-primary flex items-center gap-2">
-                  <span>Send a Message</span>
+                  <DecodeText text="Send a Message" />
                   <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                 </div>
               </CardHeader>
@@ -308,7 +311,7 @@ export default function Contact({ profile }: ContactProps) {
                   </p>
                 </form>
               </CardContent>
-            </Card>
+            </Reveal>
           </div>
         </div>
       </div>

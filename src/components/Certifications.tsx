@@ -2,6 +2,8 @@ import { useState } from 'react'
 import type { CertificationsData, Certification } from '../types'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface CertificationsProps {
   certifications: CertificationsData
@@ -18,7 +20,7 @@ function CertificationCard({ certification }: { certification: Certification }) 
   const [logoError, setLogoError] = useState(false)
 
   return (
-    <Card className="card-hover">
+    <Reveal as={Card as any} className="card-hover">
       <CardHeader className="pb-4">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 flex-shrink-0 bg-muted rounded-lg flex items-center justify-center overflow-hidden border p-1.5">
@@ -42,12 +44,12 @@ function CertificationCard({ certification }: { certification: Certification }) 
                   href={certification.credentialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary hover:underline"
+                  className="hover:text-primary hover:underline inline-flex items-center gap-1"
                 >
-                  {certification.name} ↗
+                  <DecodeText text={certification.name} /> ↗
                 </a>
               ) : (
-                certification.name
+                <DecodeText text={certification.name} />
               )}
             </h3>
             {certification.issuer && (
@@ -56,7 +58,7 @@ function CertificationCard({ certification }: { certification: Certification }) 
           </div>
           {certification.date && (
             <Badge variant="secondary" className="whitespace-nowrap">
-              {certification.date} 
+              <DecodeText text={certification.date} />
             </Badge>
           )}
         </div>
@@ -64,11 +66,11 @@ function CertificationCard({ certification }: { certification: Certification }) 
       {certification.score && (
         <CardContent className="pt-0">
           <Badge variant="outline" className="font-mono text-xs">
-            {certification.score}
+            <DecodeText text={certification.score} />
           </Badge>
         </CardContent>
       )}
-    </Card>
+    </Reveal>
   )
 }
 
@@ -79,13 +81,15 @@ export default function Certifications({ certifications }: CertificationsProps) 
     <section id="certifications" className="py-20 md:py-28 bg-surface/90">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-16">
-            <div className="section-eyebrow">Credentials</div>
-            <h2 className="section-title mb-4">Certifications</h2>
+          <Reveal className="mb-16">
+            <div className="section-eyebrow">
+              <DecodeText text="Credentials" />
+            </div>
+            <DecodeText as="h2" text="Certifications" className="section-title mb-4" />
             <p className="text-xl text-muted-foreground max-w-2xl">
               Credentials that support the profile above.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 gap-6">
             {certifications.certifications.map(cert => (

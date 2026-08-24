@@ -3,6 +3,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import type { Profile } from '../types'
+import DecodeText from './DecodeText'
+import Reveal from './Reveal'
 
 interface GithubActivityProps {
   profile: Profile
@@ -81,15 +83,17 @@ export default function GithubActivity({ profile }: GithubActivityProps) {
     <section id="github" className="py-20 md:py-28 bg-background/85">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-16">
-            <div className="section-eyebrow">Open Source</div>
-            <h2 className="section-title mb-4">GitHub Activity</h2>
+          <Reveal className="mb-16">
+            <div className="section-eyebrow">
+              <DecodeText text="Open Source" />
+            </div>
+            <DecodeText as="h2" text="GitHub Activity" className="section-title mb-4" />
             <p className="text-xl text-muted-foreground max-w-2xl">
               Live stats, pulled directly from the GitHub API.
             </p>
-          </div>
+          </Reveal>
 
-          <Card className="shadow-soft">
+          <Reveal as={Card as any} className="shadow-soft">
             <CardContent className="pt-6">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
                 {[
@@ -98,25 +102,25 @@ export default function GithubActivity({ profile }: GithubActivityProps) {
                   { label: 'Total Stars', value: stats?.totalStars },
                   { label: 'Top Languages', value: stats?.topLanguages.length },
                 ].map((stat, index) => (
-                  <div key={index} className="text-center h-24 flex flex-col rounded-xl border border-border/60 bg-background/40">
+                  <Reveal key={index} delay={index * 80} className="text-center h-24 flex flex-col rounded-xl border border-border/60 bg-background/40">
                     <div className="flex-1 flex items-center justify-center p-4">
-                      <div className="text-2xl font-display font-bold text-primary">
-                        {stat.value ?? '—'}
-                      </div>
+                      <DecodeText text={String(stat.value ?? '—')} className="text-2xl font-display font-bold text-primary" />
                     </div>
                     <div className="text-xs text-muted-foreground py-2 px-4 border-t border-border/60">
                       {stat.label}
                     </div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
 
               {stats?.topLanguages && stats.topLanguages.length > 0 && (
                 <div className="flex flex-wrap gap-2 justify-center mb-6">
-                  {stats.topLanguages.map(lang => (
-                    <Badge key={lang} variant="secondary" className="font-mono text-xs">
-                      {lang}
-                    </Badge>
+                  {stats.topLanguages.map((lang, i) => (
+                    <Reveal key={lang} delay={i * 50} as="span">
+                      <Badge variant="secondary" className="font-mono text-xs">
+                        <DecodeText text={lang} />
+                      </Badge>
+                    </Reveal>
                   ))}
                 </div>
               )}
@@ -127,7 +131,7 @@ export default function GithubActivity({ profile }: GithubActivityProps) {
                 </Button>
               </div>
             </CardContent>
-          </Card>
+          </Reveal>
         </div>
       </div>
     </section>
