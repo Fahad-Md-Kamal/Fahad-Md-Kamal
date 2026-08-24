@@ -142,6 +142,7 @@ export interface Project {
   id: string;
   title: string;
   shortDescription: string;
+  type: 'NDA' | 'PERSONAL';
   description: string;
   image: string;
   category: string;

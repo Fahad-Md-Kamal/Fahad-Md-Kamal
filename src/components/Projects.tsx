@@ -244,7 +244,11 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
         {/* Action Links */}
         <div className="flex gap-3 p-6 pt-0">
-          {project.links.live && (
+          {project.type === 'NDA' ? (
+            <div className="flex-1 text-center py-2 px-3 border border-border/60 text-text-secondary/60 font-mono text-sm rounded-xl cursor-not-allowed">
+              NDA Project
+            </div>
+          ) : project.links.live && (
             <a
               href={project.links.live}
               target="_blank"
