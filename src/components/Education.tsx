@@ -31,13 +31,13 @@ function EducationCard({ education, index }: EducationCardProps) {
 
   return (
     <div className="relative mb-8 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-      <div className="absolute left-6 top-20 bottom-0 w-px bg-border hidden md:block"></div>
+      <div className="absolute left-6 top-20 bottom-0 w-px bg-gradient-to-b from-border via-border to-transparent hidden md:block"></div>
 
-      <div className="absolute left-2 top-16 w-8 h-8 bg-primary rounded-full border-4 border-background shadow-lg hidden md:flex items-center justify-center">
+      <div className="absolute left-2 top-16 w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full border-4 border-background shadow-glow hidden md:flex items-center justify-center">
         <div className="w-2 h-2 bg-white rounded-full"></div>
       </div>
 
-      <Card className="md:ml-16 border-border hover:shadow-md transition-shadow duration-200">
+      <Card className="md:ml-16 card-hover">
         <CardHeader className="pb-4">
           <div className="flex flex-col lg:flex-row lg:items-start gap-6">
             <div className="flex-shrink-0">
@@ -120,13 +120,14 @@ function EducationCard({ education, index }: EducationCardProps) {
 
 export default function Education({ education }: EducationProps) {
   return (
-    <section id="education" className="py-10 bg-background">
+    <section id="education" className="py-20 md:py-28 bg-background">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16">
-            <h2 className="section-title mb-8">Education</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Academic background behind the engineering work
+            <div className="section-eyebrow">Background</div>
+            <h2 className="section-title mb-4">Education</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Academic background behind the engineering work.
             </p>
           </div>
 

@@ -4,8 +4,8 @@
       "id": "1",
       "title": "CyRisk Insight Engine",
       "shortDescription": "Cybersecurity backend platform for large-scale threat intelligence analysis",
-      "description": "Built backend services and data-processing flows for a cybersecurity platform using Django, FastAPI, Elasticsearch, PostgreSQL, and Redis Pub/Sub.",
-      "image": "images/projects/cyrisk-engine.jpg",
+      "description": "Built backend microservices and data-processing flows for a cyber-risk rating and vendor-risk-management platform — scanning a company's internet-facing footprint and correlating findings against vulnerability/threat-intel databases to produce a security rating.",
+      "image": "images/projects/cyrisk-engine.png",
       "category": "Backend Systems",
       "featured": true,
       "status": "Completed",
@@ -20,22 +20,22 @@
         { "name": "Docker", "color": "#2496ed" }
       ],
       "architecture": {
-        "pattern": "Event-Driven Microservices",
+        "pattern": "Event-Driven Microservices (Django monolith + FastAPI services)",
         "scale": "5M+ records processed",
-        "infrastructure": "Django, FastAPI, Elasticsearch, PostgreSQL, Redis",
+        "infrastructure": "Django/DRF core (API server, SQS-consumer worker, PDF renderer) + FastAPI partner gateway and scoring service, on Docker Swarm/EC2, Terraform-provisioned",
         "messaging": "Redis Pub/Sub for real-time updates"
       },
       "impact": {
-        "performance": "Approx. 35% API response improvement",
+        "performance": "~30% API response-time improvement on Elasticsearch-backed queries",
         "scale": "Processed approximately 5M+ records",
-        "pipeline": "Real-time backend data updates",
-        "focus": "Search and threat intelligence workflows"
+        "auth": "Custom auth backend with brute-force lockout, JWT + TOTP 2FA",
+        "integration": "Live partner integration via OAuth2 client-credentials against AWS Cognito"
       },
-      "context": "A cybersecurity platform needed scalable backend services for search-heavy threat intelligence data and event-driven updates.",
+      "context": "A cyber-insurance-focused risk-rating SaaS platform needed scalable backend services for search-heavy threat intelligence data and event-driven updates.",
       "design_decisions": [
         "Used Redis Pub/Sub for low-latency backend updates",
         "Used Elasticsearch for search-heavy intelligence queries",
-        "Split responsibilities between APIs and processing flows",
+        "Split responsibilities between a Django core platform and FastAPI microservices",
         "Focused on measurable backend performance improvements"
       ],
       "links": {
@@ -48,8 +48,8 @@
       "id": "2",
       "title": "Mevrik Digital Customer Experience Platform",
       "shortDescription": "Backend platform for AI-driven customer care and SaaS onboarding",
-      "description": "Developed backend services for an AI-driven customer care platform using Django, FastAPI, Celery, PostgreSQL, Redis, and WebSockets.",
-      "image": "images/projects/mevrik-platform.jpg",
+      "description": "Developed backend services for an omnichannel customer engagement platform — bringing email, social, live chat, and chatbot conversations into one system with multi-tenant routing to human agents.",
+      "image": "images/projects/mevrik-platform.png",
       "category": "Backend Systems",
       "featured": true,
       "status": "Completed",
@@ -59,28 +59,27 @@
         { "name": "Django", "color": "#092e20" },
         { "name": "FastAPI", "color": "#009688" },
         { "name": "Celery", "color": "#37b24d" },
-        { "name": "WebSockets", "color": "#010101" },
         { "name": "PostgreSQL", "color": "#336791" },
         { "name": "Redis", "color": "#dc382d" },
         { "name": "Docker", "color": "#2496ed" }
       ],
       "architecture": {
-        "pattern": "Python Microservices + Async Workflows",
+        "pattern": "Multi-Tenant Python Microservices + Async Workflows",
         "scale": "3K+ concurrent users daily",
-        "infrastructure": "Dockerized backend services with PostgreSQL and Redis",
-        "messaging": "Celery for background jobs and WebSockets for real-time updates"
+        "infrastructure": "Dockerized Django/DRF services with PostgreSQL + MySQL (legacy email schema) and Redis",
+        "messaging": "Celery + Redis broker (Celery Beat scheduling, Flower monitoring) for background jobs; a third-party HTTP-based push service for real-time delivery (not WebSockets)"
       },
       "impact": {
         "concurrency": "3,000+ concurrent users daily",
         "uptime": "99.9% system availability",
         "automation": "FastAPI-based SaaS onboarding workflows",
-        "realtime": "Real-time communication through WebSockets"
+        "realtime": "Real-time delivery via a third-party hosted pub/sub push service"
       },
-      "context": "The platform needed reliable backend services for digital customer care, async processing, and real-time interaction.",
+      "context": "The platform needed reliable backend services for digital customer care, async processing, and real-time interaction across a multi-tenant \"Apps → Channels → Workgroups → Users\" model.",
       "design_decisions": [
         "Used FastAPI where lightweight service APIs were needed",
-        "Used Celery for asynchronous workflows and task execution",
-        "Used WebSockets for low-latency real-time communication",
+        "Used Celery with Beat scheduling for asynchronous workflows and task execution",
+        "Used a third-party HTTP-based push service rather than WebSockets for real-time delivery",
         "Kept deployment consistent with Dockerized services"
       ],
       "links": {
@@ -181,7 +180,7 @@
       "title": "B-DOPS - Dengue Outbreak Prevention Surveillance",
       "shortDescription": "Mobile-first public health platform for citizen-reported dengue breeding-site surveillance",
       "description": "Led development of a public health platform where citizens photograph and geo-tag suspected mosquito breeding sites; an automated visual check flags likely larvae, and credible reports route to health authorities for review and field-staff dispatch.",
-      "image": "images/projects/b-dops.jpg",
+      "image": "images/projects/b-dops.png",
       "category": "Healthcare Systems",
       "featured": true,
       "status": "Completed",
@@ -219,6 +218,95 @@
         "github": null,
         "demo": null
       }
+    },
+    {
+      "id": "6",
+      "title": "Ledgerly — SaaS Accounting & Finance Platform",
+      "shortDescription": "Multi-tenant SaaS accounting platform with a visual IAM access-control studio",
+      "description": "A full multi-tenant SaaS accounting/finance platform — chart of accounts, journal entries, invoicing, payables, bank reconciliation, AR/AP aging, subscription billing, and a visual IAM Studio for managing roles and permissions without hand-editing JSON.",
+      "image": "images/projects/ledgerly-saas.png",
+      "category": "SaaS Platforms",
+      "featured": true,
+      "status": "In Progress",
+      "startDate": "2025-03",
+      "endDate": null,
+      "technologies": [
+        { "name": "Go", "color": "#00add8" },
+        { "name": "Gin", "color": "#008ecf" },
+        { "name": "GORM", "color": "#00add8" },
+        { "name": "React", "color": "#61dafb" },
+        { "name": "Vite", "color": "#646cff" },
+        { "name": "PostgreSQL", "color": "#336791" },
+        { "name": "Redis", "color": "#dc382d" },
+        { "name": "Stripe", "color": "#635bff" },
+        { "name": "Docker", "color": "#2496ed" }
+      ],
+      "architecture": {
+        "pattern": "Multi-Tenant SaaS (Go + Gin + GORM)",
+        "scale": "Deny-first IAM authorization with per-workspace isolation",
+        "infrastructure": "Go/Gin API + GORM/PostgreSQL backend, React/Vite SPA, Redis for caching and background jobs, Docker Compose deployment",
+        "messaging": "Redis-backed caching and background jobs"
+      },
+      "impact": {
+        "iam": "Visual IAM Studio with guided permission builders and server-side impact preview before high-risk changes",
+        "billing": "Stripe Checkout + customer portal with HMAC-verified, replay-protected webhook handling",
+        "observability": "Liveness/readiness/metrics endpoints with structured JSON logs correlated by request/user/workspace IDs",
+        "finance": "Full accounting core — chart of accounts, journal entries, invoicing, bill payments, bank reconciliation, AR/AP aging reports"
+      },
+      "context": "Built solo, with AI-assisted development throughout, to explore a production-grade multi-tenant SaaS end to end — from double-entry accounting fundamentals to IAM and billing infrastructure most side projects skip.",
+      "design_decisions": [
+        "Built a deny-first authorization middleware with a full permission catalog and audit logging on every role/policy mutation",
+        "Added IAM Studio, a visual access-control builder with impact preview, instead of requiring raw JSON policy edits",
+        "Hardened Stripe webhooks with shared-token plus HMAC signature validation, replay protection, and idempotency",
+        "Exposed /healthz, /readyz, and /metricsz endpoints with structured JSON logs for production observability"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    },
+    {
+      "id": "7",
+      "title": "Geographic Business Intelligence Platform",
+      "shortDescription": "Map-based business intelligence tool for visualizing regional demographic and economic data",
+      "description": "Built backend services for an interactive, map-based business-intelligence tool visualizing regional demographic and economic data, with region comparison and cross-metric scatter analysis.",
+      "image": "images/projects/geo-bi-platform.png",
+      "category": "Backend Systems",
+      "featured": false,
+      "status": "Completed",
+      "startDate": "2023-07",
+      "endDate": null,
+      "technologies": [
+        { "name": "Django REST", "color": "#092e20" },
+        { "name": "PostgreSQL/PostGIS", "color": "#336791" },
+        { "name": "Redux Toolkit", "color": "#764abc" },
+        { "name": "React", "color": "#61dafb" }
+      ],
+      "architecture": {
+        "pattern": "Geospatial BI Backend",
+        "scale": "Multi-database, multi-table regional dataset queries",
+        "infrastructure": "Django REST + PostgreSQL/PostGIS across a reference-data schema and a client-ledger schema, plus a dynamic dataset registry",
+        "messaging": "ThreadPoolExecutor for I/O-bound multi-database queries, multiprocessing for CPU-bound heat-map bucketing"
+      },
+      "impact": {
+        "flexibility": "Dynamic dataset registry allowing new datasets to be plugged in without code changes",
+        "performance": "Parallelized I/O-bound multi-table queries and CPU-bound heat-map mesh bucketing",
+        "precision": "Used the region's official geodetic datum for accurate coordinate handling instead of standard WGS84",
+        "reconciliation": "Reconciled two parallel industry-code vocabularies to enable cross-metric comparison"
+      },
+      "context": "Business users needed to compare regions and cross-plot demographic/economic metrics on a map without direct database access to the underlying datasets.",
+      "design_decisions": [
+        "Built a dynamic dataset registry so new datasets could be plugged in without code changes",
+        "Used ThreadPoolExecutor for I/O-bound multi-database queries and multiprocessing for CPU-bound heat-map bucketing",
+        "Reconciled two parallel industry-code vocabularies to enable cross-metric comparison",
+        "Used the region's official geodetic datum for accurate coordinate handling instead of standard WGS84"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
     }
   ],
   "aiProjects": [
@@ -227,7 +315,7 @@
       "title": "IR Tool (RAG Pipeline)",
       "shortDescription": "AI workflow converting media into structured business content",
       "description": "Built an AI workflow using LangChain, Azure OpenAI, Azure Speech-to-Text, and Cosmos DB to convert media into structured business content.",
-      "image": "images/projects/ir-tool-rag.jpg",
+      "image": "images/projects/ir-tool-rag.png",
       "category": "AI & LLM Systems",
       "featured": true,
       "status": "Completed",
@@ -268,9 +356,10 @@
     }
   ],
   "categories": [
-    { "name": "All", "count": 6 },
-    { "name": "Backend Systems", "count": 3 },
+    { "name": "All", "count": 8 },
+    { "name": "Backend Systems", "count": 4 },
     { "name": "AI & LLM Systems", "count": 1 },
-    { "name": "Healthcare Systems", "count": 2 }
+    { "name": "Healthcare Systems", "count": 2 },
+    { "name": "SaaS Platforms", "count": 1 }
   ]
 }

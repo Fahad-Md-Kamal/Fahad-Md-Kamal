@@ -14,18 +14,19 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const variantClasses: Record<Variant, string> = {
-  default: "bg-primary text-white hover:bg-primary/90",
-  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-  outline: "border border-input bg-background hover:bg-accent",
-  ghost: "hover:bg-accent",
+  default:
+    "bg-gradient-to-r from-primary to-primary/80 text-white shadow-[0_1px_0_0_rgba(255,255,255,0.15)_inset,0_8px_20px_-8px_hsl(var(--primary)/0.65)] hover:shadow-[0_1px_0_0_rgba(255,255,255,0.15)_inset,0_10px_28px_-6px_hsl(var(--primary)/0.75)] hover:-translate-y-0.5",
+  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:-translate-y-0.5",
+  outline: "border border-border/70 bg-transparent hover:bg-white/[0.04] hover:border-primary/50",
+  ghost: "hover:bg-white/[0.06]",
   link: "text-primary underline-offset-4 hover:underline",
   destructive: "bg-destructive text-white hover:bg-destructive/90",
 }
 
 const sizeClasses: Record<Size, string> = {
-  default: "h-9 px-4 py-2",
+  default: "h-10 px-4 py-2",
   sm: "h-8 px-3 text-xs",
-  lg: "h-10 px-6",
+  lg: "h-12 px-7 text-base",
   icon: "h-9 w-9 p-0",
 }
 
@@ -41,7 +42,7 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Bu
         target={isLink ? target : undefined}
         rel={isLink ? rel : undefined}
         className={cn(
-          "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none",
+          "inline-flex items-center justify-center rounded-xl text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none",
           variantClasses[variant],
           sizeClasses[size],
           className

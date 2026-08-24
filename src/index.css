@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --radius: 0.625rem;
-    --background: 210 33% 7%;
-    --foreground: 220 13% 91%;
-    --card: 220 26% 14%;
-    --card-foreground: 220 13% 91%;
-    --popover: 220 26% 14%;
-    --popover-foreground: 220 13% 91%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 210 33% 7%;
-    --secondary: 267 85% 78%;
-    --secondary-foreground: 210 33% 7%;
-    --muted: 220 26% 14%;
-    --muted-foreground: 220 9% 66%;
-    --accent: 220 26% 14%;
-    --accent-foreground: 220 13% 91%;
+    --radius: 0.9rem;
+    --background: 224 36% 6%;
+    --foreground: 220 20% 93%;
+    --card: 222 28% 11%;
+    --card-foreground: 220 20% 93%;
+    --popover: 222 28% 11%;
+    --popover-foreground: 220 20% 93%;
+    --primary: 199 89% 55%;
+    --primary-foreground: 224 36% 6%;
+    --secondary: 267 80% 74%;
+    --secondary-foreground: 224 36% 6%;
+    --muted: 222 24% 14%;
+    --muted-foreground: 220 12% 68%;
+    --accent: 222 24% 14%;
+    --accent-foreground: 220 20% 93%;
     --destructive: 0 84% 60%;
-    --border: 215 28% 17%;
-    --input: 215 28% 17%;
-    --ring: 199 89% 48%;
-    --chart-1: 199 89% 48%;
-    --chart-2: 267 85% 78%;
-    --chart-3: 220 26% 14%;
-    --chart-4: 220 9% 66%;
-    --chart-5: 215 28% 17%;
-    --text-primary: 220 13% 91%;
-    --text-secondary: 220 9% 66%;
-    --surface: 220 26% 14%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 199 89% 55%;
+    --chart-1: 199 89% 55%;
+    --chart-2: 267 80% 74%;
+    --chart-3: 222 24% 14%;
+    --chart-4: 220 12% 68%;
+    --chart-5: 220 20% 20%;
+    --text-primary: 220 20% 93%;
+    --text-secondary: 220 12% 68%;
+    --surface: 222 26% 10%;
   }
   
   .light {
@@ -65,13 +65,33 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border/60;
   }
   html {
     scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+  }
+  ::selection {
+    background-color: hsl(var(--primary) / 0.35);
+    color: hsl(var(--text-primary));
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.25);
+    border-radius: 999px;
+    border: 2px solid hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--primary) / 0.5);
   }
 }
 
@@ -79,9 +99,44 @@
   .section-container {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-primary/90 mb-4;
+  }
+  .section-eyebrow::before {
+    content: "";
+    @apply w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_2px_hsl(var(--primary)/0.7)];
+  }
+
   .section-title {
-    @apply text-2xl sm:text-3xl font-display font-semibold text-primary mb-8;
+    @apply text-3xl sm:text-4xl font-display font-semibold tracking-tight text-text-primary mb-4;
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(115deg, hsl(var(--primary)) 10%, hsl(var(--secondary)) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background-color: hsl(var(--background) / 0.6);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+  }
+
+  .glow-dot {
+    @apply w-2 h-2 rounded-full bg-primary;
+    box-shadow: 0 0 12px 3px hsl(var(--primary) / 0.6);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-glow hover:border-primary/40;
+  }
+
+  .divider-fade {
+    height: 1px;
+    background-image: linear-gradient(90deg, hsl(var(--border) / 0.8), transparent);
   }
 
   .markdown-content {
@@ -90,7 +145,7 @@
   .markdown-content h1,
   .markdown-content h2,
   .markdown-content h3 {
-    @apply text-text-primary mt-6 mb-3;
+    @apply text-text-primary font-display mt-6 mb-3;
   }
   .markdown-content p,
   .markdown-content ul {
@@ -100,9 +155,9 @@
     @apply list-disc list-inside space-y-1;
   }
   .markdown-content code {
-    @apply bg-surface px-1 rounded text-primary text-sm;
+    @apply bg-surface px-1.5 py-0.5 rounded-md text-primary text-sm;
   }
   .markdown-content pre code {
-    @apply block p-4 rounded-lg border border-gray-800 overflow-x-auto;
+    @apply block p-4 rounded-xl border border-border/60 overflow-x-auto;
   }
 }

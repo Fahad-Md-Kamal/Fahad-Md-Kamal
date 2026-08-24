@@ -41,37 +41,41 @@ export default function Header({ profile }: HeaderProps) {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-sm border-b border-gray-800 shadow-lg'
+          ? 'glass border-b border-border/60 shadow-[0_1px_0_0_rgba(255,255,255,0.03)]'
           : 'bg-transparent'
       }`}
     >
       <nav className="section-container">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          <Button
-            variant="ghost"
+        <div className="flex items-center justify-between h-16 sm:h-18">
+          <button
             onClick={() => scrollToSection('hero')}
-            className="font-mono font-bold text-lg text-primary hover:text-primary/80 p-0 h-auto"
+            className="group flex items-center gap-2.5"
           >
-            {profile.name.split(' ').map(word => word[0]).join('')}
-          </Button>
+            <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-secondary text-background font-display font-bold text-sm shadow-glow transition-transform duration-200 group-hover:scale-105">
+              {profile.name.split(' ').map(word => word[0]).join('')}
+            </span>
+            <span className="hidden sm:inline font-display font-semibold text-text-primary group-hover:text-primary transition-colors">
+              {profile.name}
+            </span>
+          </button>
 
           {/* Desktop */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map(link => (
-              <Button
+              <button
                 key={link.label}
-                variant="ghost"
-                className="text-text-secondary hover:text-primary font-mono font-medium"
                 onClick={() => scrollToSection(link.href.slice(1))}
+                className="group relative px-3 py-2 text-sm text-text-secondary hover:text-text-primary font-medium transition-colors"
               >
                 {link.label}
-              </Button>
+                <span className="absolute left-3 right-3 -bottom-0.5 h-px bg-gradient-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+              </button>
             ))}
             <a
               href={resumeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary font-mono px-4 py-2 rounded-md"
+              className="ml-3 inline-flex items-center rounded-xl bg-gradient-to-r from-primary to-primary/80 text-white text-sm font-medium px-4 py-2 shadow-glow hover:-translate-y-0.5 transition-all duration-200"
             >
               Resume
             </a>
@@ -87,12 +91,12 @@ export default function Header({ profile }: HeaderProps) {
 
         {/* Mobile menu */}
         {isMobileOpen && (
-          <div className="md:hidden mt-3 space-y-2">
+          <div className="md:hidden mt-2 mb-4 space-y-1 glass rounded-2xl border border-border/60 p-2 shadow-soft">
             {navLinks.map(link => (
               <Button
                 key={link.label}
                 variant="ghost"
-                className="w-full justify-start font-mono"
+                className="w-full justify-start font-medium"
                 onClick={() => scrollToSection(link.href.slice(1))}
               >
                 {link.label}
@@ -102,7 +106,7 @@ export default function Header({ profile }: HeaderProps) {
               href={resumeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary font-mono px-4 py-2 rounded-md block text-center"
+              className="block text-center rounded-xl bg-gradient-to-r from-primary to-primary/80 text-white text-sm font-medium px-4 py-2.5 mt-2"
             >
               Resume
             </a>

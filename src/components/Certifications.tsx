@@ -18,7 +18,7 @@ function CertificationCard({ certification }: { certification: Certification }) 
   const [logoError, setLogoError] = useState(false)
 
   return (
-    <Card className="border-border hover:shadow-md transition-shadow duration-200">
+    <Card className="card-hover">
       <CardHeader className="pb-4">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 flex-shrink-0 bg-muted rounded-lg flex items-center justify-center overflow-hidden border p-1.5">
@@ -76,11 +76,15 @@ export default function Certifications({ certifications }: CertificationsProps) 
   if (!certifications.certifications.length) return null
 
   return (
-    <section id="certifications" className="py-10 bg-surface">
+    <section id="certifications" className="py-20 md:py-28 bg-surface">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16">
-            <h2 className="section-title mb-8">Certifications</h2>
+            <div className="section-eyebrow">Credentials</div>
+            <h2 className="section-title mb-4">Certifications</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Credentials that support the profile above.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">

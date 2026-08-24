@@ -33,17 +33,17 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
   }
 
   return (
-    <div className={`relative mb-8 animate-fade-in`} style={{ animationDelay: `${index * 0.2}s` }}>      
+    <div className={`relative mb-8 animate-fade-in`} style={{ animationDelay: `${index * 0.2}s` }}>
       {/* Timeline line */}
-      <div className="absolute left-6 top-20 bottom-0 w-px bg-border hidden md:block"></div>
-      
+      <div className="absolute left-6 top-20 bottom-0 w-px bg-gradient-to-b from-border via-border to-transparent hidden md:block"></div>
+
       {/* Timeline dot */}
-      <div className="absolute left-2 top-16 w-8 h-8 bg-primary rounded-full border-4 border-background shadow-lg hidden md:flex items-center justify-center">
+      <div className="absolute left-2 top-16 w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full border-4 border-background shadow-glow hidden md:flex items-center justify-center">
         <div className="w-2 h-2 bg-white rounded-full"></div>
       </div>
 
       {/* Content */}
-      <Card className="md:ml-16 border-border hover:shadow-md transition-shadow duration-200">
+      <Card className="md:ml-16 card-hover">
         <CardHeader className="pb-4">
           <div className="flex flex-col lg:flex-row lg:items-start gap-6">
             {/* Company Logo */}
@@ -109,7 +109,7 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
               <div className="flex items-center gap-2 mb-4">
                 <Badge variant="outline">{experience.type}</Badge>
                 {experience.current && (
-                  <Badge className="bg-green-100 text-green-800 hover:bg-green-100">
+                  <Badge className="bg-green-500/15 text-green-400 border border-green-500/25">
                     Current
                   </Badge>
                 )}
@@ -175,27 +175,28 @@ export default function Experience({ experience, profile }: ExperienceProps) {
   ]
 
   return (
-    <section id="experience" className="py-10 bg-background">
+    <section id="experience" className="py-20 md:py-28 bg-background">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="mb-16">
-            <h2 className="section-title mb-8">Engineering Experience</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              My professional journey and the impact I've made at various organizations
+            <div className="section-eyebrow">Career Path</div>
+            <h2 className="section-title mb-4">Engineering Experience</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              My professional journey and the impact I've made at various organizations.
             </p>
           </div>
 
           {/* Experience Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {stats.map((stat, index) => (
-              <Card key={index} className="text-center h-28 flex flex-col bg-card hover:bg-accent/50 transition-colors">
+              <Card key={index} className="text-center h-28 flex flex-col card-hover">
                 <CardContent className="flex-1 flex items-center justify-center p-4">
-                  <div className="text-lg font-bold text-primary leading-tight">
+                  <div className="text-lg font-display font-bold text-primary leading-tight">
                     {stat.value}
                   </div>
                 </CardContent>
-                <CardFooter className="text-xs text-muted-foreground font-mono py-2 px-4 border-t border-border justify-center">
+                <CardFooter className="text-xs text-muted-foreground py-2 px-4 border-t border-border/60 justify-center">
                   {stat.label}
                 </CardFooter>
               </Card>
@@ -211,13 +212,13 @@ export default function Experience({ experience, profile }: ExperienceProps) {
 
           {/* CTA */}
           <div className="text-center mt-16">
-            <Card className="p-8">
+            <Card className="p-8 bg-gradient-to-br from-primary/10 via-card to-secondary/10">
               <CardHeader className="pb-4">
-                <h3 className="text-2xl font-semibold text-foreground mb-2">
+                <h3 className="text-2xl font-display font-semibold text-foreground mb-2">
                   Ready to Work Together?
                 </h3>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  I'm always interested in new opportunities and challenges. 
+                  I'm always interested in new opportunities and challenges.
                   Let's discuss how my experience can contribute to your team's success.
                 </p>
               </CardHeader>

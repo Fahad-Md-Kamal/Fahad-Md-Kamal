@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import type { Profile } from '../types'
@@ -78,35 +78,36 @@ export default function GithubActivity({ profile }: GithubActivityProps) {
   if (!username || failed) return null
 
   return (
-    <section id="github" className="py-10 bg-background">
+    <section id="github" className="py-20 md:py-28 bg-background">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16">
-            <h2 className="section-title mb-8">GitHub Activity</h2>
-            {/* <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Live stats, pulled directly from the GitHub API
-            </p> */}
+            <div className="section-eyebrow">Open Source</div>
+            <h2 className="section-title mb-4">GitHub Activity</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Live stats, pulled directly from the GitHub API.
+            </p>
           </div>
 
-          <Card>
+          <Card className="shadow-soft">
             <CardContent className="pt-6">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
                 {[
                   { label: 'Public Repos', value: stats?.publicRepos },
                   { label: 'Followers', value: stats?.followers },
                   { label: 'Total Stars', value: stats?.totalStars },
                   { label: 'Top Languages', value: stats?.topLanguages.length },
                 ].map((stat, index) => (
-                  <Card key={index} className="text-center h-24 flex flex-col bg-card hover:bg-accent/50 transition-colors">
-                    <CardContent className="flex-1 flex items-center justify-center p-4">
-                      <div className="text-2xl font-mono font-bold text-primary">
+                  <div key={index} className="text-center h-24 flex flex-col rounded-xl border border-border/60 bg-background/40">
+                    <div className="flex-1 flex items-center justify-center p-4">
+                      <div className="text-2xl font-display font-bold text-primary">
                         {stat.value ?? '—'}
                       </div>
-                    </CardContent>
-                    <CardFooter className="text-xs text-muted-foreground font-mono py-2 px-4 border-t border-border justify-center">
+                    </div>
+                    <div className="text-xs text-muted-foreground py-2 px-4 border-t border-border/60">
                       {stat.label}
-                    </CardFooter>
-                  </Card>
+                    </div>
+                  </div>
                 ))}
               </div>
 

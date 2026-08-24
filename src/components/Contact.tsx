@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
+import { IconMail, IconGithub, IconLinkedin, IconTelegram, IconExternalLink, IconCheckCircle, IconAlertCircle } from '@/components/icons'
 
 interface ContactProps {
   profile: Profile
@@ -18,6 +19,8 @@ export default function Contact({ profile }: ContactProps) {
     const base = import.meta.env.BASE_URL || '/'
     return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
   }
+
+  const [avatarError, setAvatarError] = useState(false)
 
   const [formData, setFormData] = useState({
     name: '',
@@ -60,37 +63,45 @@ export default function Contact({ profile }: ContactProps) {
 
   const contactMethods = [
     {
-      icon: '✉️',
+      Icon: IconMail,
       label: 'Email',
       value: profile.contact?.email || profile.email,
       href: `mailto:${profile.contact?.email || profile.email}`,
       description: 'Direct technical communication'
     },
     {
-      icon: '🐙',
+      Icon: IconGithub,
       label: 'GitHub',
       value: 'Technical portfolio & repositories',
       href: profile.social.github,
       description: 'Code samples and project architecture'
     },
     {
-      icon: '🔗',
+      Icon: IconLinkedin,
       label: 'LinkedIn',
       value: 'Professional networking',
       href: profile.social.linkedin,
       description: 'Career timeline and recommendations'
-    }
+    },
+    ...(profile.social.telegram ? [{
+      Icon: IconTelegram,
+      label: 'Telegram',
+      value: '@fahadmdkamal',
+      href: profile.social.telegram,
+      description: 'Quick chat for time-sensitive discussions'
+    }] : [])
   ]
 
   return (
-    <section id="contact" className="py-10 bg-background">
+    <section id="contact" className="py-20 md:py-28 bg-background">
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="mb-16">
-            <h2 className="section-title mb-8">Contact</h2>
-            <p className="text-lg text-text-secondary max-w-3xl font-mono leading-relaxed">
-              // Open to backend engineering roles, contract work, and technical conversations
+            <div className="section-eyebrow">Get in Touch</div>
+            <h2 className="section-title mb-4">Contact</h2>
+            <p className="text-lg text-text-secondary max-w-3xl leading-relaxed">
+              Open to backend engineering roles, contract work, and technical conversations.
             </p>
           </div>
 
@@ -99,14 +110,20 @@ export default function Contact({ profile }: ContactProps) {
             <div className="space-y-8">
               <Card>
                 <CardContent className="p-4 flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-800 bg-surface">
-                    <img
-                      src={resolveAsset(profile.avatar)}
-                      alt={profile.name}
-                      className="w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
-                      onError={(e) => { e.currentTarget.style.display = 'none' }}
-                    />
+                  <div className="w-14 h-14 rounded-full overflow-hidden border border-border/60 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
+                    {!avatarError ? (
+                      <img
+                        src={resolveAsset(profile.avatar)}
+                        alt={profile.name}
+                        className="w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                        onError={() => setAvatarError(true)}
+                      />
+                    ) : (
+                      <span className="text-primary font-display font-bold">
+                        {profile.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    )}
                   </div>
                   <div>
                     <p className="text-sm font-display text-text-primary">{profile.name}</p>
@@ -117,40 +134,40 @@ export default function Contact({ profile }: ContactProps) {
 
               <Card>
                 <CardHeader className="pb-4">
-                  <div className="text-xs font-mono text-primary flex items-center gap-2">
-                    <span>COMMUNICATION CHANNELS</span>
-                    <div className="flex-1 h-px bg-gray-800"></div>
+                  <div className="text-xs font-mono uppercase tracking-wider text-primary flex items-center gap-2">
+                    <span>Communication Channels</span>
+                    <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-4">
                   {contactMethods.map((method, index) => (
-                    <Card
+                    <div
                       key={index}
-                      className="group hover:border-primary/50 transition-colors cursor-pointer"
+                      className="group rounded-xl border border-border/60 bg-background/30 hover:border-primary/40 hover:bg-background/50 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
                       onClick={() => window.open(method.href, '_blank')}
                     >
-                      <CardContent className="p-4">
+                      <div className="p-4">
                         <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 bg-surface border border-gray-800 rounded flex items-center justify-center text-primary group-hover:text-primary/80">
-                            <span aria-hidden="true">{method.icon}</span>
+                          <div className="w-10 h-10 bg-surface border border-border/60 rounded-xl flex items-center justify-center text-primary group-hover:text-primary/80 flex-shrink-0">
+                            <method.Icon className="w-5 h-5" />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                              <h3 className="font-mono font-semibold text-text-primary">
+                              <h3 className="font-semibold text-text-primary">
                                 {method.label}
                               </h3>
                             </div>
-                            <p className="font-mono text-sm text-text-secondary mb-2">
+                            <p className="text-sm text-text-secondary mb-2">
                               {method.value}
                             </p>
                             <p className="text-xs text-text-secondary">
                               {method.description}
                             </p>
                           </div>
-                          <span className="text-text-secondary group-hover:text-primary transition-colors text-sm">↗</span>
+                          <IconExternalLink className="w-4 h-4 text-text-secondary group-hover:text-primary transition-colors flex-shrink-0" />
                         </div>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </div>
                   ))}
                 </CardContent>
               </Card>
@@ -158,25 +175,21 @@ export default function Contact({ profile }: ContactProps) {
               {/* Quick Response */}
               <Card>
                 <CardHeader className="pb-4">
-                  <div className="text-xs font-mono text-primary flex items-center gap-2">
-                    <span>RESPONSE METRICS</span>
-                    <div className="flex-1 h-px bg-gray-800"></div>
+                  <div className="text-xs font-mono uppercase tracking-wider text-primary flex items-center gap-2">
+                    <span>Response Metrics</span>
+                    <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-4 text-center">
-                    <Card>
-                      <CardContent className="p-3">
-                        <div className="text-lg font-mono font-bold text-primary">24h</div>
-                        <div className="text-xs text-text-secondary font-mono">Email Response</div>
-                      </CardContent>
-                    </Card>
-                    <Card>
-                      <CardContent className="p-3">
-                        <Badge variant="secondary" className="text-sm font-mono font-bold bg-green-500 text-white">Available</Badge>
-                        <div className="text-xs text-text-secondary font-mono mt-1">New Projects</div>
-                      </CardContent>
-                    </Card>
+                    <div className="rounded-xl border border-border/60 bg-background/40 p-3">
+                      <div className="text-lg font-display font-bold text-primary">24h</div>
+                      <div className="text-xs text-text-secondary">Email Response</div>
+                    </div>
+                    <div className="rounded-xl border border-border/60 bg-background/40 p-3">
+                      <Badge variant="secondary" className="text-sm font-semibold bg-green-500/15 text-green-400 border-green-500/25">Available</Badge>
+                      <div className="text-xs text-text-secondary mt-1">New Projects</div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -185,9 +198,9 @@ export default function Contact({ profile }: ContactProps) {
             {/* Contact Form */}
             <Card>
               <CardHeader className="pb-4">
-                <div className="text-xs font-mono text-primary flex items-center gap-2">
-                  <span>MESSAGE INTERFACE</span>
-                  <div className="flex-1 h-px bg-gray-800"></div>
+                <div className="text-xs font-mono uppercase tracking-wider text-primary flex items-center gap-2">
+                  <span>Send a Message</span>
+                  <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                 </div>
               </CardHeader>
               <CardContent>
@@ -260,7 +273,7 @@ export default function Contact({ profile }: ContactProps) {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full font-mono flex items-center gap-2"
+                    className="w-full flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -276,18 +289,22 @@ export default function Contact({ profile }: ContactProps) {
 
                   {/* Status Messages */}
                   {submitStatus !== 'idle' && (
-                    <div className={`p-4 rounded-lg border font-mono text-sm flex items-center gap-3 ${
-                      submitStatus === 'success' 
+                    <div className={`p-4 rounded-xl border text-sm flex items-center gap-3 ${
+                      submitStatus === 'success'
                         ? 'bg-green-500/10 border-green-500/20 text-green-400'
                         : 'bg-red-500/10 border-red-500/20 text-red-400'
                     }`}>
-                      <span>{submitStatus === 'success' ? '✅' : '⚠️'}</span>
+                      {submitStatus === 'success' ? (
+                        <IconCheckCircle className="w-4 h-4 flex-shrink-0" />
+                      ) : (
+                        <IconAlertCircle className="w-4 h-4 flex-shrink-0" />
+                      )}
                       <span>{statusMessage}</span>
                     </div>
                   )}
 
-                  <p className="text-xs text-text-secondary font-mono text-center mt-4">
-                    // Opens your default email client with all fields filled in
+                  <p className="text-xs text-text-secondary text-center mt-4">
+                    Opens your default email client with all fields filled in.
                   </p>
                 </form>
               </CardContent>

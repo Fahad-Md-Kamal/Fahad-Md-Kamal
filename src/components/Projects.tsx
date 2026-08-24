@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardHeader, CardContent, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -12,9 +13,26 @@ interface ProjectCardProps {
   project: Project
 }
 
+function resolveAsset(path: string) {
+  if (!path) return path
+  if (path.startsWith('http')) return path
+  const base = import.meta.env.BASE_URL || '/'
+  return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+}
+
 function ProjectCard({ project }: ProjectCardProps) {
+  const [imageError, setImageError] = useState(false)
+
   return (
-    <Card className="group hover:border-primary/50 transition-all duration-300 flex flex-col h-full">
+    <Card className="group hover:border-primary/50 transition-all duration-300 flex flex-col h-full overflow-hidden">
+      {project.image && !imageError && (
+        <img
+          src={resolveAsset(project.image)}
+          alt={`${project.title} architecture overview`}
+          className="w-full h-auto border-b border-border/60"
+          onError={() => setImageError(true)}
+        />
+      )}
       {/* Project Header */}
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between mb-4">
@@ -50,7 +68,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           <div>
             <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
               <span>ARCHITECTURE</span>
-              <div className="flex-1 h-px bg-gray-800"></div>
+              <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
             </div>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div>
@@ -74,7 +92,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           <div>
             <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
               <span>IMPACT</span>
-              <div className="flex-1 h-px bg-gray-800"></div>
+              <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {Object.entries(project.impact).slice(0, 4).map(([key, value]) => (
@@ -91,7 +109,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         <div>
           <div className="text-xs font-mono text-primary mb-3 flex items-center gap-2">
             <span>TECH STACK</span>
-            <div className="flex-1 h-px bg-gray-800"></div>
+            <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
           </div>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, index) => (
@@ -130,7 +148,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       </CardContent>
 
       {/* Action Links */}
-      <CardFooter className="flex gap-3 pt-4 border-t border-gray-800 mt-auto">
+      <CardFooter className="flex gap-3 pt-4 border-t border-border/60 mt-auto">
         {project.links.live && (
           <a
             href={project.links.live}
@@ -146,7 +164,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             href={project.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center py-2 px-3 border border-gray-800 text-text-secondary hover:text-primary hover:border-primary/50 transition-all font-mono text-sm rounded"
+            className="flex-1 text-center py-2 px-3 border border-border/60 text-text-secondary hover:text-primary hover:border-primary/50 transition-all font-mono text-sm rounded"
           >
             Code
           </a>
@@ -178,11 +196,12 @@ export default function Projects({ projects }: ProjectsProps) {
   const allProjects = [...systemsProjects, ...aiProjects]
 
   return (
-    <section id="projects" className="py-10 bg-background">
+    <section id="projects" className="py-20 md:py-28 bg-background">
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="mb-16">
+            <div className="section-eyebrow">Selected Work</div>
             <h2 className="section-title">Engineering Systems</h2>
             <p className="text-lg text-text-secondary max-w-3xl mb-8">
               Production systems built for scale, reliability, and maintainability.
@@ -213,7 +232,7 @@ export default function Projects({ projects }: ProjectsProps) {
                   <div>
                     <div className="flex items-center gap-4 mb-8">
                       <h3 className="text-xl font-display text-primary">Backend & Infrastructure</h3>
-                      <div className="flex-1 h-px bg-gray-800"></div>
+                      <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                     </div>
                     <div className="grid lg:grid-cols-2 gap-8">
                       {systemsProjects.map((project) => (
@@ -226,7 +245,7 @@ export default function Projects({ projects }: ProjectsProps) {
                   <div>
                     <div className="flex items-center gap-4 mb-8">
                       <h3 className="text-xl font-display text-secondary">AI & LLM Systems</h3>
-                      <div className="flex-1 h-px bg-gray-800"></div>
+                      <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                     </div>
                     <div className="grid lg:grid-cols-2 gap-8">
                       {aiProjects.map((project) => (
@@ -243,7 +262,7 @@ export default function Projects({ projects }: ProjectsProps) {
                 <div>
                   <div className="flex items-center gap-4 mb-8">
                     <h3 className="text-xl font-display text-primary">Backend & Infrastructure</h3>
-                    <div className="flex-1 h-px bg-gray-800"></div>
+                    <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8">
                     {systemsProjects.map((project) => (
@@ -259,7 +278,7 @@ export default function Projects({ projects }: ProjectsProps) {
                 <div>
                   <div className="flex items-center gap-4 mb-8">
                     <h3 className="text-xl font-display text-secondary">AI & LLM Systems</h3>
-                    <div className="flex-1 h-px bg-gray-800"></div>
+                    <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8">
                     {aiProjects.map((project) => (
@@ -272,13 +291,13 @@ export default function Projects({ projects }: ProjectsProps) {
           </Tabs>
 
           {/* Engineering Notes Section */}
-          <Card className="mt-20 bg-surface border-gray-800">
+          <Card className="mt-20 bg-surface border-border/60">
             <CardHeader>
               <CardTitle className="text-lg font-display text-primary">Engineering Notes</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-3 gap-6">
-                <Card className="bg-background border-gray-800">
+                <Card className="bg-background border-border/60">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-xs font-mono text-secondary">TRADE-OFFS</CardTitle>
                   </CardHeader>
@@ -288,7 +307,7 @@ export default function Projects({ projects }: ProjectsProps) {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-background border-gray-800">
+                <Card className="bg-background border-border/60">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-xs font-mono text-secondary">SCALE PATTERNS</CardTitle>
                   </CardHeader>
@@ -298,7 +317,7 @@ export default function Projects({ projects }: ProjectsProps) {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-background border-gray-800">
+                <Card className="bg-background border-border/60">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-xs font-mono text-secondary">LESSONS LEARNED</CardTitle>
                   </CardHeader>

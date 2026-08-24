@@ -7,7 +7,8 @@
         { "name": "Python", "level": 95, "years": 5 },
         { "name": "REST API Design", "level": 90, "years": 5 },
         { "name": "Async Processing", "level": 85, "years": 3 },
-        { "name": "TypeScript", "level": 65, "years": 3 }
+        { "name": "TypeScript", "level": 65, "years": 3 },
+        { "name": "Go", "level": 65, "years": 1 }
       ]
     },
     {

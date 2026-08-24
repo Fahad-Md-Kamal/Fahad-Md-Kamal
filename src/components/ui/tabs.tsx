@@ -24,7 +24,7 @@ export const Tabs = ({ children, className, defaultValue }: TabsProps) => {
 }
 
 export const TabsList = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <div role="tablist" className={cn("flex gap-2", className)}>
+  <div role="tablist" className={cn("flex gap-1.5 p-1.5 rounded-2xl bg-surface/60 border border-border/60", className)}>
     {children}
   </div>
 )
@@ -57,8 +57,8 @@ export const TabsTrigger = ({
         }
       }}
       className={cn(
-        "px-3 py-1 rounded border transition-colors focus:outline-none focus:ring-2 focus:ring-primary/60",
-        active ? "border-primary text-primary bg-primary/10" : "border-border text-foreground",
+        "px-3 py-1.5 rounded-xl border border-transparent transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/60",
+        active ? "bg-gradient-to-r from-primary to-primary/80 text-white shadow-glow" : "text-text-secondary hover:text-text-primary hover:bg-white/[0.04]",
         className
       )}
       aria-pressed={active}

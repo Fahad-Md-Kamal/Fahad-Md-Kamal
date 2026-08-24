@@ -2,6 +2,10 @@
 MyProjectsArchive.md
 PRIVATE_Technical_Archive_Codenamed.md
 
+# Raw source diagrams — the cleaned/renamed copies actually used by the
+# site live in images/projects/ and public/images/projects/
+Project-Diagrams/
+
 # Logs
 logs
 *.log

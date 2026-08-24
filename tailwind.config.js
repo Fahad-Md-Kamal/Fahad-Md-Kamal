@@ -95,15 +95,23 @@ export default {
   				'monospace'
   			],
   			display: [
+  				'Space Grotesk',
   				'Inter',
   				'system-ui',
   				'sans-serif'
   			]
   		},
+  		boxShadow: {
+  			soft: '0 1px 1px 0 rgb(0 0 0 / 0.04), 0 8px 24px -12px rgb(0 0 0 / 0.45)',
+  			glow: '0 1px 1px 0 rgb(0 0 0 / 0.04), 0 12px 32px -12px hsl(var(--primary) / 0.35), 0 0 0 1px hsl(var(--primary) / 0.12)',
+  			'glow-lg': '0 20px 50px -15px hsl(var(--primary) / 0.35), 0 0 0 1px hsl(var(--primary) / 0.15)'
+  		},
   		animation: {
   			'fade-in': 'fadeIn 0.6s ease-in-out',
   			'slide-up': 'slideUp 0.6s ease-out',
-  			'bounce-gentle': 'bounceGentle 2s infinite'
+  			'bounce-gentle': 'bounceGentle 2s infinite',
+  			'float-slow': 'floatSlow 9s ease-in-out infinite',
+  			'float-slower': 'floatSlow 13s ease-in-out infinite'
   		},
   		keyframes: {
   			fadeIn: {
@@ -133,6 +141,14 @@ export default {
   				},
   				'60%': {
   					transform: 'translateY(-3px)'
+  				}
+  			},
+  			floatSlow: {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)'
+  				},
+  				'50%': {
+  					transform: 'translate(2%, -4%) scale(1.08)'
   				}
   			}
   		},

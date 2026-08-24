@@ -21,6 +21,7 @@ export interface Profile {
     twitter: string;
     medium: string;
     stackoverflow: string;
+    telegram?: string;
     portfolio: string;
   };
   availability: {

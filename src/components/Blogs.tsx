@@ -170,21 +170,22 @@ export default function Blogs() {
   if (!posts.length) return null
 
   return (
-    <section id="blogs" className="py-10 bg-surface">
+    <section id="blogs" className="py-20 md:py-28 bg-surface">
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
+            <div className="section-eyebrow">Writing</div>
             <h2 className="section-title mb-4">Technical Notes</h2>
-            <p className="text-text-secondary font-mono">// Occasional write-ups on architecture, lessons learned, and experiments</p>
+            <p className="text-text-secondary">Occasional write-ups on architecture, lessons learned, and experiments.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {posts.map(post => (
-              <Card key={post.slug} className="hover:border-primary/60 transition-colors h-full">
-                <div className="p-4 flex flex-col gap-3 h-full">
+              <Card key={post.slug} className="card-hover h-full">
+                <div className="p-5 flex flex-col gap-3 h-full">
                   <div>
-                    <div className="text-lg text-text-primary font-display">{post.title}</div>
-                    <div className="text-xs text-text-secondary font-mono">{post.formattedDate}</div>
+                    <div className="text-lg text-text-primary font-display font-semibold">{post.title}</div>
+                    <div className="text-xs text-text-secondary font-mono mt-1">{post.formattedDate}</div>
                   </div>
                   <p className="text-sm text-text-secondary leading-relaxed flex-1">{post.excerpt}</p>
                   <div>
@@ -203,10 +204,10 @@ export default function Blogs() {
               onClick={() => setModalPost(null)}
             >
               <div
-                className="max-w-3xl w-full max-h-[85vh] overflow-y-auto bg-surface rounded-lg border border-gray-800 shadow-2xl"
+                className="max-w-3xl w-full max-h-[85vh] overflow-y-auto bg-surface rounded-2xl border border-border/60 shadow-glow-lg"
                 onClick={e => e.stopPropagation()}
               >
-                <div className="flex items-start justify-between p-4 border-b border-gray-800">
+                <div className="flex items-start justify-between p-4 border-b border-border/60">
                   <div>
                     <h3 className="text-2xl text-text-primary font-display">{modalPost.title}</h3>
                     <p className="text-xs text-text-secondary font-mono">{modalPost.formattedDate}</p>
