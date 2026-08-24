@@ -120,7 +120,7 @@ function EducationCard({ education, index }: EducationCardProps) {
 
 export default function Education({ education }: EducationProps) {
   return (
-    <section id="education" className="py-20 md:py-28 bg-background">
+    <section id="education" className="py-20 md:py-28 bg-background/85">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16">

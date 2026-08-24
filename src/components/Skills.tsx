@@ -112,7 +112,7 @@ export default function Skills({ skills }: SkillsProps) {
   const allCategories = skills.categories
 
   return (
-    <section id="skills" className="py-20 md:py-28 bg-background">
+    <section id="skills" className="py-20 md:py-28 bg-background/85">
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}

@@ -294,7 +294,7 @@ export default function Projects({ projects }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   return (
-    <section id="projects" className="py-20 md:py-28 bg-background">
+    <section id="projects" className="py-20 md:py-28 bg-background/85">
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}

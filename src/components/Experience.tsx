@@ -175,7 +175,7 @@ export default function Experience({ experience, profile }: ExperienceProps) {
   ]
 
   return (
-    <section id="experience" className="py-20 md:py-28 bg-background">
+    <section id="experience" className="py-20 md:py-28 bg-background/85">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
@@ -192,9 +192,7 @@ export default function Experience({ experience, profile }: ExperienceProps) {
             {stats.map((stat, index) => (
               <Card key={index} className="text-center h-28 flex flex-col card-hover">
                 <CardContent className="flex-1 flex items-center justify-center p-4">
-                  <div className="text-lg font-display font-bold text-primary leading-tight">
-                    {stat.value}
-                  </div>
+                    {stat.value.length <= 2 ? <div className="w-full text-center text-5xl pb-0 font-display font-bold text-primary leading-tight">{stat.value}</div> : <div className="w-full text-center text-lg font-display font-bold text-primary leading-tight">{stat.value}</div>}
                 </CardContent>
                 <CardFooter className="text-xs text-muted-foreground py-2 px-4 border-t border-border/60 justify-center">
                   {stat.label}

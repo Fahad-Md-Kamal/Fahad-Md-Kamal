@@ -93,7 +93,7 @@ export default function Contact({ profile }: ContactProps) {
   ]
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-background">
+    <section id="contact" className="py-20 md:py-28 bg-background/85">
       <div className="section-container">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}

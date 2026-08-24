@@ -1,9 +1,9 @@
 {
   "name": "Fahad Md Kamal",
   "role": "Senior Software Engineer",
-  "tagline": "Building scalable Python backend systems, event-driven services, and applied AI tools",
-  "summary": "Senior Software Engineer with 5+ years of experience building backend systems in Python using Django, FastAPI, PostgreSQL, Redis, and Docker. Focused on scalable APIs, event-driven pipelines, background processing, and production systems deployed on AWS.",
-  "technicalSummary": "Hands-on experience across SaaS platforms, customer care systems, search and data pipelines, and applied AI workflows. Strongest in backend architecture, API performance, asynchronous processing, and turning business requirements into reliable production software.",
+  "tagline": "Building scalable Python backend systems, event-driven services, and applied AI tools — open to remote, contract, and project-based work",
+  "summary": "Senior Software Engineer with 5+ years of experience building backend systems in Python using Django, FastAPI, PostgreSQL, Redis, and Docker. Focused on scalable APIs, event-driven pipelines, background processing, and production systems deployed on AWS. Comfortable working remotely with distributed teams, and open to full-time, contract, or scoped project-based engagements.",
+  "technicalSummary": "Hands-on experience across SaaS platforms, customer care systems, search and data pipelines, and applied AI workflows, including delivering for multiple concurrent client engagements through a staff-augmentation model. Strongest in backend architecture, API performance, asynchronous processing, and owning delivery end-to-end — from requirements to deployment — whether embedded in a team or working solo on a fixed-scope engagement.",
   "location": "Dhaka, Bangladesh",
   "email": "fahadmdkamal@gmail.com",
   "phone": "+8801675759801",
@@ -26,7 +26,7 @@
   },
   "availability": {
     "status": "open",
-    "message": "Available for senior remote opportunities"
+    "message": "Available for remote opportunities — full-time, contract, or project-based."
   },
   "stats": {
     "yearsExperience": "5+",

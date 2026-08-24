@@ -78,7 +78,7 @@ export default function GithubActivity({ profile }: GithubActivityProps) {
   if (!username || failed) return null
 
   return (
-    <section id="github" className="py-20 md:py-28 bg-background">
+    <section id="github" className="py-20 md:py-28 bg-background/85">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16">

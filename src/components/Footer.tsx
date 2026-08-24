@@ -31,7 +31,7 @@ export default function Footer({ profile }: FooterProps) {
   }
 
   return (
-    <footer className="bg-surface border-t border-border/60">
+    <footer className="bg-surface/90 border-t border-border/60">
       <div className="section-container">
         <div className="max-w-6xl mx-auto py-16 md:py-20">
           {/* System Info */}
