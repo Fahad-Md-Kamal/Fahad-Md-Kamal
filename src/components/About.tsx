@@ -52,7 +52,7 @@ export default function About({ profile, projectCount }: AboutProps) {
             </div>
             <DecodeText as="h2" text="The engineer behind the systems" className="section-title mb-4" />
             <p className="text-lg text-text-secondary max-w-3xl leading-relaxed">
-              Backend-focused engineer working across Python services, event-driven systems, and practical AI applications.
+              Full-stack developer working across Python/React services, event-driven systems, and practical AI applications.
             </p>
           </Reveal>
 

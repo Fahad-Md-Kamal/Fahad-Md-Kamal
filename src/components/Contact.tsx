@@ -105,7 +105,7 @@ export default function Contact({ profile }: ContactProps) {
             </div>
             <DecodeText as="h2" text="Contact" className="section-title mb-4" />
             <p className="text-lg text-text-secondary max-w-3xl leading-relaxed">
-              Open to backend engineering roles, contract work, and technical conversations.
+              Open to full-stack engineering roles, contract work, and technical conversations.
             </p>
           </Reveal>
 

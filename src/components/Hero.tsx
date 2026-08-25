@@ -25,7 +25,7 @@ export default function Hero({ profile, projectCount }: HeroProps) {
   }
   const avatarSrc = resolveAsset(profile.avatar)
   
-  const techStack = ['Python • Django • FastAPI', 'PostgreSQL • Redis • Celery', 'AWS • Docker • CI/CD', 'LangChain • RAG • Azure OpenAI']
+  const techStack = ['Python • Django • FastAPI', 'React • Vue • TypeScript', 'PostgreSQL • Redis • Celery', 'AWS • Docker • CI/CD', 'LangChain • RAG • Azure OpenAI']
 
   // Calculate years of experience dynamically
   const calculateYearsExperience = () => {
@@ -119,11 +119,11 @@ export default function Hero({ profile, projectCount }: HeroProps) {
             </h1>
             <DecodeText
               as="h2"
-              text="Senior Software Engineer"
+              text={profile.role}
               className="text-lg sm:text-2xl lg:text-3xl text-text-primary/90 mb-3 sm:mb-4 text-center font-display font-medium block"
             />
             <div className="text-base sm:text-xl lg:text-2xl text-text-secondary mb-6 sm:mb-8 leading-relaxed text-center px-4 max-w-2xl mx-auto">
-              Building backend systems, event-driven services, and applied AI tools
+              Building complete systems — backend to frontend — for SaaS, healthcare, and enterprise platforms
             </div>
             {/* Tech Stack Rotation */}
             <div className="flex items-center justify-center mb-6 sm:mb-8 px-4">

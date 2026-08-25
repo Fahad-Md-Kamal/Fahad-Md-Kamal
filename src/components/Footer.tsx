@@ -48,8 +48,8 @@ export default function Footer({ profile }: FooterProps) {
                 {profile.name}
               </Button>
               <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                Senior Software Engineer specializing in scalable backend
-                architectures and AI-driven solutions.
+                Full-stack developer specializing in Python/React systems
+                and AI-driven solutions.
               </p>
 
               {/* Technical Links */}

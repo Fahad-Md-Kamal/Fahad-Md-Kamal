@@ -15,10 +15,11 @@
         "Engineered scalable Django and FastAPI microservices for a SaaS platform",
         "Improved API response time by approximately 30% through query optimization and backend performance tuning",
         "Designed event-driven pipelines processing 5M+ records using Redis Pub/Sub",
+        "Contributed to React frontend development for an enterprise geospatial data platform, building interactive map rendering components",
         "Collaborated in cross-functional Agile teams delivering production-grade features",
         "Contributed to clean, modular architecture following best coding standards"
       ],
-      "technologies": ["Python", "Django", "FastAPI", "Redis Pub/Sub", "PostgreSQL", "Elasticsearch", "Docker", "AWS"]
+      "technologies": ["Python", "Django", "FastAPI", "React", "Redis Pub/Sub", "PostgreSQL", "Elasticsearch", "Docker", "AWS"]
     },
     {
       "id": "2",
@@ -35,7 +36,8 @@
         "Developed an AI-driven digital customer care platform serving 3,000+ concurrent users daily",
         "Designed Python-based microservices for backend services",
         "Integrated Celery for asynchronous workflows and background task processing",
-        "Built SaaS onboarding automation systems using FastAPI"
+        "Built SaaS onboarding automation systems using FastAPI",
+        "Contributed to frontend development alongside backend services"
       ],
       "technologies": ["Python", "Django", "FastAPI", "Celery", "PostgreSQL", "Docker", "Redis"]
     },

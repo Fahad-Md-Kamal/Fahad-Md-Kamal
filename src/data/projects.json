@@ -1,6 +1,56 @@
 {
   "projects": [
     {
+      "id": "6",
+      "type": "PERSONAL",
+      "title": "Ledgerly — SaaS Accounting & Finance Platform",
+      "shortDescription": "Multi-tenant SaaS accounting platform with a visual IAM access-control studio",
+      "description": "A full multi-tenant SaaS accounting/finance platform — chart of accounts, journal entries, invoicing, payables, bank reconciliation, AR/AP aging, subscription billing, and a visual IAM Studio for managing roles and permissions without hand-editing JSON. Solo full-stack build: Go backend, complete React/TypeScript frontend.",
+      "image": "images/projects/ledgerly-saas.png",
+      "category": "SaaS Platforms",
+      "featured": true,
+      "status": "In Progress",
+      "startDate": "2025-03",
+      "endDate": null,
+      "technologies": [
+        { "name": "Go", "color": "#00add8" },
+        { "name": "Gin", "color": "#008ecf" },
+        { "name": "GORM", "color": "#00add8" },
+        { "name": "React", "color": "#61dafb" },
+        { "name": "TypeScript", "color": "#3178c6" },
+        { "name": "Vite", "color": "#646cff" },
+        { "name": "PostgreSQL", "color": "#336791" },
+        { "name": "Redis", "color": "#dc382d" },
+        { "name": "Stripe", "color": "#635bff" },
+        { "name": "Docker", "color": "#2496ed" }
+      ],
+      "architecture": {
+        "pattern": "Multi-Tenant SaaS (Go + Gin + GORM)",
+        "scale": "Deny-first IAM authorization with per-workspace isolation",
+        "infrastructure": "Go/Gin API + GORM/PostgreSQL backend, React/TypeScript/Vite SPA built solo end-to-end, Redis for caching and background jobs, Docker Compose deployment",
+        "messaging": "Redis-backed caching and background jobs"
+      },
+      "impact": {
+        "iam": "Visual IAM Studio with guided permission builders and server-side impact preview before high-risk changes",
+        "billing": "Stripe Checkout + customer portal with HMAC-verified, replay-protected webhook handling",
+        "observability": "Liveness/readiness/metrics endpoints with structured JSON logs correlated by request/user/workspace IDs",
+        "finance": "Full accounting core — chart of accounts, journal entries, invoicing, bill payments, bank reconciliation, AR/AP aging reports"
+      },
+      "context": "Built solo — backend, frontend, and deployment — with AI-assisted development throughout, to explore a production-grade multi-tenant SaaS end to end, from double-entry accounting fundamentals through a complete React/TypeScript interface handling multi-tenant permissions and real-time entitlement checks.",
+      "design_decisions": [
+        "Owned the full stack solo: Go/Gin/GORM backend and the complete React/TypeScript frontend, including its multi-tenant permission and entitlement state",
+        "Built a deny-first authorization middleware with a full permission catalog and audit logging on every role/policy mutation",
+        "Added IAM Studio, a visual access-control builder with impact preview, instead of requiring raw JSON policy edits",
+        "Hardened Stripe webhooks with shared-token plus HMAC signature validation, replay protection, and idempotency",
+        "Exposed /healthz, /readyz, and /metricsz endpoints with structured JSON logs for production observability"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    },
+    {
       "id": "1",
       "type": "NDA",
       "title": "Cyber Risk Rating Platform",
@@ -82,6 +132,7 @@
         "Used FastAPI where lightweight service APIs were needed",
         "Used Celery with Beat scheduling for asynchronous workflows and task execution",
         "Used a third-party HTTP-based push service rather than WebSockets for real-time delivery",
+        "Contributed to frontend development alongside backend services",
         "Kept deployment consistent with Dockerized services"
       ],
       "links": {
@@ -181,54 +232,6 @@
       }
     },
     {
-      "id": "6",
-      "type": "PERSONAL",
-      "title": "Ledgerly — SaaS Accounting & Finance Platform",
-      "shortDescription": "Multi-tenant SaaS accounting platform with a visual IAM access-control studio",
-      "description": "A full multi-tenant SaaS accounting/finance platform — chart of accounts, journal entries, invoicing, payables, bank reconciliation, AR/AP aging, subscription billing, and a visual IAM Studio for managing roles and permissions without hand-editing JSON.",
-      "image": "images/projects/ledgerly-saas.png",
-      "category": "SaaS Platforms",
-      "featured": true,
-      "status": "In Progress",
-      "startDate": "2025-03",
-      "endDate": null,
-      "technologies": [
-        { "name": "Go", "color": "#00add8" },
-        { "name": "Gin", "color": "#008ecf" },
-        { "name": "GORM", "color": "#00add8" },
-        { "name": "React", "color": "#61dafb" },
-        { "name": "Vite", "color": "#646cff" },
-        { "name": "PostgreSQL", "color": "#336791" },
-        { "name": "Redis", "color": "#dc382d" },
-        { "name": "Stripe", "color": "#635bff" },
-        { "name": "Docker", "color": "#2496ed" }
-      ],
-      "architecture": {
-        "pattern": "Multi-Tenant SaaS (Go + Gin + GORM)",
-        "scale": "Deny-first IAM authorization with per-workspace isolation",
-        "infrastructure": "Go/Gin API + GORM/PostgreSQL backend, React/Vite SPA, Redis for caching and background jobs, Docker Compose deployment",
-        "messaging": "Redis-backed caching and background jobs"
-      },
-      "impact": {
-        "iam": "Visual IAM Studio with guided permission builders and server-side impact preview before high-risk changes",
-        "billing": "Stripe Checkout + customer portal with HMAC-verified, replay-protected webhook handling",
-        "observability": "Liveness/readiness/metrics endpoints with structured JSON logs correlated by request/user/workspace IDs",
-        "finance": "Full accounting core — chart of accounts, journal entries, invoicing, bill payments, bank reconciliation, AR/AP aging reports"
-      },
-      "context": "Built solo, with AI-assisted development throughout, to explore a production-grade multi-tenant SaaS end to end — from double-entry accounting fundamentals to IAM and billing infrastructure most side projects skip.",
-      "design_decisions": [
-        "Built a deny-first authorization middleware with a full permission catalog and audit logging on every role/policy mutation",
-        "Added IAM Studio, a visual access-control builder with impact preview, instead of requiring raw JSON policy edits",
-        "Hardened Stripe webhooks with shared-token plus HMAC signature validation, replay protection, and idempotency",
-        "Exposed /healthz, /readyz, and /metricsz endpoints with structured JSON logs for production observability"
-      ],
-      "links": {
-        "live": null,
-        "github": null,
-        "demo": null
-      }
-    },
-    {
       "id": "7",
       "type": "NDA",
       "title": "Geographic Business Intelligence Platform",
@@ -276,7 +279,7 @@
       "type": "NDA",
       "title": "Geospatial Data Platform",
       "shortDescription": "Backend platform for exploring and managing large-scale enterprise geospatial datasets",
-      "description": "Built backend services for a web-based geospatial data viewer and management platform, enabling regional similarity analysis and business insight generation over large-scale map/GIS datasets.",
+      "description": "Built backend services and contributed to the React frontend for a web-based geospatial data viewer and management platform, enabling regional similarity analysis and business insight generation over large-scale map/GIS datasets.",
       "image": "images/projects/geospatial-data-platform.png",
       "category": "Backend Systems",
       "featured": true,
@@ -308,6 +311,7 @@
         "Designed a callback-authenticated handoff between the async Lambda ingestion pipeline and the Django backend",
         "Converted uploaded formats to geoparquet for efficient large-scale querying via Amazon Athena",
         "Used two PostGIS-backed databases for mesh/shape/coordinate lookups, separate from the primary business database",
+        "Contributed to the React frontend for interactive map rendering",
         "Conducted a security review and addressed a query-builder injection risk and token-handling concerns"
       ],
       "links": {

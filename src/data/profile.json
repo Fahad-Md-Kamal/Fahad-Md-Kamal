@@ -1,9 +1,9 @@
 {
   "name": "Fahad Md Kamal",
-  "role": "Senior Software Engineer",
-  "tagline": "Building scalable Python backend systems, event-driven services, and applied AI tools — open to remote, contract, and project-based work",
-  "summary": "Senior Software Engineer with 5+ years of experience building backend systems in Python using Django, FastAPI, PostgreSQL, Redis, and Docker. Focused on scalable APIs, event-driven pipelines, background processing, and production systems deployed on AWS. Comfortable working remotely with distributed teams, and open to full-time, contract, or scoped project-based engagements.",
-  "technicalSummary": "Hands-on experience across SaaS platforms, customer care systems, search and data pipelines, and applied AI workflows, including delivering for multiple concurrent client engagements through a staff-augmentation model. Strongest in backend architecture, API performance, asynchronous processing, and owning delivery end-to-end — from requirements to deployment — whether embedded in a team or working solo on a fixed-scope engagement.",
+  "role": "Full-Stack Developer",
+  "tagline": "Full-stack developer building production systems — REST APIs, geospatial data pipelines, and complete user-facing features — for SaaS, healthcare, and enterprise platforms. Open to remote, contract, and project-based work.",
+  "summary": "Full-stack developer with 5+ years of experience building production systems — REST APIs, geospatial data pipelines, and user-facing features — in Python (Django, FastAPI) with frontend work in React, Vue, and TypeScript. Focused on scalable APIs, event-driven pipelines, and production systems deployed on AWS. Comfortable working remotely with distributed teams, and open to full-time, contract, or scoped project-based engagements.",
+  "technicalSummary": "Hands-on experience across SaaS platforms, customer care systems, geospatial data pipelines, and applied AI workflows, including delivering for multiple concurrent client engagements through a staff-augmentation model, plus complete solo full-stack builds (backend, frontend, and mobile) on personal projects. Strongest in backend architecture, API performance, and owning delivery end-to-end — from database schema through user-facing interface — whether embedded in a team or working solo on a fixed-scope engagement.",
   "location": "Dhaka, Bangladesh",
   "email": "fahadmdkamal@gmail.com",
   "phone": "+8801675759801",
@@ -41,9 +41,9 @@
       "label": "Backend Systems",
       "technologies": "Python, Django, FastAPI"
     },
-    "cloud": {
-      "label": "Cloud Architecture", 
-      "technologies": "AWS, Docker, CI/CD"
+    "frontend": {
+      "label": "Frontend",
+      "technologies": "React, Vue, TypeScript"
     },
     "messaging": {
       "label": "Messaging",
@@ -55,11 +55,11 @@
     },
     "database": {
       "label": "Databases",
-      "technologies": "PostgreSQL, Redis, Elasticsearch"
+      "technologies": "PostgreSQL, PostGIS, Elasticsearch"
     },
-    "devops": {
-      "label": "DevOps",
-      "technologies": "Docker, AWS, GitHub Actions"
+    "cloud": {
+      "label": "Cloud & DevOps",
+      "technologies": "AWS, Docker, CI/CD"
     }
   },
   "career": {

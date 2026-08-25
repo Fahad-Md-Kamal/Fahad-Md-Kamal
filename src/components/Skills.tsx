@@ -103,10 +103,13 @@ export default function Skills({ skills }: SkillsProps) {
   const backendCategories = skills.categories.filter(cat => 
     cat.name.includes('Backend') || cat.name.includes('Core') || cat.name.includes('Data')
   )
-  const devopsCategories = skills.categories.filter(cat => 
+  const frontendCategories = skills.categories.filter(cat =>
+    cat.name.includes('Frontend') || cat.name.includes('Mobile')
+  )
+  const devopsCategories = skills.categories.filter(cat =>
     cat.name.includes('DevOps') || cat.name.includes('Cloud')
   )
-  const aiCategories = skills.categories.filter(cat => 
+  const aiCategories = skills.categories.filter(cat =>
     cat.name.includes('AI') || cat.name.includes('LLM')
   )
   const allCategories = skills.categories
@@ -122,13 +125,13 @@ export default function Skills({ skills }: SkillsProps) {
             </div>
             <DecodeText as="h2" text="Tools I reach for" className="section-title mb-4" />
             <p className="text-lg text-text-secondary max-w-3xl leading-relaxed">
-              Tools and technologies I have used in real backend and AI-focused projects.
+              Tools and technologies I have used in real full-stack and AI-focused projects.
             </p>
           </Reveal>
 
           {/* Tabs */}
           <Tabs defaultValue="all" className="mb-12">
-            <TabsList className="w-full mb-12 grid grid-cols-2 md:grid-cols-4 h-auto">
+            <TabsList className="w-full mb-12 grid grid-cols-2 md:grid-cols-5 h-auto">
               <TabsTrigger value="all" className="font-mono text-xs md:text-sm p-2 md:p-3">
                 <span className="hidden sm:inline">All Technologies ({allCategories.length})</span>
                 <span className="sm:hidden">All ({allCategories.length})</span>
@@ -136,6 +139,10 @@ export default function Skills({ skills }: SkillsProps) {
               <TabsTrigger value="backend" className="font-mono text-xs md:text-sm p-2 md:p-3">
                 <span className="hidden sm:inline">Backend & Core ({backendCategories.length})</span>
                 <span className="sm:hidden">Backend ({backendCategories.length})</span>
+              </TabsTrigger>
+              <TabsTrigger value="frontend" className="font-mono text-xs md:text-sm p-2 md:p-3">
+                <span className="hidden sm:inline">Frontend & Mobile ({frontendCategories.length})</span>
+                <span className="sm:hidden">Frontend ({frontendCategories.length})</span>
               </TabsTrigger>
               <TabsTrigger value="devops" className="font-mono text-xs md:text-sm p-2 md:p-3">
                 <span className="hidden sm:inline">DevOps & Cloud ({devopsCategories.length})</span>
@@ -171,12 +178,24 @@ export default function Skills({ skills }: SkillsProps) {
               </div>
             </TabsContent>
 
+            <TabsContent value="frontend">
+              <div className="grid md:grid-cols-2 gap-8">
+                {frontendCategories.map((category, index) => (
+                  <CategorySection
+                    key={category.name}
+                    category={category}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+
             <TabsContent value="devops">
               <div className="grid md:grid-cols-2 gap-8">
                 {devopsCategories.map((category, index) => (
-                  <CategorySection 
-                    key={category.name} 
-                    category={category} 
+                  <CategorySection
+                    key={category.name}
+                    category={category}
                     index={index}
                   />
                 ))}
