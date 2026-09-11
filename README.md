@@ -11,7 +11,7 @@
 
 - 🏢 Working at **[BJIT Group](https://bjitgroup.com/)** as a **Senior Software Engineer**.
 - 👨‍💻 Writing `Python`, `SQL`, `JavaScript/TypeScript`, and `YAML`.
-- 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahad-md-kamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
+- 🌍 Mostly active on <a href="https://www.linkedin.com/in/fahadmdkamal"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" height=25></a>
 - 📚 Currently deepening: **Geospatial systems (PostGIS)**, **Async data pipelines (AWS Lambda/SQS/Athena)**, **Clean Code**, **Test-Driven Development (TDD)**, **Domain-Driven Design (DDD)**, and **SOLID Principles**.
 - 🛠️ Working on **Backend API Development**, **Geospatial Data Systems**, **Cloud Deployment (AWS)**, and **Performance Optimization**.
 - 👯 Looking to collaborate on **Backend-Heavy Full-Stack Projects** and **Cloud/DevOps Roles**.
