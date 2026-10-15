@@ -10,16 +10,28 @@
       "endDate": null,
       "current": true,
       "website": "https://bjitgroup.com",
-      "description": "Building scalable Django and FastAPI microservices, event-driven pipelines, and production backend features for a SaaS platform.",
+      "description": "Engineering scalable DRF and FastAPI microservices across concurrent client engagements, from Elasticsearch-backed APIs to GenAI and geospatial data platforms.",
       "highlights": [
-        "Engineered scalable Django and FastAPI microservices for a SaaS platform",
-        "Improved API response time by approximately 30% through query optimization and backend performance tuning",
-        "Designed event-driven pipelines processing 5M+ records using Redis Pub/Sub",
-        "Contributed to React frontend development for an enterprise geospatial data platform, building interactive map rendering components",
-        "Collaborated in cross-functional Agile teams delivering production-grade features",
-        "Contributed to clean, modular architecture following best coding standards"
+        "Engineered scalable DRF and FastAPI microservices across concurrent client engagements",
+        "Improved API response times by ~30% through Elasticsearch-backed query optimization and performance tuning",
+        "Built production LangChain and Azure OpenAI RAG workflow cutting manual report generation by 60%",
+        "Designed a queue-driven serverless geospatial ingestion pipeline (AWS Lambda/SQS/Athena) and led a security review",
+        "Collaborated with product, front-end, AI, and client stakeholders in Agile/Scrum teams; shared best practices through code reviews"
       ],
-      "technologies": ["Python", "Django", "FastAPI", "React", "Redis Pub/Sub", "PostgreSQL", "Elasticsearch", "Docker", "AWS"]
+      "technologies": [
+        "Python",
+        "Django",
+        "DRF",
+        "FastAPI",
+        "Elasticsearch",
+        "LangChain",
+        "Azure OpenAI",
+        "PostGIS",
+        "AWS Lambda",
+        "AWS SQS",
+        "Docker",
+        "Terraform"
+      ]
     },
     {
       "id": "2",
@@ -31,15 +43,22 @@
       "endDate": "2023-07",
       "current": false,
       "website": "https://mevrik.com",
-      "description": "Developed backend systems for an AI-driven digital customer care platform with Python microservices and SaaS onboarding automation.",
+      "description": "Delivered the REST and real-time APIs and backend services for an omnichannel customer engagement platform.",
       "highlights": [
-        "Developed an AI-driven digital customer care platform serving 3,000+ concurrent users daily",
-        "Designed Python-based microservices for backend services",
-        "Integrated Celery for asynchronous workflows and background task processing",
-        "Built SaaS onboarding automation systems using FastAPI",
-        "Contributed to frontend development alongside backend services"
+        "Partnered with frontend developers to design and deliver the REST and real-time APIs powering user-facing features",
+        "Developed backend services serving 3,000+ concurrent users daily at 99.9% system availability",
+        "Implemented JWT-based multi-tenant auth for an Apps → Channels → Workgroups → Users access model",
+        "Integrated Celery with Redis (Beat scheduling, Flower monitoring) for scheduled jobs and async workflows"
       ],
-      "technologies": ["Python", "Django", "FastAPI", "Celery", "PostgreSQL", "Docker", "Redis"]
+      "technologies": [
+        "Python",
+        "Django",
+        "FastAPI",
+        "Celery",
+        "Redis",
+        "PostgreSQL",
+        "Docker"
+      ]
     },
     {
       "id": "3",
@@ -51,12 +70,19 @@
       "endDate": "2021-11",
       "current": false,
       "website": null,
-      "description": "Worked on in-house ERP and B2B APIs in Python, covering delivery from requirements through deployment.",
+      "description": "Built in-house ERP and B2B APIs plus backend services for CRM and digital business card products, owning delivery from requirements through deployment.",
       "highlights": [
-        "Developed in-house ERP and B2B APIs with Python",
-        "Managed SDLC from requirements to deployment"
+        "Developed in-house ERP and B2B REST APIs in Python/Django",
+        "Built backend services for Alesha CRM and Alesha DCX (digital business cards)",
+        "Owned delivery from requirements through deployment"
       ],
-      "technologies": ["Python", "Django", "PostgreSQL", "REST API", "ERP"]
+      "technologies": [
+        "Python",
+        "Django",
+        "PostgreSQL",
+        "REST API",
+        "ERP"
+      ]
     },
     {
       "id": "4",
@@ -68,12 +94,20 @@
       "endDate": "2020-12",
       "current": false,
       "website": "https://dreamarray.com/",
-      "description": "Internship focused on Django REST backend work for B2B and healthcare systems with AWS deployment support.",
+      "description": "Internship building Django REST APIs for Mayer Hashi, a maternal health platform, with AWS deployment.",
       "highlights": [
-        "Built scalable Django REST APIs for B2B and healthcare systems",
-        "Deployed services on AWS EC2 and RDS with CI/CD integration"
+        "Built Django REST APIs and a normalized PostgreSQL schema for Mayer Hashi (appointments, reports, health tracking)",
+        "Deployed on AWS EC2/RDS with CI/CD"
       ],
-      "technologies": ["Python", "Django", "Django REST Framework", "AWS EC2", "AWS RDS", "PostgreSQL", "CI/CD"]
+      "technologies": [
+        "Python",
+        "Django",
+        "Django REST Framework",
+        "AWS EC2",
+        "AWS RDS",
+        "PostgreSQL",
+        "CI/CD"
+      ]
     }
   ]
 }

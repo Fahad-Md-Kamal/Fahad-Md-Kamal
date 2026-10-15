@@ -1,11 +1,51 @@
 {
   "projects": [
     {
+      "id": "9",
+      "type": "PERSONAL",
+      "title": "AEGIS — Healthcare Identity & Patient Records Platform",
+      "shortDescription": "Healthcare platform for secure patient records, provider access, and AI-assisted clinical documentation",
+      "description": "A healthcare platform covering identity and access management, patient records, provider affiliations, eligibility, and visit workflows, built with privacy and security in mind. Solo build across backend, AI services, and a React/TypeScript frontend.",
+      "image": "images/projects/aegis-healthcare.png",
+      "category": "Healthcare Systems",
+      "featured": true,
+      "status": "In Progress",
+      "startDate": "2026-01",
+      "endDate": null,
+      "technologies": [
+        { "name": "Go", "color": "#00add8" },
+        { "name": "Gin", "color": "#008ecf" },
+        { "name": "GORM", "color": "#00add8" },
+        { "name": "gRPC", "color": "#244c5a" },
+        { "name": "PostgreSQL", "color": "#336791" },
+        { "name": "Redis", "color": "#dc382d" },
+        { "name": "FastAPI", "color": "#009688" },
+        { "name": "React 19", "color": "#61dafb" },
+        { "name": "TypeScript", "color": "#3178c6" },
+        { "name": "Terraform", "color": "#7b42bc" },
+        { "name": "Claude", "color": "#d97757" }
+      ],
+      "architecture": { "pattern": "Microservice architecture", "scale": "Multi-tenant healthcare platform", "infrastructure": "Go and Python services with PostgreSQL and Redis, deployed on AWS with Terraform", "ai_stack": "Speech transcription and Claude, with clinician review" },
+      "impact": { "security": "Privacy-first design with encryption, audit logging, and patient-controlled access", "ai": "AI-assisted visit documentation that drafts notes for clinician review", "safety": "Human in the loop — a clinician reviews and approves every AI draft", "access": "Multi-tenant access with role-based permissions and MFA" },
+      "context": "Healthcare records need strong privacy without slowing down care, and clinicians need less documentation overhead. AEGIS explores secure, patient-controlled records and AI-assisted documentation with the clinician always in control.",
+      "design_decisions": [
+        "Owned the platform solo, from backend services to the React/TypeScript frontend",
+        "Designed with privacy and compliance in mind from the start: encryption, audit trails, and consent control",
+        "Designed the backend as microservices so services can scale and evolve independently",
+        "Kept clinicians in control: AI output is only ever a draft until a clinician approves it"
+      ],
+      "links": {
+        "live": null,
+        "github": null,
+        "demo": null
+      }
+    },
+    {
       "id": "6",
       "type": "PERSONAL",
       "title": "Ledgerly — SaaS Accounting & Finance Platform",
       "shortDescription": "Multi-tenant SaaS accounting platform with a visual IAM access-control studio",
-      "description": "A full multi-tenant SaaS accounting/finance platform — chart of accounts, journal entries, invoicing, payables, bank reconciliation, AR/AP aging, subscription billing, and a visual IAM Studio for managing roles and permissions without hand-editing JSON. Solo full-stack build: Go backend, complete React/TypeScript frontend.",
+      "description": "A multi-tenant SaaS accounting/finance platform — chart of accounts, journal entries, invoicing, bank reconciliation, AR/AP aging, subscription billing, and a visual IAM Studio for managing roles and permissions. Owned end-to-end as a solo developer: Go/Gin/GORM backend and React/TypeScript frontend.",
       "image": "images/projects/ledgerly-saas.png",
       "category": "SaaS Platforms",
       "featured": true,
@@ -24,18 +64,8 @@
         { "name": "Stripe", "color": "#635bff" },
         { "name": "Docker", "color": "#2496ed" }
       ],
-      "architecture": {
-        "pattern": "Multi-Tenant SaaS (Go + Gin + GORM)",
-        "scale": "Deny-first IAM authorization with per-workspace isolation",
-        "infrastructure": "Go/Gin API + GORM/PostgreSQL backend, React/TypeScript/Vite SPA built solo end-to-end, Redis for caching and background jobs, Docker Compose deployment",
-        "messaging": "Redis-backed caching and background jobs"
-      },
-      "impact": {
-        "iam": "Visual IAM Studio with guided permission builders and server-side impact preview before high-risk changes",
-        "billing": "Stripe Checkout + customer portal with HMAC-verified, replay-protected webhook handling",
-        "observability": "Liveness/readiness/metrics endpoints with structured JSON logs correlated by request/user/workspace IDs",
-        "finance": "Full accounting core — chart of accounts, journal entries, invoicing, bill payments, bank reconciliation, AR/AP aging reports"
-      },
+      "architecture": { "pattern": "Multi-Tenant SaaS (Go + Gin + GORM)", "scale": "Deny-first IAM authorization with per-workspace isolation", "infrastructure": "Go/Gin API + GORM/PostgreSQL backend, React/TypeScript/Vite SPA, Redis caching and background jobs, Docker Compose deployment", "messaging": "Redis-backed caching and background jobs" },
+      "impact": { "iam": "Deny-first IAM/RBAC with a visual IAM Studio and audit logging on every policy change", "billing": "Stripe Checkout and billing portal with HMAC-verified, replay-protected (idempotent) webhook handling to keep payment and ledger data correct", "observability": "Liveness/readiness/metrics endpoints with structured JSON logs correlated by request/user/workspace IDs", "finance": "Full accounting core — chart of accounts, journal entries, invoicing, bill payments, bank reconciliation, AR/AP aging reports" },
       "context": "Built solo — backend, frontend, and deployment — with AI-assisted development throughout, to explore a production-grade multi-tenant SaaS end to end, from double-entry accounting fundamentals through a complete React/TypeScript interface handling multi-tenant permissions and real-time entitlement checks.",
       "design_decisions": [
         "Owned the full stack solo: Go/Gin/GORM backend and the complete React/TypeScript frontend, including its multi-tenant permission and entitlement state",
@@ -70,24 +100,14 @@
         { "name": "PostgreSQL", "color": "#336791" },
         { "name": "Docker", "color": "#2496ed" }
       ],
-      "architecture": {
-        "pattern": "Event-Driven Microservices (Django monolith + FastAPI services)",
-        "scale": "5M+ records processed",
-        "infrastructure": "Django/DRF core (API server, SQS-consumer worker, PDF renderer) + FastAPI partner gateway and scoring service, on Docker Swarm/EC2, Terraform-provisioned",
-        "messaging": "Redis Pub/Sub for real-time updates"
-      },
-      "impact": {
-        "performance": "~30% API response-time improvement on Elasticsearch-backed queries",
-        "scale": "Processed approximately 5M+ records",
-        "auth": "Custom auth backend with brute-force lockout, JWT + TOTP 2FA",
-        "integration": "Live partner integration via OAuth2 client-credentials against AWS Cognito"
-      },
+      "architecture": { "pattern": "Event-Driven Microservices (Django monolith + FastAPI services)", "scale": "5M+ records processed", "infrastructure": "Django/DRF core (API, SQS worker, PDF renderer) + FastAPI gateway and scoring microservices on Docker Swarm/EC2, provisioned with Terraform", "messaging": "Redis Pub/Sub for real-time updates" },
+      "impact": { "performance": "Elasticsearch-backed threat-intelligence search; ~30% API response-time improvement", "scale": "Processed approximately 5M+ records", "auth": "JWT + TOTP two-factor authentication and OAuth2 partner integrations", "integration": "Live partner integration via OAuth2 client-credentials against AWS Cognito" },
       "context": "A cyber-insurance-focused risk-rating SaaS platform needed scalable backend services for search-heavy threat intelligence data and event-driven updates.",
       "design_decisions": [
-        "Used Redis Pub/Sub for low-latency backend updates",
-        "Used Elasticsearch for search-heavy intelligence queries",
-        "Split responsibilities between a Django core platform and FastAPI microservices",
-        "Focused on measurable backend performance improvements"
+        "Used Redis Pub/Sub for real-time updates",
+        "Used Elasticsearch for search-heavy threat-intelligence queries",
+        "Split the platform into a Django/DRF core (API, SQS worker, PDF renderer) and FastAPI gateway and scoring microservices on Docker Swarm/EC2, provisioned with Terraform",
+        "Implemented JWT + TOTP two-factor authentication and OAuth2 partner integrations"
       ],
       "links": {
         "live": "https://cyrisk.com/",
@@ -105,7 +125,7 @@
       "category": "Backend Systems",
       "featured": true,
       "status": "Completed",
-      "startDate": "2021-01",
+      "startDate": "2021-12",
       "endDate": "2023-07",
       "technologies": [
         { "name": "Django", "color": "#092e20" },
@@ -115,20 +135,11 @@
         { "name": "Redis", "color": "#dc382d" },
         { "name": "Docker", "color": "#2496ed" }
       ],
-      "architecture": {
-        "pattern": "Multi-Tenant Python Microservices + Async Workflows",
-        "scale": "3K+ concurrent users daily",
-        "infrastructure": "Dockerized Django/DRF services with PostgreSQL + MySQL (legacy email schema) and Redis",
-        "messaging": "Celery + Redis broker (Celery Beat scheduling, Flower monitoring) for background jobs; a third-party HTTP-based push service for real-time delivery (not WebSockets)"
-      },
-      "impact": {
-        "concurrency": "3,000+ concurrent users daily",
-        "uptime": "99.9% system availability",
-        "automation": "FastAPI-based SaaS onboarding workflows",
-        "realtime": "Real-time delivery via a third-party hosted pub/sub push service"
-      },
+      "architecture": { "pattern": "Multi-Tenant Python Microservices + Async Workflows", "scale": "3K+ concurrent users daily", "infrastructure": "Dockerized Django/DRF services with PostgreSQL + MySQL (legacy email schema) and Redis", "messaging": "Celery + Redis broker (Celery Beat scheduling, Flower monitoring) for background jobs; a third-party HTTP-based push service for real-time delivery (not WebSockets)" },
+      "impact": { "concurrency": "Serving 3,000+ concurrent users daily", "uptime": "99.9% system availability", "automation": "FastAPI-based SaaS onboarding workflows", "realtime": "Real-time delivery via a third-party hosted pub/sub push service" },
       "context": "The platform needed reliable backend services for digital customer care, async processing, and real-time interaction across a multi-tenant \"Apps → Channels → Workgroups → Users\" model.",
       "design_decisions": [
+        "Implemented JWT-based multi-tenant auth for the \"Apps → Channels → Workgroups → Users\" access model",
         "Used FastAPI where lightweight service APIs were needed",
         "Used Celery with Beat scheduling for asynchronous workflows and task execution",
         "Used a third-party HTTP-based push service rather than WebSockets for real-time delivery",
@@ -160,18 +171,8 @@
         { "name": "AWS EC2", "color": "#ff9900" },
         { "name": "AWS RDS", "color": "#ff9900" }
       ],
-      "architecture": {
-        "pattern": "Mobile-Backed Healthcare API",
-        "scale": "Health tracking and doctor consultation workflows",
-        "infrastructure": "Django REST, Flutter, AWS EC2, AWS RDS",
-        "messaging": "API-driven mobile backend"
-      },
-      "impact": {
-        "healthcare": "Supported maternal health use cases",
-        "features": "Appointments, reports, and tracking flows",
-        "mobile": "Enabled app-backed healthcare workflows",
-        "deployment": "Deployed on AWS EC2 and RDS"
-      },
+      "architecture": { "pattern": "Mobile-Backed Healthcare API", "scale": "Health tracking and doctor consultation workflows", "infrastructure": "Django REST, Flutter, AWS EC2, AWS RDS", "messaging": "API-driven mobile backend" },
+      "impact": { "healthcare": "Supported maternal health use cases", "features": "Appointments, reports, and tracking flows", "mobile": "Enabled app-backed healthcare workflows", "deployment": "Deployed on AWS EC2 and RDS" },
       "context": "The product needed backend APIs for a healthcare application focused on maternal health tracking and doctor interaction.",
       "design_decisions": [
         "Used Django REST for structured healthcare APIs",
@@ -206,20 +207,11 @@
         { "name": "PostgreSQL", "color": "#336791" },
         { "name": "Stripe", "color": "#635bff" }
       ],
-      "architecture": {
-        "pattern": "Mobile-First Public Health Platform",
-        "scale": "Citizen-reported case surveillance with authority review and field dispatch",
-        "infrastructure": "Django REST + Channels (ASGI) backend, Flutter mobile client, PostgreSQL",
-        "messaging": "Django Channels for real-time citizen-to-specialist chat"
-      },
-      "impact": {
-        "detection": "OpenCV-based automated larvae detection as a triage aid for citizen-submitted reports",
-        "realtime": "Real-time in-app chat between citizens and medical specialists",
-        "workflow": "End-to-end pipeline from citizen photo/GPS report to authority review and field-staff dispatch",
-        "publichealth": "Public warning-zone mapping driven by a confirmed-patient registry"
-      },
+      "architecture": { "pattern": "Mobile-First Public Health Platform", "scale": "Citizen-reported case surveillance with authority review and field dispatch", "infrastructure": "Django REST + Channels (ASGI) backend, Flutter mobile client, PostgreSQL", "messaging": "Django Channels for real-time citizen-to-specialist chat" },
+      "impact": { "detection": "OpenCV-based automated larvae detection as a triage aid for citizen-submitted reports", "realtime": "Real-time in-app chat between citizens and medical specialists", "workflow": "End-to-end pipeline from citizen photo/GPS report to authority review and field-staff dispatch", "publichealth": "Public warning-zone mapping driven by a confirmed-patient registry" },
       "context": "Public health authorities needed a way to crowdsource mosquito breeding-site reports and route credible cases to field staff faster than manual reporting allowed.",
       "design_decisions": [
+        "Led end-to-end development as Lead Developer, from Django REST + Channels backend to the Flutter client",
         "Used a classical OpenCV Haar-cascade classifier for fast, explainable larvae triage rather than a heavier trained model",
         "Built real-time specialist chat on Django Channels alongside the existing synchronous DRF API",
         "Modeled case status as independent solved/approved flags to reflect that field resolution and authority approval happen on separate timelines",
@@ -235,32 +227,22 @@
       "id": "7",
       "type": "NDA",
       "title": "Geographic Business Intelligence Platform",
-      "shortDescription": "Map-based business intelligence tool for visualizing regional demographic and economic data",
+      "shortDescription": "Map-based business intelligence backend with parallelized multi-database queries and heat-map generation",
       "description": "Built backend services for an interactive, map-based business-intelligence tool visualizing regional demographic and economic data, with region comparison and cross-metric scatter analysis.",
       "image": "images/projects/geo-bi-platform.png",
       "category": "Backend Systems",
       "featured": false,
       "status": "Completed",
-      "startDate": "2023-07",
-      "endDate": null,
+      "startDate": "2024-09",
+      "endDate": "2025-02",
       "technologies": [
         { "name": "Django REST", "color": "#092e20" },
         { "name": "PostgreSQL/PostGIS", "color": "#336791" },
         { "name": "Redux Toolkit", "color": "#764abc" },
         { "name": "React", "color": "#61dafb" }
       ],
-      "architecture": {
-        "pattern": "Geospatial BI Backend",
-        "scale": "Multi-database, multi-table regional dataset queries",
-        "infrastructure": "Django REST + PostgreSQL/PostGIS across a reference-data schema and a client-ledger schema, plus a dynamic dataset registry",
-        "messaging": "ThreadPoolExecutor for I/O-bound multi-database queries, multiprocessing for CPU-bound heat-map bucketing"
-      },
-      "impact": {
-        "flexibility": "Dynamic dataset registry allowing new datasets to be plugged in without code changes",
-        "performance": "Parallelized I/O-bound multi-table queries and CPU-bound heat-map mesh bucketing",
-        "precision": "Used the region's official geodetic datum for accurate coordinate handling instead of standard WGS84",
-        "reconciliation": "Reconciled two parallel industry-code vocabularies to enable cross-metric comparison"
-      },
+      "architecture": { "pattern": "Geospatial BI Backend", "scale": "Multi-database, multi-table regional dataset queries", "infrastructure": "Django REST + PostgreSQL/PostGIS across a reference-data schema and a client-ledger schema, plus a dynamic dataset registry", "messaging": "ThreadPoolExecutor for I/O-bound multi-database queries, multiprocessing for CPU-bound heat-map bucketing" },
+      "impact": { "flexibility": "Dynamic dataset registry allowing new datasets to be plugged in without code changes", "performance": "Parallelized I/O-bound multi-table queries and CPU-bound heat-map mesh bucketing", "precision": "Used the region's official geodetic datum for accurate coordinate handling instead of standard WGS84", "reconciliation": "Reconciled two parallel industry-code vocabularies to enable cross-metric comparison" },
       "context": "Business users needed to compare regions and cross-plot demographic/economic metrics on a map without direct database access to the underlying datasets.",
       "design_decisions": [
         "Built a dynamic dataset registry so new datasets could be plugged in without code changes",
@@ -277,15 +259,15 @@
     {
       "id": "8",
       "type": "NDA",
-      "title": "Geospatial Data Platform",
+      "title": "Enterprise Geospatial Data Platform",
       "shortDescription": "Backend platform for exploring and managing large-scale enterprise geospatial datasets",
-      "description": "Built backend services and contributed to the React frontend for a web-based geospatial data viewer and management platform, enabling regional similarity analysis and business insight generation over large-scale map/GIS datasets.",
+      "description": "Designed the Django/PostGIS backend and an asynchronous, queue-driven serverless ingestion pipeline (AWS Lambda/SQS/Athena) converting GIS uploads to GeoParquet for large-scale querying; built React map components and led a security review that resolved injection and token-handling risks.",
       "image": "images/projects/geospatial-data-platform.png",
       "category": "Backend Systems",
       "featured": true,
       "status": "Completed",
-      "startDate": "2023-07",
-      "endDate": null,
+      "startDate": "2025-07",
+      "endDate": "2026-09",
       "technologies": [
         { "name": "Django REST", "color": "#092e20" },
         { "name": "PostgreSQL/PostGIS", "color": "#336791" },
@@ -294,18 +276,8 @@
         { "name": "React", "color": "#61dafb" },
         { "name": "Docker", "color": "#2496ed" }
       ],
-      "architecture": {
-        "pattern": "Serverless Geospatial Ingestion Pipeline",
-        "scale": "Enterprise-scale GIS dataset ingestion and querying",
-        "infrastructure": "Django REST + PostgreSQL/PostGIS backend, S3 → SQS → Lambda pipeline converting uploads to geoparquet, queried via Amazon Athena",
-        "messaging": "SQS-driven async file processing"
-      },
-      "impact": {
-        "pipeline": "Converted uploaded geospatial files (CSV, Shapefile, KML, GeoJSON) into geoparquet for fast large-scale querying via Athena",
-        "security": "Led a security review addressing a query-builder injection risk and token-handling concerns",
-        "access": "Role-based access control with group-based file sharing and granular permissions",
-        "isolation": "Two PostGIS-backed databases dedicated to mesh/shape/coordinate lookups"
-      },
+      "architecture": { "pattern": "Serverless Geospatial Ingestion Pipeline", "scale": "Enterprise-scale GIS dataset ingestion and querying", "infrastructure": "Django REST + PostgreSQL/PostGIS backend, S3 → SQS → Lambda pipeline converting uploads to geoparquet, queried via Amazon Athena", "messaging": "SQS-driven async file processing" },
+      "impact": { "pipeline": "Converted uploaded geospatial files (CSV, Shapefile, KML, GeoJSON) into geoparquet for fast large-scale querying via Athena", "security": "Led a security review addressing a query-builder injection risk and token-handling concerns", "access": "RBAC with group-based file sharing and granular permissions", "isolation": "Dedicated PostGIS databases isolated from the primary business database" },
       "context": "The platform needed a way to ingest and query large enterprise GIS datasets without every consumer needing direct database access.",
       "design_decisions": [
         "Designed a callback-authenticated handoff between the async Lambda ingestion pipeline and the Django backend",
@@ -325,9 +297,9 @@
     {
       "id": "ai-1",
       "type": "NDA",
-      "title": "AI Document Processing Tool",
+      "title": "AI Document Processing Tool (RAG)",
       "shortDescription": "AI workflow converting media into structured business content",
-      "description": "Built an AI workflow using LangChain, Azure OpenAI, Azure Speech-to-Text, and Cosmos DB to convert media into structured business content.",
+      "description": "Built and took to production a LangChain and Azure OpenAI RAG workflow that turned audio/video recordings and PDFs into structured business reports (Azure Speech-to-Text, Cosmos DB), cutting manual report generation by 60%.",
       "image": "images/projects/ir-tool-rag.png",
       "category": "AI & LLM Systems",
       "featured": true,
@@ -342,18 +314,8 @@
         { "name": "RAG", "color": "#ff6b6b" },
         { "name": "Python", "color": "#3776ab" }
       ],
-      "architecture": {
-        "pattern": "RAG (Retrieval-Augmented Generation)",
-        "scale": "Real-time media processing",
-        "infrastructure": "Azure Cognitive Services and Cosmos DB",
-        "ai_stack": "LangChain and Azure OpenAI"
-      },
-      "impact": {
-        "efficiency": "60% reduction in manual report generation",
-        "automation": "End-to-end media intelligence workflow",
-        "processing": "Audio and video to structured output",
-        "output": "Business-ready content from unstructured media"
-      },
+      "architecture": { "pattern": "RAG (Retrieval-Augmented Generation)", "scale": "Real-time media processing", "infrastructure": "Azure Cognitive Services and Cosmos DB", "ai_stack": "LangChain and Azure OpenAI" },
+      "impact": { "efficiency": "60% reduction in manual report generation", "automation": "End-to-end media intelligence workflow", "processing": "Audio and video to structured output", "output": "Business-ready content from unstructured media" },
       "context": "The workflow was designed to help business teams extract useful structured output from media inputs more quickly.",
       "design_decisions": [
         "Used speech-to-text before retrieval and generation steps",
@@ -369,10 +331,10 @@
     }
   ],
   "categories": [
-    { "name": "All", "count": 8 },
+    { "name": "All", "count": 9 },
     { "name": "Backend Systems", "count": 4 },
     { "name": "AI & LLM Systems", "count": 1 },
-    { "name": "Healthcare Systems", "count": 2 },
+    { "name": "Healthcare Systems", "count": 3 },
     { "name": "SaaS Platforms", "count": 1 }
   ]
 }

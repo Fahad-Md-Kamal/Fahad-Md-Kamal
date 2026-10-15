@@ -2,7 +2,7 @@
   "education": [
     {
       "id": "1",
-      "degree": "BSc (Hons) in Computer Science — First Class Honours",
+      "degree": "BSc (Hons) Computing — First Class Honours",
       "institution": "University of Greenwich",
       "location": "London, UK (via NCC Education pathway)",
       "startDate": "2017-01",
@@ -11,9 +11,11 @@
       "logo": "images/education/greenwich.png",
       "description": "Completed via the NCC Education pathway — Level 3 International Foundation Diploma, followed by Level 4 & 5 Diplomas in Computing — delivered by Daffodil International Academy, Bangladesh.",
       "highlights": [
-        "Level 3 International Foundation Diploma (NCC Education)",
-        "Level 4 & 5 Diplomas in Computing (NCC Education)",
-        "BSc (Hons) in Computer Science, First Class Honours, conferred by the University of Greenwich on 25 Feb 2021"
+        "Level 3 International Foundation Diploma (NCC Education) — Distinction (71%), Feb 2018",
+        "Level 4 Diploma in Computing (NCC Education) — Merit (69%), Jan 2019",
+        "Level 5 Diploma in Computing (NCC Education) — Merit (65%), Jan 2020",
+        "BSc (Hons) Computing, First Class Honours, conferred by the University of Greenwich on 25 Feb 2021 — final-year entry (120 credits at Level 6)",
+        "Final Year Project: 89%"
       ]
     }
   ]
