@@ -157,7 +157,7 @@
       "title": "Mayer Hashi - Maternal Health Platform",
       "shortDescription": "Healthcare backend APIs supporting maternal health tracking and doctor interactions",
       "description": "Built backend APIs for a maternal health application with appointment, reporting, and health-tracking workflows, deployed on AWS EC2 and RDS.",
-      "image": "",
+      "image": "images/projects/mayer-hashi.png",
       "category": "Healthcare Systems",
       "type": "NDA",
       "featured": false,
